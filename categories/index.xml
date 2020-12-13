@@ -1,7 +1,11 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Categories on Cheng-Yu&#39;s Blog</title>
+<<<<<<< HEAD
 		<link>/categories/</link>
+=======
+		<link>fjordyo0707.github.io/categories/</link>
+>>>>>>> 08168e8dfe3ccb87897954e562e6b3d3e2c9dda0
 		<description>Recent content in Categories </description>
 		<generator>Hugo -- gohugo.io</generator>
 		
@@ -9,8 +13,9 @@
 		
 		<managingEditor>Page(/categories)</managingEditor>
     	
-		<atom:link href="/categories/" rel="self" type="application/rss+xml" />
+		<atom:link href="fjordyo0707.github.io/categories/" rel="self" type="application/rss+xml" />
 		
+<<<<<<< HEAD
 		<item>
 			<title>Test_post</title>
 			<link>/post/test_post/</link>
@@ -19,5 +24,7 @@
 			<description></description>
 		</item>
       	
+=======
+>>>>>>> 08168e8dfe3ccb87897954e562e6b3d3e2c9dda0
 	</channel>
 </rss>
