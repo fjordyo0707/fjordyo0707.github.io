@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Categories on Cheng-Yu&#39;s Blog</title>
-		<link>http://example.org/categories/</link>
+		<link>/categories/</link>
 		<description>Recent content in Categories </description>
 		<generator>Hugo -- gohugo.io</generator>
 		
@@ -13,9 +13,9 @@
 		
 		<item>
 			<title>Test_post</title>
-			<link>http://example.org/post/test_post/</link>
+			<link>/post/test_post/</link>
 			<pubDate>Sun, 13 Dec 2020 17:29:49 +0800</pubDate>
-			<guid>http://example.org/post/test_post/</guid>
+			<guid>/post/test_post/</guid>
 			<description></description>
 		</item>
       	
