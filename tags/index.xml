@@ -1,7 +1,7 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
 	<channel>
 		<title>Tags on Cheng-Yu&#39;s Blog</title>
-		<link>/tags/</link>
+		<link>https://fjordyo0707.github.io/tags/</link>
 		<description>Recent content in Tags </description>
 		<generator>Hugo -- gohugo.io</generator>
 		
@@ -13,9 +13,9 @@
 		
 		<item>
 			<title>Test_post</title>
-			<link>/post/test_post/</link>
+			<link>https://fjordyo0707.github.io/post/test_post/</link>
 			<pubDate>Sun, 13 Dec 2020 17:29:49 +0800</pubDate>
-			<guid>/post/test_post/</guid>
+			<guid>https://fjordyo0707.github.io/post/test_post/</guid>
 			<description></description>
 		</item>
       	
