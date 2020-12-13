@@ -1,0 +1,25 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Posts on Cheng-Yu&#39;s Blog</title>
+		<link>http://example.org/post/</link>
+		<description>Recent content in Posts </description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+  		<language>en-us</language>
+		
+		<managingEditor>Page(/post)</managingEditor>
+    	
+  		<lastBuildDate>Sun, 13 Dec 2020 17:29:49 +0800</lastBuildDate>
+		
+		<atom:link href="/post/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Test_post</title>
+			<link>http://example.org/post/test_post/</link>
+			<pubDate>Sun, 13 Dec 2020 17:29:49 +0800</pubDate>
+			<guid>http://example.org/post/test_post/</guid>
+			<description></description>
+		</item>
+      	
+	</channel>
+</rss>
