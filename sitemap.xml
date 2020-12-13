@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>https://fjordyo0707.github.io/</loc>
+    <lastmod>2020-12-13T23:07:43+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fjordyo0707.github.io/post/</loc>
+    <lastmod>2020-12-13T23:07:43+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fjordyo0707.github.io/post/second/</loc>
+    <lastmod>2020-12-13T23:07:43+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fjordyo0707.github.io/post/test_post/</loc>
+    <lastmod>2020-12-13T17:29:49+08:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>https://fjordyo0707.github.io/categories/</loc>
+  </url>
+  
+  <url>
+    <loc>https://fjordyo0707.github.io/tags/</loc>
+  </url>
+  
+</urlset>

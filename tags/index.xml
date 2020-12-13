@@ -1,0 +1,31 @@
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+	<channel>
+		<title>Tags on Cheng-Yu&#39;s Blog</title>
+		<link>https://fjordyo0707.github.io/tags/</link>
+		<description>Recent content in Tags </description>
+		<generator>Hugo -- gohugo.io</generator>
+		
+  		<language>en-us</language>
+		
+		<managingEditor>Page(/tags)</managingEditor>
+    	
+		<atom:link href="/tags/" rel="self" type="application/rss+xml" />
+		
+		<item>
+			<title>Second</title>
+			<link>https://fjordyo0707.github.io/post/second/</link>
+			<pubDate>Sun, 13 Dec 2020 23:07:43 +0800</pubDate>
+			<guid>https://fjordyo0707.github.io/post/second/</guid>
+			<description></description>
+		</item>
+      	
+		<item>
+			<title>Test_post</title>
+			<link>https://fjordyo0707.github.io/post/test_post/</link>
+			<pubDate>Sun, 13 Dec 2020 17:29:49 +0800</pubDate>
+			<guid>https://fjordyo0707.github.io/post/test_post/</guid>
+			<description></description>
+		</item>
+      	
+	</channel>
+</rss>
