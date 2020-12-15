@@ -1,31 +1,146 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
-	<channel>
-		<title>Tags on Cheng-Yu&#39;s Blog</title>
-		<link>https://fjordyo0707.github.io/tags/</link>
-		<description>Recent content in Tags </description>
-		<generator>Hugo -- gohugo.io</generator>
-		
-  		<language>en-us</language>
-		
-		<managingEditor>Page(/tags)</managingEditor>
-    	
-		<atom:link href="/tags/" rel="self" type="application/rss+xml" />
-		
-		<item>
-			<title>Second</title>
-			<link>https://fjordyo0707.github.io/post/second/</link>
-			<pubDate>Sun, 13 Dec 2020 23:07:43 +0800</pubDate>
-			<guid>https://fjordyo0707.github.io/post/second/</guid>
-			<description></description>
-		</item>
-      	
-		<item>
-			<title>Test_post</title>
-			<link>https://fjordyo0707.github.io/post/test_post/</link>
-			<pubDate>Sun, 13 Dec 2020 17:29:49 +0800</pubDate>
-			<guid>https://fjordyo0707.github.io/post/test_post/</guid>
-			<description></description>
-		</item>
-      	
-	</channel>
+  <channel>
+    <title>Tags on Cheng Yu</title>
+    <link>https://fjordyo0707.github.io/tags/</link>
+    <description>Recent content in Tags on Cheng Yu</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Tue, 15 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://fjordyo0707.github.io/tags/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>command-line</title>
+      <link>https://fjordyo0707.github.io/tags/command-line/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/command-line/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>hugo</title>
+      <link>https://fjordyo0707.github.io/tags/hugo/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/hugo/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>reference</title>
+      <link>https://fjordyo0707.github.io/tags/reference/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/reference/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>testing</title>
+      <link>https://fjordyo0707.github.io/tags/testing/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/testing/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>theme</title>
+      <link>https://fjordyo0707.github.io/tags/theme/</link>
+      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/theme/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fedora</title>
+      <link>https://fjordyo0707.github.io/tags/fedora/</link>
+      <pubDate>Fri, 26 Oct 2018 12:59:51 -0500</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/fedora/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>snap</title>
+      <link>https://fjordyo0707.github.io/tags/snap/</link>
+      <pubDate>Fri, 26 Oct 2018 12:59:51 -0500</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/snap/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>ubuntu</title>
+      <link>https://fjordyo0707.github.io/tags/ubuntu/</link>
+      <pubDate>Fri, 26 Oct 2018 12:59:51 -0500</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/ubuntu/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>awk</title>
+      <link>https://fjordyo0707.github.io/tags/awk/</link>
+      <pubDate>Wed, 10 Oct 2018 12:43:20 -0500</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/awk/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>fun</title>
+      <link>https://fjordyo0707.github.io/tags/fun/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/fun/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>git</title>
+      <link>https://fjordyo0707.github.io/tags/git/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/git/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>go</title>
+      <link>https://fjordyo0707.github.io/tags/go/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/go/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>templates</title>
+      <link>https://fjordyo0707.github.io/tags/templates/</link>
+      <pubDate>Wed, 02 Apr 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/templates/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>jekyll</title>
+      <link>https://fjordyo0707.github.io/tags/jekyll/</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/jekyll/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>migration</title>
+      <link>https://fjordyo0707.github.io/tags/migration/</link>
+      <pubDate>Mon, 10 Mar 2014 00:00:00 +0000</pubDate>
+      
+      <guid>https://fjordyo0707.github.io/tags/migration/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
 </rss>

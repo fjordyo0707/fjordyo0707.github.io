@@ -1,12 +1,12 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Posts on Cheng Yu</title>
-    <link>https://fjordyo0707.github.io/post/</link>
-    <description>Recent content in Posts on Cheng Yu</description>
+    <title>hugo on Cheng Yu</title>
+    <link>https://fjordyo0707.github.io/tags/hugo/</link>
+    <description>Recent content in hugo on Cheng Yu</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Tue, 15 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://fjordyo0707.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 15 Dec 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://fjordyo0707.github.io/tags/hugo/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>About the blog</title>
       <link>https://fjordyo0707.github.io/creating-a-new-theme/</link>
@@ -15,15 +15,6 @@
       <guid>https://fjordyo0707.github.io/creating-a-new-theme/</guid>
       <description>About This tutorial will show you how to create a simple theme in Hugo. I assume that you are familiar with HTML, the bash command line, and that you are comfortable using Markdown to format content. I&amp;rsquo;ll explain how Hugo uses templates and how you can organize your templates to create a theme. I won&amp;rsquo;t cover using CSS to style your theme.
 We&amp;rsquo;ll start with creating a new site with a very basic template.</description>
-    </item>
-    
-    <item>
-      <title>First testing post</title>
-      <link>https://fjordyo0707.github.io/test1/</link>
-      <pubDate>Tue, 15 Dec 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://fjordyo0707.github.io/test1/</guid>
-      <description>What is this testing page for? Nothing! Just a playground for me to test the theme from hugo. The below posts are from the example site. They are included here since I will refer these posts for syntax.</description>
     </item>
     
     <item>

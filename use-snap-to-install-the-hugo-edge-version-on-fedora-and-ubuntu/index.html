@@ -34,7 +34,7 @@
   <link rel="stylesheet" href="https://fjordyo0707.github.io/css/bootstrap.min.css" />
 
   
-  <title>Tags | Cheng Yu</title>
+  <title>Use Snap to install the Hugo edge version on Fedora and Ubuntu | Cheng Yu</title>
   
 
   <style>
@@ -183,39 +183,56 @@ blockquote,
   
   <div class="container">
     <article>
-      <h1>Tags</h1>
+      <h1>Use Snap to install the Hugo edge version on Fedora and Ubuntu</h1>
+<p>
+  <small class="text-secondary">
+  
+  
+  Oct 26, 2018
+  </small>
+  
+
+<small><code><a href="https://fjordyo0707.github.io/tags/hugo">hugo</a></code></small>
 
 
-  <p><a href="/tags/awk/"><code>awk</code></a> 1</p>
+<small><code><a href="https://fjordyo0707.github.io/tags/snap">snap</a></code></small>
 
-  <p><a href="/tags/command-line/"><code>command-line</code></a> 2</p>
 
-  <p><a href="/tags/fedora/"><code>fedora</code></a> 1</p>
+<small><code><a href="https://fjordyo0707.github.io/tags/fedora">fedora</a></code></small>
 
-  <p><a href="/tags/fun/"><code>fun</code></a> 1</p>
 
-  <p><a href="/tags/git/"><code>git</code></a> 2</p>
+<small><code><a href="https://fjordyo0707.github.io/tags/ubuntu">ubuntu</a></code></small>
 
-  <p><a href="/tags/go/"><code>go</code></a> 1</p>
-
-  <p><a href="/tags/hugo/"><code>hugo</code></a> 6</p>
-
-  <p><a href="/tags/jekyll/"><code>jekyll</code></a> 1</p>
-
-  <p><a href="/tags/migration/"><code>migration</code></a> 1</p>
-
-  <p><a href="/tags/reference/"><code>reference</code></a> 1</p>
-
-  <p><a href="/tags/snap/"><code>snap</code></a> 1</p>
-
-  <p><a href="/tags/templates/"><code>templates</code></a> 2</p>
-
-  <p><a href="/tags/testing/"><code>testing</code></a> 1</p>
-
-  <p><a href="/tags/theme/"><code>theme</code></a> 1</p>
-
-  <p><a href="/tags/ubuntu/"><code>ubuntu</code></a> 1</p>
-
+</p>
+<p>If you are using the Fedora or Ubuntu Linux distributions &ndash; I&rsquo;m currently on Fedora 28 &ndash; and would like to <a href="https://discourse.gohugo.io/t/help-test-upcoming-hugo-0-50/14880">help test the latest development version of Hugo</a>, or if you just want to be on the bleeding-edge of things, this post is for you.</p>
+<h2 id="fedora-only-steps">Fedora-only steps</h2>
+<p>To get started, <a href="https://docs.snapcraft.io/installing-snap-on-fedora/6755">install Snap on Fedora</a>:</p>
+<pre><code>sudo dnf install snapd
+</code></pre><p>Add the <a href="https://docs.snapcraft.io/commands-and-aliases/3950">Snap directory</a> to your <code>PATH</code> by adding this line to your <code>~/.bashrc</code> file. Then restart your terminal to pick up the change:</p>
+<pre><code>export PATH=&quot;$PATH:/var/lib/snapd/snap/bin&quot;
+</code></pre><h2 id="ubuntu-only-steps">Ubuntu-only steps</h2>
+<p>Ubuntu 16.04 and above come with <a href="https://docs.snapcraft.io/installing-snap-on-ubuntu/6740">Snap already installed</a>. If you&rsquo;re using an older Ubuntu version, install Snap by running:</p>
+<pre><code>sudo apt update &amp;&amp; sudo apt install snapd
+</code></pre><p>Check if the Snap directory is on your <code>PATH</code> by listing each entry:</p>
+<pre><code>echo $PATH | tr ':' '\n'
+</code></pre><p>If you don&rsquo;t see <code>/snap/bin</code> listed, then add this line to your <code>~/.bashrc</code> file. Then restart your terminal to pick up the change:</p>
+<pre><code>export PATH=&quot;$PATH:/snap/bin&quot;
+</code></pre><h2 id="install-hugo">Install Hugo</h2>
+<p>See which Snap channels are available for Hugo:</p>
+<pre><code>snap info hugo
+</code></pre><p>Install Hugo from the edge channel:</p>
+<pre><code>sudo snap install hugo --channel=edge
+</code></pre><p>Or, if you prefer Hugo Extended &ndash; which has the <a href="https://gohugo.io/hugo-pipes/">Hugo Pipes</a> feature &ndash; install it from the extended edge channel:</p>
+<pre><code>sudo snap install hugo --channel=extended/edge
+</code></pre><p>Lastly, confirm the location and version of Hugo that was intalled:</p>
+<pre><code>which hugo &amp;&amp; hugo version
+</code></pre><p>Happy testing :)</p>
+<h2 id="update-or-remove-hugo">Update or remove Hugo</h2>
+<p>Snaps are <a href="https://docs.snapcraft.io/keeping-snaps-up-to-date/7022">updated automatically</a>. To manually update Hugo:</p>
+<pre><code>sudo snap refresh hugo
+</code></pre><p>To remove Hugo:</p>
+<pre><code>sudo snap remove hugo
+</code></pre>
     </article>
   </div>
 
