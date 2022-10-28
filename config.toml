@@ -2,3 +2,24 @@ baseURL = 'https://fjordyo0707.github.io'
 languageCode = 'en-us'
 title = 'fjordyo0707 Blog'
 theme = "paper"
+
+disqusShortname = 'Fan'   # add disqus comments
+
+[params]
+  # color style
+  color = 'linen'                 # linen, wheat, gray, light
+
+  # header social icons
+  twitter = 'fjordyo0707'     # twitter.com/YOUR_TWITTER_ID
+  github = 'fjordyo0707'       # github.com/YOUR_GITHUB_ID
+  instagram = 'fjordyo0707' # instagram.com/YOUR_INSTAGRAM_ID
+  rss = true                      # show rss icon with link
+
+  # home page profile
+  avatar = 'GRAVATAR_EMAIL'       # Gravatar email or image url(e.g. "https://deno.land/logo.svg")
+  name = 'Cheng-Yu Fan'
+  bio = 'Hi, sup'
+
+  # misc
+  disableHLJS = true              # disable requesting highlight.js
+  monoDarkIcon = true             # show monochrome dark mode icon
