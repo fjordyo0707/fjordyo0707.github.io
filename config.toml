@@ -1,4 +1,4 @@
 baseURL = 'https://fjordyo0707.github.io'
 languageCode = 'en-us'
 title = 'fjordyo0707 Blog'
-theme = "paper"
+theme = "archie"
