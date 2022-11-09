@@ -1,6 +1,13 @@
 baseURL = 'https://fjordyo0707.github.io'
-languageCode = 'en-us'
-title = 'fjordyo0707 Blog'
+author = "Cheng-Yu Fan"
+paginate = 3
+languageCode = "en"
+DefaultContentLanguage = "en"
+enableInlineShortcodes = true
+ignoreErrors = ["error-remote-getjson"]
+
+
+title = 'CYF Blog'
 theme = "paper"
 
 disqusShortname = 'Fan'   # add disqus comments
@@ -13,13 +20,62 @@ disqusShortname = 'Fan'   # add disqus comments
   twitter = 'fjordyo0707'     # twitter.com/YOUR_TWITTER_ID
   github = 'fjordyo0707'       # github.com/YOUR_GITHUB_ID
   instagram = 'fjordyo0707' # instagram.com/YOUR_INSTAGRAM_ID
-  rss = true                      # show rss icon with link
 
   # home page profile
   avatar = 'GRAVATAR_EMAIL'       # Gravatar email or image url(e.g. "https://deno.land/logo.svg")
   name = 'Cheng-Yu Fan'
-  bio = 'Hi, sup'
+  bio = 'This is my blog for knowledge sharing and document reference.'
 
   # misc
   disableHLJS = true              # disable requesting highlight.js
   monoDarkIcon = true             # show monochrome dark mode icon
+
+[markup]
+  [markup.goldmark]
+    [markup.goldmark.renderer]
+      unsafe = true
+
+[menu]
+
+  [[menu.main]]
+    identifier = "about"
+    name = "About"
+    url = "/about/"
+    weight = 10
+  [[menu.main]]
+    identifier = "contact"
+    name = "Contact"
+    url = "/contact/"
+    weight = 10
+
+[taxonomies]
+category = "categories"
+tag = "tags"
+series = "series"
+
+[privacy]
+
+  [privacy.vimeo]
+    disabled = false
+    simple = true
+
+  [privacy.twitter]
+    disabled = false
+    enableDNT = true
+    simple = true
+
+  [privacy.instagram]
+    disabled = false
+    simple = true
+
+  [privacy.youtube]
+    disabled = false
+    privacyEnhanced = true
+
+[services]
+
+  [services.instagram]
+    disableInlineCSS = true
+
+  [services.twitter]
+    disableInlineCSS = true
