@@ -193,7 +193,7 @@ void printFunc(const T& coll) {
     }
 }
 ```
-``` c++=
+``` c++
 std::vector<int> v;
 ...
 printFunc(v);
