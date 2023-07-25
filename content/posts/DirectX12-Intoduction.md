@@ -46,7 +46,8 @@ ThrowIfFailed(device->CreateDescriptorHeap(
 The DirectX Graphics Infrastructure is a component that lies at the base of all the most recent versions of Direct3D. Its job is to handle fundamental tasks such as displaying images on the screen and finding out what resolutions the monitor and video card can handle.
 
 DXGI is not actually a part of Direct3D. It underlies it and other graphics components, and it acts as an interface between Direct3D and the hardware.
-![](https://hackmd.io/_uploads/HJPeKumth.png)
+
+![](/DXGI_flow.png)
 
 ### Adapter
 An Adapter provides information on the physical properties of a given DirectX device. You can query your current GPU's name, manufacturer, how much memory it has, and much more.
@@ -92,7 +93,7 @@ Command Queues are represented by the ID3D12CommandQueue interface, and created 
 Command Allocators are represented by the ID3D12CommandAllocator interface, and created with the CreateCommandAllocator () method of the device interface.
 
 Command Allocators represent the GPU memory that commands from Command Lists and Bundles are stored in.
-![](https://hackmd.io/_uploads/rJwX6dXK3.png)
+![](/cmd_alloc.png)
 
 
 ### Synchronization
@@ -130,21 +131,21 @@ commandList->ResourceBarrier(1, &barrier);
 ```
 ### Swapchain
 Swapchains handle swapping and allocating back buffers to display what you're rendering to a given window. The concept is the same as Vulkan.
-![](https://hackmd.io/_uploads/H1R9jV-Ih.png)
+![](/swp_chain.png)
 
 
 ## Graphic Pipeline
-![](https://hackmd.io/_uploads/rkBlrZqK3.png)
+![](/gfx_pipeline.png)
 
 Here is the fun part if you understand each terms and the flow means in the graphic pipeline, especially resouces part. Otherwise, it's like reading some foreign language books, which will waste you lots of time. I would like to start with the overview from [Microsoft website](https://learn.microsoft.com/en-us/windows/win32/direct3d12/pipelines-and-shaders-with-directx-12) 
-![](https://hackmd.io/_uploads/BknfxFXt2.png)
+![](/mf_rs_overview.png)
 
 A graphics pipeline is the sequential flow of data inputs and outputs as the GPU renders frames. Given the pipeline state and inputs, the GPU performs a series of operations to create the resulting images. A graphics pipeline contains shaders, which perform programmable rendering effects and calculations, and fixed function operations.
 
 I would like to refer the tutorial website from [Braynzar Soft](https://www.braynzarsoft.net/viewtutorial/q16390-03-initializing-directx-12) for explaination.
 
 ### Shader Stage
-![](https://hackmd.io/_uploads/HJB6nKEFh.png)
+![](/mf_rs_highlight.png)
 
 
 #### Input Assembler (IA)
@@ -196,11 +197,11 @@ float4 main() : SV_TARGET
 The final Stage in the Pipeline is the Output Merger Stage. Basically this stage takes the pixel fragments and depth/stencil buffers and determines which pixels are actually written to the render target. It also applies blending based on the blend model and blend factor we set.
 
 ### Add Resources
-![](https://hackmd.io/_uploads/SJLRGsUI2.png)
+![](/gpu_stack.png)
 We have explain data flow in the graphic pipeline. Now we need to prepare the data feeding inside it. It looks scary, huh? I will try to break them down piece by piece, like doing the bottom-up. Eventually, every resouces will attach to our graphic pipeline. 
 
 #### Root Signature
-![](https://hackmd.io/_uploads/rJ3j6K4t2.png)
+![](/mf_rs_root.png)
 
 
 
@@ -216,17 +217,17 @@ Among all of the resouces, I think **root signature** is the most confusing one 
 
 ##### Root constants descriptor and tables
 Root signatures contain **Root Constants**, **Root Descriptors**, and **Descriptor Tables**. A Root Parameter is one entry, being either a root constant, root descriptor, or descriptor table, into the root signature.
-![](https://hackmd.io/_uploads/HyK5ztVt3.png)
+![](/root_sign_1.png)
 
 
 Here is the explaination:
 * **Root Constants**: Root Constants are inline 32-bit values (they cost **1 DWORD**). **These values are stored directly inside the root signature.** Because memory is limited for root signatures, you want to store only the most often changed constant values shaders access here. These values show up as a constant buffer to shaders. There is no cost to access these variables from shaders (no redirection), so accessing them is very fast.
 * **Root Descriptors**: Root Descriptors are inlined descriptors that are accessed most often by the shaders. **These are 64-bit virtual addresses (2 DWORDs). These descriptors are limited to CBV's and raw or structured SRV's and UAV's.** Complex types like Texture2D SRV's cannot be used. There is a cost of one redirection when referencing Root Descriptors from shaders. Another thing to note about Root Descriptors, is they are only a pointer to the resource, they do not include a size of the data, which means there can be no out of bounds checking when accessing resources from root descriptors, unlike descriptors stored in a descriptor heap, which do include a size, and where out of bounds checking can be done.
 * **Descriptor Tables**: **Descriptor Tables are an offset and a length into a descriptor heap.** Descriptor tables are only 32-bits (1 DWORD). There is no limit to how many descriptors are inside a descriptor table (except indirectly the number of descriptors that can fit in the maximum allowed descriptor heap size). There is a cost of two indirections when accessing resources from a descriptor table. The first indirection is from the descriptor table pointer to the descriptor stored in the heap, then from the descriptor heap to the actual resource.
-![](https://hackmd.io/_uploads/SJzOfoLI2.png)
+![](/root_sign_2.png)
 
 Overall, the root signature should be a data structure like this:
-![](https://hackmd.io/_uploads/ryxH7YNt3.png)
+![](/root_sign_3.png)
 
 #### Descriptor Heap 
 Descriptor Heaps are a list of descriptors. They are a chunk of memory where the descriptors are stored. Descriptor Heaps are represented by the interface `ID3D12DescriptorHeap` and are created with the method `ID3D12Device::CreateDescriptorHeap()`.
@@ -253,10 +254,10 @@ A buffer resource is a collection of fully typed data, grouped into elements. Bu
 A vertex buffer contains the vertex data used to define your geometry. Vertex data includes position coordinates, color data, texture coordinate data, normal data, and so on.
 
 The simplest example of a vertex buffer is one that only contains position data. like this:
-![](https://hackmd.io/_uploads/Hkt1GqVFn.png)
+![](/buffer_1.png)
 
  An example of this could be a vertex buffer that contains per-vertex position, normal and texture coordinates. Like this:
-![](https://hackmd.io/_uploads/HJS-z9EY3.png)
+![](/buffer_2.png)
 
 This vertex buffer contains per-vertex data; each vertex stores three elements (position, normal, and texture coordinates). The position and normal are each typically specified using three 32-bit floats and the texture coordinates using two 32-bit floats.
 
@@ -324,7 +325,7 @@ vertexBufferView.SizeInBytes = vertexBufferSize;
 
 #### Index Buffer View
 Index buffers contain integer offsets into vertex buffers and are used to render primitives more efficiently. An index buffer contains a sequential set of 16-bit or 32-bit indices; each index is used to identify a vertex in a vertex buffer. An index buffer can be visualized like the following illustration.
-![](https://hackmd.io/_uploads/H1ysGqNK2.png)
+![](/buffer_3.png)
 The sequential indices stored in an index buffer are located with the following parameters:
 
 * Offset - the number of bytes from the base address of the index buffer.
@@ -389,7 +390,7 @@ indexBufferView.SizeInBytes = indexBufferSize;
 
 #### Constant Buffer View
 I knew we mentioned it previously but we need to state it again here. **A constant buffer allows you to efficiently supply shader constants data to the pipeline.** You can use a constant buffer to store the results of the stream-output stage. Conceptually, a constant buffer looks just like a single-element vertex buffer, as shown in the following illustration.
-![](https://hackmd.io/_uploads/Sy4RmcVY3.png)
+![](/buffer_4.png)
 
 ```c++
 // 💾 Declare Data
@@ -523,7 +524,7 @@ PixelOutput main(PixelInput pixelInput)
 
 ### Pipeline State Object
 The PSO is an object that represents the settings for our graphics device (GPU) in order to draw or dispatch something. Now is the time to stick everything together.
-![](https://hackmd.io/_uploads/Byt7r54K3.png)
+![](/pso_1.png)
 ``` c++
 // 👋 Declare handles
 ID3D12PipelineState* pipelineState;
@@ -614,7 +615,7 @@ catch (std::exception e)
 
 ### Setup Commands
 We have the pipeline state. Now we need to set up our command list to lunch the draw. Before that, the command list need to know the resources location, Rasterization setting, and configure the barriers.
-![](https://hackmd.io/_uploads/Bye7bJJBK3.png)
+![](/cl_1.png)
 
 I would like to borrow [Alain's code](https://alain.xyz/blog/raw-directx12#encoding-commands) again since he seperate every step super clear.
 
