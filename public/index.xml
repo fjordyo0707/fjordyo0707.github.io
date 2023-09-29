@@ -2,47 +2,47 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>CYFan Blog</title>
-    <link>https://example.org/</link>
+    <link>https://fjordyo0707.github.io/</link>
     <description>Recent content on CYFan Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 29 Sep 2023 14:40:29 -0700</lastBuildDate><atom:link href="https://example.org/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Fri, 29 Sep 2023 14:40:29 -0700</lastBuildDate><atom:link href="https://fjordyo0707.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Vulkan Introduction</title>
-      <link>https://example.org/graphics/vulkan/vulkan-introduction/</link>
+      <link>https://fjordyo0707.github.io/graphics/vulkan/vulkan-introduction/</link>
       <pubDate>Fri, 29 Sep 2023 14:40:29 -0700</pubDate>
       
-      <guid>https://example.org/graphics/vulkan/vulkan-introduction/</guid>
+      <guid>https://fjordyo0707.github.io/graphics/vulkan/vulkan-introduction/</guid>
       <description>Vulkan Introduction The content is based on the awesome tutorial website from Alexander Overvoorde
 What we need to draw a triangle? Window Vulkan is a platform agnostic API. It can not interface directly with the window system on its own. To establish the connection between Vulkan and the window system to present results to the screen, we need to use the WSI (Window System Integration) extensions. A VkSurfaceKHR object represents an abstract type of surface to present rendered images to.</description>
     </item>
     
     <item>
       <title>DirectX12 Hello Triangle</title>
-      <link>https://example.org/graphics/directx12/directx12-hello-triangle/</link>
+      <link>https://fjordyo0707.github.io/graphics/directx12/directx12-hello-triangle/</link>
       <pubDate>Thu, 27 Jul 2023 15:39:41 -0700</pubDate>
       
-      <guid>https://example.org/graphics/directx12/directx12-hello-triangle/</guid>
+      <guid>https://fjordyo0707.github.io/graphics/directx12/directx12-hello-triangle/</guid>
       <description>DirectX12 Hello Triangle The online resources for starting DirectX12 to beccoming a intermediate level has a pretty steep learning curve. At least for me, it tooks me a while to find the next step after drawing my first triangle. Thus, I would like to start from the github repo Microsoft DirectX-Graphics-Sample.
 This code in this post is located at the repo DirectX-Graphics-Samples/tree/master/Samples/Desktop/D3D12HelloWorld/src/HelloTriangle. Feel free to build and test it by yourself.</description>
     </item>
     
     <item>
       <title>DirectX12 Intoduction</title>
-      <link>https://example.org/graphics/directx12/directx12-intoduction/</link>
+      <link>https://fjordyo0707.github.io/graphics/directx12/directx12-intoduction/</link>
       <pubDate>Mon, 24 Jul 2023 18:09:39 -0700</pubDate>
       
-      <guid>https://example.org/graphics/directx12/directx12-intoduction/</guid>
+      <guid>https://fjordyo0707.github.io/graphics/directx12/directx12-intoduction/</guid>
       <description>DirectX12 Why learning DirectX12? Comparing to OpenGL, DirectX 12 is a newer graphic API and gives graphic programmers more options to twist the performance in GPU hardware. But the tradeoff occurs it becoming a verbose API. Developers gonna take more reponsible when dealing with this API.
 As a people mostly dealing with OpenGL, the learning curve of DirectX 12 is higher than people dealing with other modern API, like Vulkan, Apple Metal.</description>
     </item>
     
     <item>
       <title>Modern C&#43;&#43;: Move Semantics</title>
-      <link>https://example.org/programming/c&#43;&#43;/modern-cpp-move-semantics/</link>
+      <link>https://fjordyo0707.github.io/programming/c&#43;&#43;/modern-cpp-move-semantics/</link>
       <pubDate>Fri, 05 May 2023 15:04:25 -0700</pubDate>
       
-      <guid>https://example.org/programming/c&#43;&#43;/modern-cpp-move-semantics/</guid>
+      <guid>https://fjordyo0707.github.io/programming/c&#43;&#43;/modern-cpp-move-semantics/</guid>
       <description>Why we want to add Move Semantics? Copy Semantics (with C++98/C++03) Mostly the compiler will know that it is a temporary object even though you use it inline.
 Copystd::vector&amp;lt;std::string&amp;gt; vec; vec.reserve(3); std::string s(getData()); vec.push_back(s); // temporary object will be created and destory vec.push_back(getData());Object with Name We keep read the string to read_str and put it in read_vec.
 Copystd::string read_str; std::vector&amp;lt;std::string&amp;gt; read_vec; while(std::getline(my_stream, read_str)) { // read a line to read_str read_vec.</description>
@@ -50,48 +50,48 @@ Copystd::string read_str; std::vector&amp;lt;std::string&amp;gt; read_vec; whil
     
     <item>
       <title>Modern C&#43;&#43;: Lambdas</title>
-      <link>https://example.org/programming/c&#43;&#43;/modern-cpp-lambdas/</link>
+      <link>https://fjordyo0707.github.io/programming/c&#43;&#43;/modern-cpp-lambdas/</link>
       <pubDate>Fri, 05 May 2023 15:04:11 -0700</pubDate>
       
-      <guid>https://example.org/programming/c&#43;&#43;/modern-cpp-lambdas/</guid>
+      <guid>https://fjordyo0707.github.io/programming/c&#43;&#43;/modern-cpp-lambdas/</guid>
       <description>STL Data stuctures as ranges Algorithm Ilterators as glue interface Callables Before Modern C++: Copyclass Person { public: std::string getName() const; std::string getId() const; }Copybool lessName(const Person&amp;amp; p1, const Person&amp;amp; p2) { return p1.getName() &amp;lt; p2.getName(); } bool lessId(const Person&amp;amp; p1, const Person&amp;amp; p2) { return p1.getId() &amp;lt; p2.getId(); } std::vector&amp;lt;Person&amp;gt; coll; std::sort(coll.begin(), coll.end(), lessName); std::sort(coll.begin(), coll.end(), lessId);The problem is that we have to define functions, and functions have several drawback.</description>
     </item>
     
     <item>
       <title>Modern C&#43;&#43;: Smart Pointers</title>
-      <link>https://example.org/programming/c&#43;&#43;/modern-cpp-smart-pointers/</link>
+      <link>https://fjordyo0707.github.io/programming/c&#43;&#43;/modern-cpp-smart-pointers/</link>
       <pubDate>Fri, 05 May 2023 15:03:58 -0700</pubDate>
       
-      <guid>https://example.org/programming/c&#43;&#43;/modern-cpp-smart-pointers/</guid>
+      <guid>https://fjordyo0707.github.io/programming/c&#43;&#43;/modern-cpp-smart-pointers/</guid>
       <description>Polymorphism and heap memory Polymorphism with Inheritance Before learning smart pointer, we need some review for polymorphism and heap memory. The most important feature of Polymorphism is heterogenous collection
 Copyclass GeoObj { public: GeoObj() = default; virtual void draw() const = 0; virtual ~GeoObj() = default; ... }; class Circle : public GeoObj { private: Coord center; int rad; public: Circle(Coord c, int r); virtual void draw() const override; .</description>
     </item>
     
     <item>
       <title>Contact</title>
-      <link>https://example.org/contact/</link>
+      <link>https://fjordyo0707.github.io/contact/</link>
       <pubDate>Wed, 09 Nov 2022 18:00:23 -0500</pubDate>
       
-      <guid>https://example.org/contact/</guid>
+      <guid>https://fjordyo0707.github.io/contact/</guid>
       <description>Info LinkedIn: https://www.linkedin.com/in/cheng-yu-fan-a294aa135/ Github: https://github.com/fjordyo0707 Email: fjordyo0707@gmail.com </description>
     </item>
     
     <item>
       <title>My Pbrt Engine</title>
-      <link>https://example.org/graphics/pbr/my-pbrt-engine/</link>
+      <link>https://fjordyo0707.github.io/graphics/pbr/my-pbrt-engine/</link>
       <pubDate>Sat, 29 Oct 2022 01:32:40 -0400</pubDate>
       
-      <guid>https://example.org/graphics/pbr/my-pbrt-engine/</guid>
+      <guid>https://fjordyo0707.github.io/graphics/pbr/my-pbrt-engine/</guid>
       <description>My own pbrt engine As a hibbist of raytracing, I would like to start my own Physically based Rendering Here are the few resources I am going to start with:
 pbrt book 3th edition Mitsuba Further Reading Raytracing System Kirk, D., and J.Arvo. 1988. The ray tracing kernel. In Proceedings of Ausgraph &amp;lsquo;88, 75-82 </description>
     </item>
     
     <item>
       <title>About</title>
-      <link>https://example.org/about/</link>
+      <link>https://fjordyo0707.github.io/about/</link>
       <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
       
-      <guid>https://example.org/about/</guid>
+      <guid>https://fjordyo0707.github.io/about/</guid>
       <description>Hi, my name is Cheng-Yu Fan, currently based in SoCal, US. I was borned and raised in Taiwan. In work, I do programming, machine learning and graphic engineering. Out of work, I like surfing and water sports. Few of my surfing places: (1) Huntington Beach, CA (2) La Jolla Shore, CA (3) Cocoa Beach, FL (4)New Smyrna Beach, FL</description>
     </item>
     

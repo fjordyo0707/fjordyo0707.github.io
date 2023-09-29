@@ -2,27 +2,27 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>GraphicsAPI on CYFan Blog</title>
-    <link>https://example.org/tags/graphicsapi/</link>
+    <link>https://fjordyo0707.github.io/tags/graphicsapi/</link>
     <description>Recent content in GraphicsAPI on CYFan Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Jul 2023 15:39:41 -0700</lastBuildDate><atom:link href="https://example.org/tags/graphicsapi/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Jul 2023 15:39:41 -0700</lastBuildDate><atom:link href="https://fjordyo0707.github.io/tags/graphicsapi/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>DirectX12 Hello Triangle</title>
-      <link>https://example.org/graphics/directx12/directx12-hello-triangle/</link>
+      <link>https://fjordyo0707.github.io/graphics/directx12/directx12-hello-triangle/</link>
       <pubDate>Thu, 27 Jul 2023 15:39:41 -0700</pubDate>
       
-      <guid>https://example.org/graphics/directx12/directx12-hello-triangle/</guid>
+      <guid>https://fjordyo0707.github.io/graphics/directx12/directx12-hello-triangle/</guid>
       <description>DirectX12 Hello Triangle The online resources for starting DirectX12 to beccoming a intermediate level has a pretty steep learning curve. At least for me, it tooks me a while to find the next step after drawing my first triangle. Thus, I would like to start from the github repo Microsoft DirectX-Graphics-Sample.
 This code in this post is located at the repo DirectX-Graphics-Samples/tree/master/Samples/Desktop/D3D12HelloWorld/src/HelloTriangle. Feel free to build and test it by yourself.</description>
     </item>
     
     <item>
       <title>DirectX12 Intoduction</title>
-      <link>https://example.org/graphics/directx12/directx12-intoduction/</link>
+      <link>https://fjordyo0707.github.io/graphics/directx12/directx12-intoduction/</link>
       <pubDate>Mon, 24 Jul 2023 18:09:39 -0700</pubDate>
       
-      <guid>https://example.org/graphics/directx12/directx12-intoduction/</guid>
+      <guid>https://fjordyo0707.github.io/graphics/directx12/directx12-intoduction/</guid>
       <description>DirectX12 Why learning DirectX12? Comparing to OpenGL, DirectX 12 is a newer graphic API and gives graphic programmers more options to twist the performance in GPU hardware. But the tradeoff occurs it becoming a verbose API. Developers gonna take more reponsible when dealing with this API.
 As a people mostly dealing with OpenGL, the learning curve of DirectX 12 is higher than people dealing with other modern API, like Vulkan, Apple Metal.</description>
     </item>

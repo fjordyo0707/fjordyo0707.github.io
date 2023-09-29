@@ -2,26 +2,26 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Categories on CYFan Blog</title>
-    <link>https://example.org/categories/</link>
+    <link>https://fjordyo0707.github.io/categories/</link>
     <description>Recent content in Categories on CYFan Blog</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Jul 2023 15:39:41 -0700</lastBuildDate><atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Jul 2023 15:39:41 -0700</lastBuildDate><atom:link href="https://fjordyo0707.github.io/categories/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Graphics</title>
-      <link>https://example.org/categories/graphics/</link>
+      <link>https://fjordyo0707.github.io/categories/graphics/</link>
       <pubDate>Thu, 27 Jul 2023 15:39:41 -0700</pubDate>
       
-      <guid>https://example.org/categories/graphics/</guid>
+      <guid>https://fjordyo0707.github.io/categories/graphics/</guid>
       <description></description>
     </item>
     
     <item>
       <title>Programming</title>
-      <link>https://example.org/categories/programming/</link>
+      <link>https://fjordyo0707.github.io/categories/programming/</link>
       <pubDate>Fri, 05 May 2023 15:04:25 -0700</pubDate>
       
-      <guid>https://example.org/categories/programming/</guid>
+      <guid>https://fjordyo0707.github.io/categories/programming/</guid>
       <description></description>
     </item>
     
