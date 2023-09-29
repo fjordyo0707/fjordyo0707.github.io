@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Categories on CYFan Blog</title>
+    <link>https://example.org/categories/</link>
+    <description>Recent content in Categories on CYFan Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 27 Jul 2023 15:39:41 -0700</lastBuildDate><atom:link href="https://example.org/categories/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Graphics</title>
+      <link>https://example.org/categories/graphics/</link>
+      <pubDate>Thu, 27 Jul 2023 15:39:41 -0700</pubDate>
+      
+      <guid>https://example.org/categories/graphics/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Programming</title>
+      <link>https://example.org/categories/programming/</link>
+      <pubDate>Fri, 05 May 2023 15:04:25 -0700</pubDate>
+      
+      <guid>https://example.org/categories/programming/</guid>
+      <description></description>
+    </item>
+    
+  </channel>
+</rss>

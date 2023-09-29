@@ -1,0 +1,1017 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="generator" content="Hugo 0.119.0">
+
+    
+
+    
+
+    
+        
+            <meta
+                name="description"
+                content="" />
+        
+
+        
+            <meta
+                name="keywords"
+                content="graphics, programming, compiler" />
+        
+
+        
+            <meta
+                name="author"
+                content="Cheng-Yu Fan" />
+        
+
+    
+
+
+    <title>
+        
+            Vulkan Introduction |
+            CYF Blog
+        
+    </title>
+
+    
+
+
+    
+    
+
+
+    
+    
+
+
+    
+    
+    
+    
+
+
+    
+    
+
+    
+
+    
+
+        
+        
+
+
+        <link
+            rel="stylesheet"
+            href="/css/index.min.d769fcae9b652a4ac8ee5ab1bc267604bd6eb6156d80edb2184dcdaec0bf1a0275c755605e14086296051d441377666d37e9feb10efb12626040c729c01d2941.css"
+            integrity="sha512-12n8rptlKkrI7lqxvCZ2BL1uthVtgO2yGE3NrsC/GgJ1x1VgXhQIYpYFHUQTd2ZtN&#43;n&#43;sQ77EmJgQMcpwB0pQQ==" />
+    
+
+</head>
+
+
+
+    <body>
+        <header class="header">
+    <div class="header_left">
+        
+    </div>
+
+    <div class="header_middle">
+        
+            Vulkan Introduction -
+            CYF Blog
+        
+    </div>
+</header>
+
+
+
+        <main>
+            <aside class="sidebar">
+    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li
+                    
+                        class="dir opened-dir"
+                    >
+                    <span class="dir-text"> Graphics </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/vulkan/vulkan-introduction/" title="./graphics/vulkan/vulkan-introduction/">
+                        Vulkan Introduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-hello-triangle/" title="./graphics/directx12/directx12-hello-triangle/">
+                        DirectX12 Hello Triangle
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-intoduction/" title="./graphics/directx12/directx12-intoduction/">
+                        DirectX12 Intoduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/pbr/my-pbrt-engine/" title="./graphics/pbr/my-pbrt-engine/">
+                        My Pbrt Engine
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li
+                    
+                        class="dir closed-dir"
+                    >
+                    <span class="dir-text"> Programmings </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-move-semantics/" title="./programming/c&#43;&#43;/modern-cpp-move-semantics/">
+                        Modern C&#43;&#43;: Move Semantics
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-lambdas/" title="./programming/c&#43;&#43;/modern-cpp-lambdas/">
+                        Modern C&#43;&#43;: Lambdas
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-smart-pointers/" title="./programming/c&#43;&#43;/modern-cpp-smart-pointers/">
+                        Modern C&#43;&#43;: Smart Pointers
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/contact/" title="./contact/">
+                        Contact
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/about/" title="./about/">
+                        About
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+</aside>
+<aside class="exapandable"></aside>
+
+
+            
+    <article class="main">
+        <button
+    class="sidebar-toggle-btn"
+    type="menu"
+    aria-expanded="false"
+    aria-haspopup="true">
+    <i class="bi bi-list"></i>
+</button>
+
+
+
+        <div class="title">
+            <h1 class="title-header">
+                Vulkan Introduction
+            </h1>
+
+            <div class="author-date-readtime">
+                
+
+                    
+                        <div class="author">
+                            <i class="bi bi-person"></i>
+                            <a
+                                href="https://example.org/author/cheng-yu-fan/"
+                                class="cat-btn">
+                                Cheng-Yu Fan
+                            </a>
+                        </div>
+                    
+
+                
+
+                
+                    <div class="date">
+                        <i class="bi bi-calendar3"></i>
+                        <time
+                            datetime="2023.09.29"
+                            >2023.09.29
+                        </time>
+                    </div>
+                
+
+                
+            </div>
+        </div>
+
+        <div class="article-meta">
+            
+
+            
+
+            
+                <div class="breadcumb">
+                    <i class="bi bi-folder"></i>
+                    
+    
+    
+
+
+
+
+<a href="https://example.org/" class="bread-btn">
+    
+        <i class="bi bi-house-fill"></i>
+    
+
+    
+        Home
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/graphics/" class="bread-btn">
+    
+
+    
+        Graphics
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/graphics/vulkan/vulkan-introduction/" class="bread-btn">
+    
+
+    
+        Vulkan Introduction
+    
+</a>
+
+                </div>
+            
+        </div>
+
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#what-we-need-to-draw-a-triangle">What we need to draw a triangle?</a>
+      <ul>
+        <li><a href="#window">Window</a></li>
+        <li><a href="#instance">Instance</a></li>
+        <li><a href="#validation-layers">Validation Layers</a></li>
+        <li><a href="#physical-devices">Physical Devices</a></li>
+        <li><a href="#queue-family">Queue Family</a></li>
+        <li><a href="#logical-devices">Logical Devices</a></li>
+        <li><a href="#windows">Windows</a></li>
+        <li><a href="#swap-chain">Swap chain</a></li>
+        <li><a href="#image-views">Image Views</a></li>
+        <li><a href="#graphic-pipeline">Graphic Pipeline</a></li>
+        <li><a href="#pipeline">Pipeline</a></li>
+        <li><a href="#pipeline-layout">Pipeline Layout</a></li>
+        <li><a href="#shader-modules">Shader Modules</a></li>
+        <li><a href="#fixed-function">Fixed function</a></li>
+        <li><a href="#render-passes">Render Passes</a></li>
+        <li><a href="#framebuffers">Framebuffers</a></li>
+        <li><a href="#command-buffers">Command buffers</a></li>
+        <li><a href="#synchronization">Synchronization</a></li>
+        <li><a href="#frames-in-flight">Frames in flight</a></li>
+        <li><a href="#vertex-buffer">Vertex Buffer</a></li>
+        <li><a href="#descriptor">Descriptor</a></li>
+        <li><a href="#uniform-buffer">Uniform buffer</a></li>
+        <li><a href="#texture-mapping">Texture Mapping</a></li>
+        <li><a href="#depth-buffering">Depth Buffering</a></li>
+        <li><a href="#loading-models">Loading models</a></li>
+        <li><a href="#mipmaps">Mipmaps</a></li>
+        <li><a href="#multisampling-anti-aliasing-msaa">Multisampling anti-aliasing (MSAA)</a></li>
+      </ul>
+    </li>
+    <li><a href="#misc">Misc</a>
+      <ul>
+        <li><a href="#what-is-attachment">What is Attachment?</a></li>
+        <li><a href="#what-is-vksubpassdependency">What is VkSubpassDependency?</a></li>
+        <li><a href="#framebuffer">Framebuffer</a></li>
+        <li><a href="#memory-allocation-">Memory Allocation ???</a></li>
+        <li><a href="#what-is-binding-in-vkvertexinputattributedescription-and-vkvertexinputbindingdescription">What is binding in VkVertexInputAttributeDescription and VkVertexInputBindingDescription</a></li>
+        <li><a href="#stencil-test">Stencil test</a></li>
+      </ul>
+    </li>
+    <li><a href="#source-code">Source Code</a></li>
+  </ul>
+</nav>
+        
+
+
+        <div class="content">
+            
+                <h1 id="vulkan-introduction">Vulkan Introduction</h1>
+<p>The content is based on the awesome <a href="https://vulkan-tutorial.com/Introduction">tutorial website</a> from Alexander Overvoorde</p>
+<h2 id="what-we-need-to-draw-a-triangle">What we need to draw a triangle?</h2>
+<h3 id="window">Window</h3>
+<p>Vulkan is a platform agnostic API. It can not interface directly with the window system on its own. To establish the connection between Vulkan and the window system to present results to the screen, we need to use the WSI (Window System Integration) extensions.  <strong>A <code>VkSurfaceKHR</code> object represents an abstract type of surface to present rendered images to.</strong></p>
+<h3 id="instance">Instance</h3>
+<p>The instance is the connection between your application and the Vulkan library and creating it involves specifying some details about your application to the driver.</p>
+<h3 id="validation-layers">Validation Layers</h3>
+<p>Validation layers are optional components that hook into Vulkan function calls to apply additional operations. Common operations in validation layers are:</p>
+<ul>
+<li>Checking the values of parameters against the specification to detect misuse</li>
+<li>Tracking creation and destruction of objects to find resource leaks</li>
+<li>Checking thread safety by tracking the threads that calls originate from</li>
+<li>Logging every call and its parameters to the standard output
+Tracing Vulkan calls for profiling and replaying</li>
+</ul>
+<h3 id="physical-devices">Physical Devices</h3>
+<p>Select a graphics card in the system that supports the features we need. To evaluate the suitability of a device we can start by querying for some details. Basic device properties like the name, type and supported Vulkan version can be queried using <code>vkGetPhysicalDeviceProperties</code></p>
+<h3 id="queue-family">Queue Family</h3>
+<p>Anything from drawing to uploading textures, requires commands to be submitted to a queue. There are different types of queues that originate from different queue families and each family of queues allows only a subset of commands.</p>
+<h3 id="logical-devices">Logical Devices</h3>
+<p>After selecting a physical device to use we need to set up a logical device to interface with it.</p>
+<h3 id="windows">Windows</h3>
+<p>Since Vulkan is a platform agnostic API, it can not interface directly with the window system on its own. To establish the connection between Vulkan and the window system to present results to the screen, we need to use the WSI (Window System Integration) extensions.</p>
+<h3 id="swap-chain">Swap chain</h3>
+<p>Vulkan requires an infrastructure that will own the buffers we will render to before we visualize them on the screen. This infrastructure is known as the swap chain and must be created explicitly in Vulkan. <strong>The swap chain is essentially a queue of images (<code>VkImage</code>) that are waiting to be presented to the screen.</strong></p>
+<h3 id="image-views">Image Views</h3>
+<p>To use any VkImage, including those in the swap chain, in the render
+we have to create a VkImageView object. <strong>An image view is quite literally a view into an image.</strong> It describes how to access the image and which part of the image to access</p>
+<h3 id="graphic-pipeline">Graphic Pipeline</h3>
+<p><img src="/VK_introduction_graphic_pipeline.png" alt="">
+Stages with a green color are known as fixed-function stages. These stages allow you to tweak their operations using parameters, but the way they work is predefined.</p>
+<p>Stages with an orange color on the other hand are programmable, which means that you can upload your own code to the graphics card to apply exactly the operations you want.</p>
+<h3 id="pipeline">Pipeline</h3>
+<p><strong>The <code>VkPipeline</code> is a huge object in Vulkan that encompasses the configuration of the entire GPU for the draw.</strong> Building them can be very expensive, as it will fully convert the shader module into the GPU instructions, and will validate the setup for it.
+<strong>Vulkan pipelines are a massive object with many different configuration structs</strong>, some of them even running pointers and being arrays.</p>
+<blockquote>
+<ul>
+<li>Pipelines (often called &ldquo;pipeline state objects&rdquo;) are used to bake all states that affect a pipeline</li>
+<li>While in OpenGL every state can be changed at (almost) any time, Vulkan requires to layout the graphics (and compute) pipeline states upfront</li>
+<li>So for each combination of non-dynamic pipeline states you need a new pipeline (there are a few exceptions to this not discussed here)</li>
+<li>Even though this adds a new dimension of planning ahead, it&rsquo;s a great opportunity for performance optimizations by the driver</li>
+</ul>
+</blockquote>
+<h3 id="pipeline-layout">Pipeline Layout</h3>
+<p><strong>Pipeline layouts contain the information about shader inputs of a given pipeline.</strong> It’s here where you would configure your push-constants and descriptor sets.</p>
+<blockquote>
+<ul>
+<li>The pipeline layout is used by a pipeline to access the descriptor sets</li>
+<li>It defines interface (without binding any actual data) between the shader stages used by the pipeline and the shader resources</li>
+<li>A pipeline layout can be shared among multiple pipelines as long as their interfaces match</li>
+</ul>
+</blockquote>
+<h3 id="shader-modules">Shader Modules</h3>
+<ul>
+<li>Vertex Shader</li>
+<li>Fragment Shader</li>
+</ul>
+<h3 id="fixed-function">Fixed function</h3>
+<ul>
+<li>Dynamic state</li>
+<li>Vertex input</li>
+<li>Input assembly</li>
+<li>Viewports and scissors</li>
+<li>Rasterizer</li>
+<li>Multisampling</li>
+<li>Depth and stencil testing</li>
+<li>Color blending</li>
+<li>Pipeline layout</li>
+</ul>
+<h3 id="render-passes">Render Passes</h3>
+<p>Before we can finish creating the pipeline, we need to tell Vulkan about the framebuffer attachments that will be used while rendering. <strong>We need to specify how many color and depth buffers there will be, how many samples to use for each of them and how their contents should be handled throughout the rendering operations</strong>. All of this information is wrapped in a render pass object</p>
+<blockquote>
+<ul>
+<li>Render passes are a new concept in Vulkan. They describe the attachments used during rendering and may contain multiple subpasses with attachment dependencies</li>
+<li>This allows the driver to know up-front what the rendering will look like and is a good opportunity to optimize especially on tile-based renderers (with multiple subpasses)</li>
+<li>Using sub pass dependencies also adds implicit layout transitions for the attachment used, so we don&rsquo;t need to add explicit image memory barriers to transform them</li>
+</ul>
+</blockquote>
+<h3 id="framebuffers">Framebuffers</h3>
+<p><strong>A framebuffer object references all of the VkImageView objects that represent the attachments.</strong> However, the image that we have to use for the attachment depends on which image the swap chain returns when we retrieve one for presentation. That means that we have to create a framebuffer for all of the images in the swap chain and use the one that corresponds to the retrieved image at drawing time.</p>
+<h3 id="command-buffers">Command buffers</h3>
+<h4 id="command-pools">Command pools</h4>
+<p>Create a command pool before we can create command buffers. Command pools manage the memory that is used to store the buffers and command buffers are allocated from them.</p>
+<p>Command buffers are executed by submitting them on one of the device queues, like the graphics and presentation queues we retrieved. Each command pool can only allocate command buffers that are submitted on a single type of queue.</p>
+<h3 id="synchronization">Synchronization</h3>
+<p>There are a number of events that we need to order explicitly because they happen on the GPU, such as:</p>
+<ul>
+<li>Acquire an image from the swap chain</li>
+<li>Execute commands that draw onto the acquired image</li>
+<li>Present that image to the screen for presentation, returning it to the swapchain</li>
+</ul>
+<ol>
+<li>Semaphores
+<strong>A semaphore is used to add order between queue operations.</strong>
+A semaphore is either unsignaled or signaled. It begins life as unsignaled. The way we use a semaphore to order queue operations is by providing the same semaphore as a &lsquo;signal&rsquo; semaphore in one queue operation and as a &lsquo;wait&rsquo; semaphore in another queue operation.</li>
+</ol>
+<blockquote>
+<ul>
+<li>Used to coordinate operations within the graphics queue and ensure correct command ordering</li>
+</ul>
+</blockquote>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="VkCommandBuffer%20A,%20B%20=%20...%20//%20record%20command%20buffers%0aVkSemaphore%20S%20=%20...%20//%20create%20a%20semaphore%0a%0a//%20enqueue%20A,%20signal%20S%20when%20done%20-%20starts%20executing%20immediately%0avkQueueSubmit%28work:%20A,%20signal:%20S,%20wait:%20None%29%0a%0a//%20enqueue%20B,%20wait%20on%20S%20to%20start%0avkQueueSubmit%28work:%20B,%20signal:%20None,%20wait:%20S%29">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>VkCommandBuffer A, B <span style="color:#f92672">=</span> ... <span style="color:#75715e">// record command buffers
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>VkSemaphore S <span style="color:#f92672">=</span> ... <span style="color:#75715e">// create a semaphore
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// enqueue A, signal S when done - starts executing immediately
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vkQueueSubmit(work: A, signal: S, wait: None)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// enqueue B, wait on S to start
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vkQueueSubmit(work: B, signal: None, wait: S)</span></span></code></pre></div>
+    
+</div>
+<ol start="2">
+<li>Fences
+A fence has a similar purpose, in that it is used to synchronize execution, but <strong>it is for ordering the execution on the CPU, otherwise known as the host. Simply put, if the host needs to know when the GPU has finished something, we use a fence.</strong>
+Similar to semaphores, fences are either in a signaled or unsignaled state. Whenever we submit work to execute, we can attach a fence to that work. When the work is finished, the fence will be signaled. Then we can make the host wait for the fence to be signaled, guaranteeing that the work has finished before the host continues.</li>
+</ol>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="VkCommandBuffer%20A%20=%20...%20//%20record%20command%20buffer%20with%20the%20transfer%0aVkFence%20F%20=%20...%20//%20create%20the%20fence%0a%0a//%20enqueue%20A,%20start%20work%20immediately,%20signal%20F%20when%20done%0avkQueueSubmit%28work:%20A,%20fence:%20F%29%0a%0avkWaitForFence%28F%29%20//%20blocks%20execution%20until%20A%20has%20finished%20executing%0a%0asave_screenshot_to_disk%28%29%20//%20can%27t%20run%20until%20the%20transfer%20has%20finished">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>VkCommandBuffer A <span style="color:#f92672">=</span> ... <span style="color:#75715e">// record command buffer with the transfer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>VkFence F <span style="color:#f92672">=</span> ... <span style="color:#75715e">// create the fence
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// enqueue A, start work immediately, signal F when done
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vkQueueSubmit(work: A, fence: F)
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>vkWaitForFence(F) <span style="color:#75715e">// blocks execution until A has finished executing
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>save_screenshot_to_disk() <span style="color:#75715e">// can&#39;t run until the transfer has finished
+</span></span></span></code></pre></div>
+    
+</div>
+<p>We want to use <strong>semaphores for swapchain operations because they happen on the GPU</strong>, thus we don&rsquo;t want to make the host wait around if we can help it. <strong>For waiting on the previous frame to finish, we want to use fences for the opposite reason</strong>, because we need the host to wait.</p>
+<h3 id="frames-in-flight">Frames in flight</h3>
+<p>Allow multiple frames to be in-flight at once, that is to say, allow the rendering of one frame to not interfere with the recording of the next. <strong>Any resource that is accessed and modified during rendering must be duplicated.</strong></p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">int</span> MAX_FRAMES_IN_FLIGHT <span style="color:#f92672">=</span> <span style="color:#ae81ff">2</span>;
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>VkCommandBuffer<span style="color:#f92672">&gt;</span> commandBuffers;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>VkSemaphore<span style="color:#f92672">&gt;</span> imageAvailableSemaphores;
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>VkSemaphore<span style="color:#f92672">&gt;</span> renderFinishedSemaphores;
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>VkFence<span style="color:#f92672">&gt;</span> inFlightFences;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">drawFrame</span>() {
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    currentFrame <span style="color:#f92672">=</span> (currentFrame <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>) <span style="color:#f92672">%</span> MAX_FRAMES_IN_FLIGHT;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<h3 id="vertex-buffer">Vertex Buffer</h3>
+<p>Buffers in Vulkan are regions of memory used for storing arbitrary data that can be read by the graphics card. They can be used to store vertex data</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>Vertex<span style="color:#f92672">&gt;</span> vertices <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    {{<span style="color:#ae81ff">0.0f</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">0.5f</span>}, {<span style="color:#ae81ff">1.0f</span>, <span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">0.0f</span>}},
+</span></span><span style="display:flex;"><span>    {{<span style="color:#ae81ff">0.5f</span>, <span style="color:#ae81ff">0.5f</span>}, {<span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">1.0f</span>, <span style="color:#ae81ff">0.0f</span>}},
+</span></span><span style="display:flex;"><span>    {{<span style="color:#f92672">-</span><span style="color:#ae81ff">0.5f</span>, <span style="color:#ae81ff">0.5f</span>}, {<span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">1.0f</span>}}
+</span></span><span style="display:flex;"><span>};</span></span></code></pre></div>
+    
+</div>
+<p>Tell Vulkan how to pass this data format to the vertex shader once it&rsquo;s been uploaded into GPU memory. There are two types of structures needed to convey this information.</p>
+<p>The first structure is <code>VkVertexInputBindingDescription</code>. The second structure that describes how to handle vertex input is <code>VkVertexInputAttributeDescription</code>. Finally, find the <code>vertexInputInfo</code> in graphic pipeline struct and modify it to reference the two descriptions</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createVertexBuffer</span>() {
+</span></span><span style="display:flex;"><span>        VkBufferCreateInfo bufferInfo{};
+</span></span><span style="display:flex;"><span>        bufferInfo.sType <span style="color:#f92672">=</span> VK_STRUCTURE_TYPE_BUFFER_CREATE_INFO;
+</span></span><span style="display:flex;"><span>        bufferInfo.size <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(vertices[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">*</span> vertices.size();
+</span></span><span style="display:flex;"><span>        bufferInfo.usage <span style="color:#f92672">=</span> VK_BUFFER_USAGE_VERTEX_BUFFER_BIT;
+</span></span><span style="display:flex;"><span>        bufferInfo.sharingMode <span style="color:#f92672">=</span> VK_SHARING_MODE_EXCLUSIVE;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (vkCreateBuffer(device, <span style="color:#f92672">&amp;</span>bufferInfo, <span style="color:#66d9ef">nullptr</span>, <span style="color:#f92672">&amp;</span>vertexBuffer) <span style="color:#f92672">!=</span> VK_SUCCESS) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> std<span style="color:#f92672">::</span>runtime_error(<span style="color:#e6db74">&#34;failed to create vertex buffer!&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        VkMemoryRequirements memRequirements;
+</span></span><span style="display:flex;"><span>        vkGetBufferMemoryRequirements(device, vertexBuffer, <span style="color:#f92672">&amp;</span>memRequirements);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        VkMemoryAllocateInfo allocInfo{};
+</span></span><span style="display:flex;"><span>        allocInfo.sType <span style="color:#f92672">=</span> VK_STRUCTURE_TYPE_MEMORY_ALLOCATE_INFO;
+</span></span><span style="display:flex;"><span>        allocInfo.allocationSize <span style="color:#f92672">=</span> memRequirements.size;
+</span></span><span style="display:flex;"><span>        allocInfo.memoryTypeIndex <span style="color:#f92672">=</span> findMemoryType(memRequirements.memoryTypeBits, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT <span style="color:#f92672">|</span> VK_MEMORY_PROPERTY_HOST_COHERENT_BIT);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (vkAllocateMemory(device, <span style="color:#f92672">&amp;</span>allocInfo, <span style="color:#66d9ef">nullptr</span>, <span style="color:#f92672">&amp;</span>vertexBufferMemory) <span style="color:#f92672">!=</span> VK_SUCCESS) {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">throw</span> std<span style="color:#f92672">::</span>runtime_error(<span style="color:#e6db74">&#34;failed to allocate vertex buffer memory!&#34;</span>);
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        vkBindBufferMemory(device, vertexBuffer, vertexBufferMemory, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> data;
+</span></span><span style="display:flex;"><span>        vkMapMemory(device, vertexBufferMemory, <span style="color:#ae81ff">0</span>, bufferInfo.size, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>data);
+</span></span><span style="display:flex;"><span>        memcpy(data, vertices.data(), (size_t)bufferInfo.size);
+</span></span><span style="display:flex;"><span>        vkUnmapMemory(device, vertexBufferMemory);
+</span></span><span style="display:flex;"><span>    }</span></span></code></pre></div>
+    
+</div>
+<h4 id="staging-buffer">Staging buffer</h4>
+<p>The memory type that allows us to access it from the CPU may not be the most optimal memory type for the graphics card itself to read from. The most optimal memory has the VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT flag and is usually not accessible by the CPU on dedicated graphics cards.</p>
+<p>Create two vertex buffers. One staging buffer in CPU accessible memory to upload the data from the vertex array to, and the final vertex buffer in device local memory. We&rsquo;ll then use a buffer copy command to move the data from the staging buffer to the actual vertex buffer.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="%20%20%20%20void%20createVertexBuffer%28%29%20%7b%0a%20%20%20%20%20%20%20%20VkDeviceSize%20bufferSize%20=%20sizeof%28vertices[0]%29%20*%20vertices.size%28%29;%0a%0a%20%20%20%20%20%20%20%20VkBuffer%20stagingBuffer;%0a%20%20%20%20%20%20%20%20VkDeviceMemory%20stagingBufferMemory;%0a%20%20%20%20%20%20%20%20createBuffer%28bufferSize,%20VK_BUFFER_USAGE_TRANSFER_SRC_BIT,%20VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT%20%7c%20VK_MEMORY_PROPERTY_HOST_COHERENT_BIT,%20stagingBuffer,%20stagingBufferMemory%29;%0a%0a%20%20%20%20%20%20%20%20void*%20data;%0a%20%20%20%20%20%20%20%20vkMapMemory%28device,%20stagingBufferMemory,%200,%20bufferSize,%200,%20&amp;data%29;%0a%20%20%20%20%20%20%20%20memcpy%28data,%20vertices.data%28%29,%20%28size_t%29bufferSize%29;%0a%20%20%20%20%20%20%20%20vkUnmapMemory%28device,%20stagingBufferMemory%29;%0a%0a%20%20%20%20%20%20%20%20createBuffer%28bufferSize,%20VK_BUFFER_USAGE_TRANSFER_DST_BIT%20%7c%20VK_BUFFER_USAGE_VERTEX_BUFFER_BIT,%20VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT,%20vertexBuffer,%20vertexBufferMemory%29;%0a%20%20%20%20%20%20%20%20%0a%20%20%20%20%20%20%20%20copyBuffer%28stagingBuffer,%20vertexBuffer,%20bufferSize%29;%0a%0a%20%20%20%20%20%20%20%20vkDestroyBuffer%28device,%20stagingBuffer,%20nullptr%29;%0a%20%20%20%20%20%20%20%20vkFreeMemory%28device,%20stagingBufferMemory,%20nullptr%29;%0a%20%20%20%20%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>    <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createVertexBuffer</span>() {
+</span></span><span style="display:flex;"><span>        VkDeviceSize bufferSize <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(vertices[<span style="color:#ae81ff">0</span>]) <span style="color:#f92672">*</span> vertices.size();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        VkBuffer stagingBuffer;
+</span></span><span style="display:flex;"><span>        VkDeviceMemory stagingBufferMemory;
+</span></span><span style="display:flex;"><span>        createBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_SRC_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT <span style="color:#f92672">|</span> VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, stagingBuffer, stagingBufferMemory);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">void</span><span style="color:#f92672">*</span> data;
+</span></span><span style="display:flex;"><span>        vkMapMemory(device, stagingBufferMemory, <span style="color:#ae81ff">0</span>, bufferSize, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>data);
+</span></span><span style="display:flex;"><span>        memcpy(data, vertices.data(), (size_t)bufferSize);
+</span></span><span style="display:flex;"><span>        vkUnmapMemory(device, stagingBufferMemory);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        createBuffer(bufferSize, VK_BUFFER_USAGE_TRANSFER_DST_BIT <span style="color:#f92672">|</span> VK_BUFFER_USAGE_VERTEX_BUFFER_BIT, VK_MEMORY_PROPERTY_DEVICE_LOCAL_BIT, vertexBuffer, vertexBufferMemory);
+</span></span><span style="display:flex;"><span>        
+</span></span><span style="display:flex;"><span>        copyBuffer(stagingBuffer, vertexBuffer, bufferSize);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        vkDestroyBuffer(device, stagingBuffer, <span style="color:#66d9ef">nullptr</span>);
+</span></span><span style="display:flex;"><span>        vkFreeMemory(device, stagingBufferMemory, <span style="color:#66d9ef">nullptr</span>);
+</span></span><span style="display:flex;"><span>    }</span></span></code></pre></div>
+    
+</div>
+<h4 id="index-buffer">Index Buffer</h4>
+<p>An index buffer is essentially an array of pointers into the vertex buffer. It allows you to reorder the vertex data, and reuse existing data for multiple vertices.</p>
+<h3 id="descriptor">Descriptor</h3>
+<p><img src="/VK_introduction_descriptor_usage.png" alt=""></p>
+<p><strong>A descriptor is a way for shaders to freely access resources like buffers and images.</strong>
+Usage of descriptors consists of three parts:</p>
+<ol>
+<li>Specify a descriptor layout during pipeline creation</li>
+<li>Allocate a descriptor set from a descriptor pool</li>
+<li>Bind the descriptor set during rendering</li>
+</ol>
+<h4 id="descriptor-layout">Descriptor Layout</h4>
+<p>The descriptor layout specifies the types of resources that are going to be accessed by the pipeline. <strong>A <code>VkDescriptorSetLayout</code> holds information about the shape of a descriptor set.</strong> For example, a possible layout will be one where it binds 2 buffers and 1 image. When creating pipelines or allocating the descriptor sets themselves, you have to use the layout.</p>
+<blockquote>
+<ul>
+<li>The descriptor set layout describes the shader binding layout (without actually referencing descriptor)</li>
+<li>Like the pipeline layout it&rsquo;s pretty much a blueprint and can be used with different descriptor sets as long as their layout matches</li>
+</ul>
+</blockquote>
+<h4 id="descriptor-set">Descriptor Set</h4>
+<p>A descriptor set specifies the actual buffer or image resources that will be bound to the descriptors.</p>
+<blockquote>
+<ul>
+<li>The descriptor set stores the resources bound to the binding points in a shader</li>
+<li>It connects the binding points of the different shaders with the buffers and images used for those bindings</li>
+</ul>
+</blockquote>
+<h4 id="descriptor-pool">Descriptor Pool</h4>
+<p>Descriptor sets can&rsquo;t be created directly, they must be allocated from a pool like command buffers. The equivalent for descriptor sets is unsurprisingly called a descriptor pool.</p>
+<h4 id="alignment-requirements">Alignment requirements</h4>
+<p>Vulkan expects the data in your structure to be aligned in memory in a specific way, for example:</p>
+<ul>
+<li>Scalars have to be aligned by N (= 4 bytes given 32 bit floats).</li>
+<li>A <code>vec2</code> must be aligned by 2N (= 8 bytes)</li>
+<li>A <code>vec3</code> or vec4 must be aligned by 4N (= 16 bytes)</li>
+<li>A nested structure must be aligned by the base alignment of its members rounded up to a multiple of 16.</li>
+<li>A <code>mat4</code> matrix must have the same alignment as a vec4.</li>
+</ul>
+<h3 id="uniform-buffer">Uniform buffer</h3>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>VkBuffer<span style="color:#f92672">&gt;</span> uniformBuffers;
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>VkDeviceMemory<span style="color:#f92672">&gt;</span> uniformBuffersMemory;
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">void</span><span style="color:#f92672">*&gt;</span> uniformBuffersMapped;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">createUniformBuffers</span>() {
+</span></span><span style="display:flex;"><span>    VkDeviceSize bufferSize <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(UniformBufferObject);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    uniformBuffers.resize(MAX_FRAMES_IN_FLIGHT);
+</span></span><span style="display:flex;"><span>    uniformBuffersMemory.resize(MAX_FRAMES_IN_FLIGHT);
+</span></span><span style="display:flex;"><span>    uniformBuffersMapped.resize(MAX_FRAMES_IN_FLIGHT);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (size_t i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> MAX_FRAMES_IN_FLIGHT; i<span style="color:#f92672">++</span>) {
+</span></span><span style="display:flex;"><span>        createBuffer(bufferSize, VK_BUFFER_USAGE_UNIFORM_BUFFER_BIT, VK_MEMORY_PROPERTY_HOST_VISIBLE_BIT <span style="color:#f92672">|</span> VK_MEMORY_PROPERTY_HOST_COHERENT_BIT, uniformBuffers[i], uniformBuffersMemory[i]);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        vkMapMemory(device, uniformBuffersMemory[i], <span style="color:#ae81ff">0</span>, bufferSize, <span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>uniformBuffersMapped[i]);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<p>The buffer stays mapped to this pointer for the application&rsquo;s whole lifetime. This technique is called &ldquo;<strong>persistent mapping</strong>&rdquo; and works on all Vulkan implementations. Not having to map the buffer every time we need to update it increases performances, as mapping is not free.</p>
+<h3 id="texture-mapping">Texture Mapping</h3>
+<p>Adding a texture to our application will involve the following steps:</p>
+<ul>
+<li>Create an image object backed by device memory</li>
+<li>Fill it with pixels from an image file</li>
+<li>Create an image sampler</li>
+<li>Add a combined image sampler descriptor to sample colors from the texture</li>
+</ul>
+<h4 id="images">Images</h4>
+<p>Although we could set up the shader to access the pixel values in the buffer, it&rsquo;s better to use image objects in Vulkan for this purpose. Image objects will make it easier and faster. There are two different concept that may be confusing - tiling and layout.
+There are two different concept that may be confusing - tiling and layout.</p>
+<ol>
+<li><strong>Image tiling</strong> is the addressing layout of texels within an image. This is currently opaque and it is not defined when you access it using the CPU.</li>
+<li><strong>Image layouts</strong> are likely (though they don&rsquo;t have to be) used for internal transparent compression of images when in use by the GPU. This is NOT a lossy block compressed format, it is an internal format that is used by the GPU to save bandwidth! It is unlikely there will be a &ldquo;standard&rdquo; compression format that can be exposed to the CPU. The reason you need to transition your images from one layout to another is some hardware may only be able to access the compressed data from certain hardware blocks.
+<a href="https://www.reddit.com/r/vulkan/comments/48cvzq/image_layouts/d0j92ac/?utm_source=share&amp;utm_medium=web3x&amp;utm_name=web3xcss&amp;utm_term=1&amp;utm_content=share_button">source</a></li>
+</ol>
+<h4 id="image-view">Image View</h4>
+<p>Images are accessed through image views rather than directly. We will also need to create such an image view for the texture image.</p>
+<h4 id="sampler">Sampler</h4>
+<p>Textures are usually accessed through samplers. It is possible for shaders to read texels directly from images, but that is not very common when they are used as textures.</p>
+<h4 id="add-to-descriptor-set">Add to descriptor set</h4>
+<ol>
+<li>Add a <code>VkDescriptorSetLayoutBinding</code> for a combined image sampler descriptor.</li>
+<li>Bind the actual image and sampler resources to the descriptors in the descriptor set.</li>
+<li>Update Vertex <code>attributeDescriptions</code>, and add <code>glm::vec2 texCoord;</code> inside struct</li>
+</ol>
+<h4 id="texture-debugging">Texture Debugging</h4>
+<p><img src="/VK_introduction_square.png" alt=""></p>
+<blockquote>
+<p>The green channel represents the horizontal coordinates and the red channel the vertical coordinates. The black and yellow corners confirm that the texture coordinates are correctly interpolated from 0, 0 to 1, 1 across the square. Visualizing data using colors is the shader programming equivalent of printf debugging, for lack of a better option!</p>
+</blockquote>
+<h3 id="depth-buffering">Depth Buffering</h3>
+<h4 id="create-depth-resources-image-memory-and-image-view">Create depth resources: image, memory and image view</h4>
+<p>A depth attachment is based on an image, just like the color attachment. The difference is that the swap chain will not automatically create depth images for us. We only need a single depth image, because only one draw operation is running at once.
+Depth Images need to have a reasonable accuracy, at least 24 bits is common in real-world applications. There are several formats that fit this requirement:</p>
+<ul>
+<li><code>VK_FORMAT_D32_SFLOAT</code>: 32-bit float for depth</li>
+<li><code>VK_FORMAT_D32_SFLOAT_S8_UINT</code>: 32-bit signed float for depth and 8 bit stencil component</li>
+<li><code>VK_FORMAT_D24_UNORM_S8_UINT</code>: 24-bit float for depth and 8 bit stencil component</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="VkImage%20depthImage;%0aVkDeviceMemory%20depthImageMemory;%0aVkImageView%20depthImageView;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>VkImage depthImage;
+</span></span><span style="display:flex;"><span>VkDeviceMemory depthImageMemory;
+</span></span><span style="display:flex;"><span>VkImageView depthImageView;</span></span></code></pre></div>
+    
+</div>
+<ol>
+<li>(Optional) Explicitly transitioning the depth image</li>
+<li>Add to <strong>Render pass</strong>. Create a <code>VkAttachmentDescription</code> for depth. The format should be the same as the depth image itself.</li>
+<li>Modify the <strong>framebuffer</strong> creation to bind the depth image to the depth attachment.</li>
+<li>Because we now have multiple attachments with VK_ATTACHMENT_LOAD_OP_CLEAR, we also need to <strong>specify multiple clear values</strong> in <code>recordCommandBuffer</code>.</li>
+<li>Depth and stencil state <code>VkPipelineDepthStencilStateCreateInfo</code> in graphic pipeline</li>
+<li>Handling <strong>window resize</strong>. Extend the <strong>recreateSwapChain</strong> function to recreate the depth resources when window is resized.
+<img src="/VK_introduction_depth_buffer.png" alt=""></li>
+</ol>
+<h3 id="loading-models">Loading models</h3>
+<p>Use the <a href="https://github.com/tinyobjloader/tinyobjloader">tinyobjloader</a> library to load vertices and faces from an OBJ file.</p>
+<h3 id="mipmaps">Mipmaps</h3>
+<p>Mipmaps are precalculated, downscaled versions of an image. Each new image is half the width and height of the previous one. Mipmaps are used as a form of Level of Detail or LOD. Objects that are far away from the camera will sample their textures from the smaller mip images.</p>
+<ul>
+<li>In Vulkan, each of the mip images is stored in different mip levels of a VkImage. Mip level 0 is the original image, and the mip levels after level 0 are commonly referred to as the mip chain.</li>
+</ul>
+<h3 id="multisampling-anti-aliasing-msaa">Multisampling anti-aliasing (MSAA)</h3>
+<p>What MSAA does is it uses multiple sample points per pixel (hence the name) to determine its final color.</p>
+<ul>
+<li>Get available sample count from <code>physicalDeviceProperties</code></li>
+<li>Set up a render target, <code>VkImage colorImage;</code> <code>VkDeviceMemory colorImageMemory;</code> <code>VkImageView colorImageView;</code></li>
+<li>Add new attachments <code>pResolveAttachments</code></li>
+<li>Modify createFramebuffers and add the new image view to the list
+<img src="/VK_introduction_msaa.PNG" alt=""></li>
+</ul>
+<h2 id="misc">Misc</h2>
+<h3 id="what-is-attachment">What is Attachment?</h3>
+<p>To understand attachments in Vulkan, You first need to understand render-passes and sub-passes.</p>
+<p><strong>Render-pass</strong> is a general description of steps Your drawing commands are divided into and of resources used during rendering. We can&rsquo;t render anything in Vulkan without a render pass. And each render pass must have one or more steps. These steps are called,</p>
+<p><strong>Sub-passes</strong> and each sub-pass uses a (sub)collection of resources defined for the render-pass. Render-pass&rsquo;s resources may include render-targets (color, depth/stencil, resolve) and input data (resources that, potentially, were render-targets in previous sub-passes of the same render-pass). And these resources are called,</p>
+<p><strong>Attachments</strong> (they don&rsquo;t include descriptors/textures/samplers and buffers).</p>
+<p>Why don&rsquo;t we call them just render-targets or images? Because we not only render into them (input attachments) and because they are only descriptions (meta data). Images that should be used as attachments inside render-passes are provided through framebuffers.</p>
+<p>So, in general, we can call them images, because (as far as I know) only images can be used for attachments. But if we want to be fully correct: images are specific Vulkan resources that can be used for many purposes (descriptors/textures, attachments, staging resources); attachments are descriptions of resources used during rendering.
+<a href="https://stackoverflow.com/a/46384823">source</a></p>
+<h3 id="what-is-vksubpassdependency">What is VkSubpassDependency?</h3>
+<p><a href="https://stackoverflow.com/q/63320119">VkSubpassDependency specification clarification</a></p>
+<h3 id="framebuffer">Framebuffer</h3>
+<p><a href="https://vulkan.lunarg.com/doc/view/latest/windows/tutorial/html/12-init_frame_buffers.html">LunarG: Create the Framebuffers</a></p>
+<h3 id="memory-allocation-">Memory Allocation ???</h3>
+<p>There are few role of thumb ways to create memory in Vulkan, for example: <a href="https://developer.nvidia.com/vulkan-memory-management">NV: Vulkan Memory Management</a> and <a href="https://developer.nvidia.com/vulkan-shader-resource-binding">NV: Vulkan Shader Resource Binding</a>
+It&rsquo;s good to use the library like <a href="https://github.com/GPUOpen-LibrariesAndSDKs/VulkanMemoryAllocator">Vulkan Memory Allocator</a> to manage your memory in Vulkan</p>
+<h3 id="what-is-binding-in-vkvertexinputattributedescription-and-vkvertexinputbindingdescription">What is binding in VkVertexInputAttributeDescription and VkVertexInputBindingDescription</h3>
+<p><a href="https://stackoverflow.com/a/63345732">source</a></p>
+<h3 id="stencil-test">Stencil test</h3>
+<h2 id="source-code">Source Code</h2>
+<p>Please check my implementation in <a href="https://github.com/fjordyo0707/Vulkan_First_Triangle">here</a>. It include step by step git commit to check the addition for each sub chapther.</p>
+
+            
+        </div>
+    </article>
+
+        </main>
+
+        <footer class="footer">
+    <div class="footer-left">
+        <ul class="social">
+            
+
+            
+                <li>Cheng-Yu Fan</li>
+            
+
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </div>
+
+    <div class="footer-right">
+        <ul class="control status clearfix">
+            
+                <li>
+                    
+                        Word Count:
+                        3264
+                    
+                </li>
+            
+
+            
+                <li>en</li>
+            
+
+            
+                <li>
+                    <a href="https://gohugo.io" class="btn" target="_blank"
+                        >Hugo: 0.119.0</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    <a
+                        href="https://github.com/JingWangTW/dark-theme-editor"
+                        class="btn"
+                        target="_blank"
+                        >Theme: dark-theme-editor</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    
+                        Last modified: &nbsp;
+                        <time>
+                            Sep 29 2023 14:40:29
+                        </time>
+                    
+                </li>
+            
+
+            
+                <li title="">
+                    
+                </li>
+            
+        </ul>
+    </div>
+</footer>
+
+    </body>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <script
+        type="text/javascript"
+        src="/js/index.min.76f28ad9d7f1e1b68cfc55f930e89f7439bf72c0def552fa19d37555afaaaa776fc8533a913ac30e0162a7fb08415d19d1588e1d9a4f3328f0614c52f1a3963b.js"
+        integrity="sha512-dvKK2dfx4baM/FX5MOifdDm/csDe9VL6GdN1Va&#43;qqndvyFM6kTrDDgFip/sIQV0Z0ViOHZpPMyjwYUxS8aOWOw=="></script>
+
+
+
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+
+</html>

@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>PBR on CYFan Blog</title>
+    <link>https://example.org/tags/pbr/</link>
+    <description>Recent content in PBR on CYFan Blog</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sat, 29 Oct 2022 01:32:40 -0400</lastBuildDate><atom:link href="https://example.org/tags/pbr/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>My Pbrt Engine</title>
+      <link>https://example.org/graphics/pbr/my-pbrt-engine/</link>
+      <pubDate>Sat, 29 Oct 2022 01:32:40 -0400</pubDate>
+      
+      <guid>https://example.org/graphics/pbr/my-pbrt-engine/</guid>
+      <description>My own pbrt engine As a hibbist of raytracing, I would like to start my own Physically based Rendering Here are the few resources I am going to start with:
+pbrt book 3th edition Mitsuba Further Reading Raytracing System Kirk, D., and J.Arvo. 1988. The ray tracing kernel. In Proceedings of Ausgraph &amp;lsquo;88, 75-82 </description>
+    </item>
+    
+  </channel>
+</rss>

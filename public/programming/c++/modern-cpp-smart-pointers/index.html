@@ -1,0 +1,982 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="generator" content="Hugo 0.119.0">
+
+    
+
+    
+
+    
+        
+            <meta
+                name="description"
+                content="" />
+        
+
+        
+            <meta
+                name="keywords"
+                content="graphics, programming, compiler" />
+        
+
+        
+            <meta name="author" content="Cheng-Yu Fan" />
+        
+
+    
+
+
+    <title>
+        
+            Modern C&#43;&#43;: Smart Pointers |
+            CYF Blog
+        
+    </title>
+
+    
+
+
+    
+    
+
+
+    
+    
+
+
+    
+    
+    
+    
+
+
+    
+    
+
+    
+
+    
+
+        
+        
+
+
+        <link
+            rel="stylesheet"
+            href="/css/index.min.d769fcae9b652a4ac8ee5ab1bc267604bd6eb6156d80edb2184dcdaec0bf1a0275c755605e14086296051d441377666d37e9feb10efb12626040c729c01d2941.css"
+            integrity="sha512-12n8rptlKkrI7lqxvCZ2BL1uthVtgO2yGE3NrsC/GgJ1x1VgXhQIYpYFHUQTd2ZtN&#43;n&#43;sQ77EmJgQMcpwB0pQQ==" />
+    
+
+</head>
+
+
+
+    <body>
+        <header class="header">
+    <div class="header_left">
+        
+    </div>
+
+    <div class="header_middle">
+        
+            Modern C&#43;&#43;: Smart Pointers -
+            CYF Blog
+        
+    </div>
+</header>
+
+
+
+        <main>
+            <aside class="sidebar">
+    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li
+                    
+                        class="dir closed-dir"
+                    >
+                    <span class="dir-text"> Graphics </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/vulkan/vulkan-introduction/" title="./graphics/vulkan/vulkan-introduction/">
+                        Vulkan Introduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-hello-triangle/" title="./graphics/directx12/directx12-hello-triangle/">
+                        DirectX12 Hello Triangle
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-intoduction/" title="./graphics/directx12/directx12-intoduction/">
+                        DirectX12 Intoduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/pbr/my-pbrt-engine/" title="./graphics/pbr/my-pbrt-engine/">
+                        My Pbrt Engine
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li
+                    
+                        class="dir opened-dir"
+                    >
+                    <span class="dir-text"> Programmings </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-move-semantics/" title="./programming/c&#43;&#43;/modern-cpp-move-semantics/">
+                        Modern C&#43;&#43;: Move Semantics
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-lambdas/" title="./programming/c&#43;&#43;/modern-cpp-lambdas/">
+                        Modern C&#43;&#43;: Lambdas
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-smart-pointers/" title="./programming/c&#43;&#43;/modern-cpp-smart-pointers/">
+                        Modern C&#43;&#43;: Smart Pointers
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/contact/" title="./contact/">
+                        Contact
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/about/" title="./about/">
+                        About
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+</aside>
+<aside class="exapandable"></aside>
+
+
+            
+    <article class="main">
+        <button
+    class="sidebar-toggle-btn"
+    type="menu"
+    aria-expanded="false"
+    aria-haspopup="true">
+    <i class="bi bi-list"></i>
+</button>
+
+
+
+        <div class="title">
+            <h1 class="title-header">
+                Modern C&#43;&#43;: Smart Pointers
+            </h1>
+
+            <div class="author-date-readtime">
+                
+
+                    
+                        <div class="author">
+                            <i class="bi bi-person"></i>
+                            <a
+                                href="https://example.org/author/cheng-yu-fan/"
+                                class="cat-btn">
+                                Cheng-Yu Fan
+                            </a>
+                        </div>
+                    
+
+                
+
+                
+                    <div class="date">
+                        <i class="bi bi-calendar3"></i>
+                        <time
+                            datetime="2023.05.05"
+                            >2023.05.05
+                        </time>
+                    </div>
+                
+
+                
+            </div>
+        </div>
+
+        <div class="article-meta">
+            
+                <div class="categories">
+                    <i class="bi bi-bookmarks" title="Categories"></i>
+                    
+                        <a
+                            href="https://example.org/categories/programming/"
+                            class="cat-btn">
+                            Programming
+                        </a>
+                    
+                </div>
+            
+
+            
+                <div class="tags">
+                    <i class="bi bi-tags" title="Tags"></i>
+                    
+                        <a
+                            href="https://example.org/tags/c&#43;&#43;/"
+                            class="tag-btn">
+                            C&#43;&#43;
+                        </a>
+                    
+                </div>
+            
+
+            
+                <div class="breadcumb">
+                    <i class="bi bi-folder"></i>
+                    
+    
+    
+
+
+
+
+<a href="https://example.org/" class="bread-btn">
+    
+        <i class="bi bi-house-fill"></i>
+    
+
+    
+        Home
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/programming/" class="bread-btn">
+    
+
+    
+        Programmings
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/programming/c&#43;&#43;/modern-cpp-smart-pointers/" class="bread-btn">
+    
+
+    
+        Modern C&#43;&#43;: Smart Pointers
+    
+</a>
+
+                </div>
+            
+        </div>
+
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#polymorphism-and-heap-memory">Polymorphism and heap memory</a>
+      <ul>
+        <li><a href="#polymorphism-with-inheritance">Polymorphism with Inheritance</a></li>
+        <li><a href="#polymorphism-with-heap-memory">Polymorphism with Heap Memory</a></li>
+      </ul>
+    </li>
+    <li><a href="#smart-pointers">Smart Pointers</a>
+      <ul>
+        <li><a href="#shared-pointers">Shared Pointers</a></li>
+        <li><a href="#weak-pointers">Weak Pointers</a></li>
+      </ul>
+    </li>
+    <li><a href="#how-is-the-performance-of-shared-pointers">How is the performance of shared pointers?</a></li>
+    <li><a href="#unique-pointers">Unique Pointers</a>
+      <ul>
+        <li><a href="#unique-pointers-and-polymorphism">Unique Pointers And Polymorphism</a></li>
+      </ul>
+    </li>
+    <li><a href="#stdvariant">std::variant</a>
+      <ul>
+        <li><a href="#polymorphism-with-stdvariant">Polymorphism with std::variant&lt;&gt;</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+
+
+        <div class="content">
+            
+                <h2 id="polymorphism-and-heap-memory">Polymorphism and heap memory</h2>
+<h3 id="polymorphism-with-inheritance">Polymorphism with Inheritance</h3>
+<p>Before learning smart pointer, we need some review for polymorphism and heap memory.
+The most important feature of Polymorphism is <!-- raw HTML omitted --> heterogenous collection<!-- raw HTML omitted --></p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GeoObj</span> {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    GeoObj() <span style="color:#f92672">=</span> <span style="color:#66d9ef">default</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">draw</span>() <span style="color:#66d9ef">const</span> <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#f92672">~</span>GeoObj() <span style="color:#f92672">=</span> <span style="color:#66d9ef">default</span>;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Circle</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> GeoObj {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    Coord center;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> rad;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    Circle(Coord c, <span style="color:#66d9ef">int</span> r);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">draw</span>() <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">override</span>;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Line</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> GeoObj {
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    Coord from;
+</span></span><span style="display:flex;"><span>    Coord to;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    Line(Coord f, Coord t);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">virtual</span> <span style="color:#66d9ef">void</span> <span style="color:#a6e22e">draw</span>() <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">override</span>;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">*&gt;</span> p;    <span style="color:#75715e">// heterogenous collection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>Line l{Coord{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>}, Coord{<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>}};
+</span></span><span style="display:flex;"><span>Circle c{Coord{<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">5</span>}, <span style="color:#ae81ff">7</span>};
+</span></span><span style="display:flex;"><span>p.push(<span style="color:#f92672">&amp;</span>l);
+</span></span><span style="display:flex;"><span>p.push(<span style="color:#f92672">&amp;</span>c);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(GeoObj<span style="color:#f92672">*</span> gp : p) {
+</span></span><span style="display:flex;"><span>    p<span style="color:#f92672">-&gt;</span>draw();    <span style="color:#75715e">// polymorphic call
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div>
+    
+</div>
+<p><img src="https://i.imgur.com/8Di7cUp.png" alt=""></p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">*&gt;</span> createPicture() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">*&gt;</span> p;    <span style="color:#75715e">// heterogenous collection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    Line l{Coord{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>}, Coord{<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>}};
+</span></span><span style="display:flex;"><span>    Circle c{Coord{<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">5</span>}, <span style="color:#ae81ff">7</span>};
+</span></span><span style="display:flex;"><span>    p.push(<span style="color:#f92672">&amp;</span>l);
+</span></span><span style="display:flex;"><span>    p.push(<span style="color:#f92672">&amp;</span>c);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p;    <span style="color:#75715e">// Fatal runtime error: Returns vector with destroyed pointers
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">*&gt;</span> pict <span style="color:#f92672">=</span> creaturePicture();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(GeoObj<span style="color:#f92672">*</span> gp: pict) {
+</span></span><span style="display:flex;"><span>    gp<span style="color:#f92672">-&gt;</span>draw();    <span style="color:#75715e">//ERROR(undefined behavior)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div>
+    
+</div>
+<p><img src="https://i.imgur.com/E8oZI1u.png" alt=""></p>
+<h3 id="polymorphism-with-heap-memory">Polymorphism with Heap Memory</h3>
+<p>To keep the value without destorying in stack memory, we create the memory in heap</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">*&gt;</span> createPicture() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">*&gt;</span> p;    <span style="color:#75715e">// heterogenous collection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    Line<span style="color:#f92672">*</span> lp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Line{Coord{<span style="color:#ae81ff">1</span>,<span style="color:#ae81ff">2</span>}, Coord{<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>}};
+</span></span><span style="display:flex;"><span>    Circle<span style="color:#f92672">*</span> cp <span style="color:#f92672">=</span> <span style="color:#66d9ef">new</span> Circle{Coord{<span style="color:#ae81ff">5</span>,<span style="color:#ae81ff">5</span>}, <span style="color:#ae81ff">7</span>};
+</span></span><span style="display:flex;"><span>    p.push(lp);
+</span></span><span style="display:flex;"><span>    p.push(cp);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">*&gt;</span> pict <span style="color:#f92672">=</span> creaturePicture();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(GeoObj<span style="color:#f92672">*</span> gp: pict) {
+</span></span><span style="display:flex;"><span>    gp<span style="color:#f92672">-&gt;</span>draw();    <span style="color:#75715e">//ERROR(undefined behavior)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// remove all element without memory leak:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span>(GeoObj<span style="color:#f92672">*&amp;</span> geoPtr: pict) { <span style="color:#75715e">// reference to pointer as we assign a new value to each element
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">delete</span> geoPtr;
+</span></span><span style="display:flex;"><span>    geoPtr <span style="color:#f92672">=</span> <span style="color:#66d9ef">nullptr</span>; <span style="color:#75715e">// in case we don&#39;t remove the element
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pict.clear();</span></span></code></pre></div>
+    
+</div>
+<p><strong>Can we have something clean up for us?</strong></p>
+<h2 id="smart-pointers">Smart Pointers</h2>
+<ul>
+<li>Smart pointers
+<ul>
+<li>Object can be used like pointers, but are smarter</li>
+<li>Act as <!-- raw HTML omitted -->owners<!-- raw HTML omitted --> of the objects
+<ul>
+<li>Call <!-- raw HTML omitted --> delete<!-- raw HTML omitted --> for the objects they point to <strong>when they are is no longer used (owned)</strong></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><!-- raw HTML omitted -->Shared pointers<!-- raw HTML omitted -->
+<ul>
+<li>Shared ownership</li>
+<li>Some overhead</li>
+</ul>
+</li>
+<li><!-- raw HTML omitted -->Unique pointers<!-- raw HTML omitted -->
+<ul>
+<li>Exlusive ownership</li>
+<li>No overhead</li>
+</ul>
+</li>
+</ul>
+<h3 id="shared-pointers">Shared Pointers</h3>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20define%20type%20alias:%0d%0ausing%20GeoPtr%20=%20std::shared_ptr%3cGeoObj%3e;%0d%0a%0d%0astd::vector%3cGeoPtr%3e%20creaturePicture%28%29%20%7b%0d%0a%20%20%20%20std::vector%3cGeoPtr%3e%20p;%0d%0a%20%20%20%20auto%20lp%20=%20std::make_shared%3cLine%3e%28Coord%7b1,%202%7d,%20Coord%7b3,%204%7d%29;%0d%0a%20%20%20%20//%20std::shared_ptr%3cLine%3e%20lp%7bnew%20Line%7bCoord%7b1,2%7d,%20Coord%7b3,%204%7d%7d%7d;%0d%0a%20%20%20%20auto%20cp%20=%20std::make_shared%3cCircle%3e%28Coord%7b5,%205%7d,%207%29;%0d%0a%20%20%20%20//%20std::shared_ptr%3cCircle%3e%20cp%7bnew%20Circle%7bCoord%7b1,2%7d,%207%7d%7d;%0d%0a%20%20%20%20p.push%28lp%29;%0d%0a%20%20%20%20p.push%28cp%29;%0d%0a%20%20%20%20return%20p;%0d%0a%7d%0d%0a%0d%0astd::vector%3cGeoPtr%3e%20pict%20=%20creaturePicture%28%29;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// define type alias:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> GeoPtr <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">&gt;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoPtr<span style="color:#f92672">&gt;</span> creaturePicture() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoPtr<span style="color:#f92672">&gt;</span> p;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> lp <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>Line<span style="color:#f92672">&gt;</span>(Coord{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>}, Coord{<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>});
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// std::shared_ptr&lt;Line&gt; lp{new Line{Coord{1,2}, Coord{3, 4}}};
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> cp <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>Circle<span style="color:#f92672">&gt;</span>(Coord{<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>}, <span style="color:#ae81ff">7</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// std::shared_ptr&lt;Circle&gt; cp{new Circle{Coord{1,2}, 7}};
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    p.push(lp);
+</span></span><span style="display:flex;"><span>    p.push(cp);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoPtr<span style="color:#f92672">&gt;</span> pict <span style="color:#f92672">=</span> creaturePicture();</span></span></code></pre></div>
+    
+</div>
+<p><strong>During the function call <code>createPicture()</code></strong></p>
+<p><img src="https://i.imgur.com/KVeUawb.png" alt="">
+<strong>After the end of call <code>createPicture()</code></strong>
+<img src="https://i.imgur.com/dV3A5pK.png" alt="">
+<strong>After the call <code>pict.clear()</code></strong>
+<img src="https://i.imgur.com/URyFSrX.png" alt=""></p>
+<h3 id="weak-pointers">Weak Pointers</h3>
+<ul>
+<li><strong>Class</strong> <!-- raw HTML omitted -->weak_ptr<!-- raw HTML omitted -->
+<ul>
+<li><!-- raw HTML omitted -->Observer but not owner<!-- raw HTML omitted -->
+<ul>
+<li>Pointer that knows when it dangles
+<ul>
+<li>Allows code to share but not own an object or resource</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Useful
+<ul>
+<li>Cyclic references</li>
+<li>Pinters to a resource with decouple lifecycle</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<p><img src="https://i.imgur.com/VLAcg9d.png" alt=""></p>
+<p>If we delete the <code>shared_ptr</code> points to <code>resource A</code>, we could still ask the <code>weak_ptr</code> &ldquo;Is this still an object&rdquo;, which you cannot do in raw pointer. Raw pointers point the memory which may become meantime some other object, but weak pointers know when it is dangled.
+<img src="https://i.imgur.com/IkfVcsC.png" alt=""></p>
+<h4 id="weak-pointers-might-hold-memory-after-deleter-is-called">Weak pointers might hold memory after deleter is called</h4>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>weak_ptr<span style="color:#f92672">&lt;</span>R<span style="color:#f92672">&gt;</span> wp;
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>R<span style="color:#f92672">&gt;</span> gp;
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">auto</span> sp <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>R<span style="color:#f92672">&gt;</span>();
+</span></span><span style="display:flex;"><span>            gp <span style="color:#f92672">=</span> sp;
+</span></span><span style="display:flex;"><span>            wp <span style="color:#f92672">=</span> sp;
+</span></span><span style="display:flex;"><span>        } <span style="color:#75715e">// (1)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    }     <span style="color:#75715e">// (2)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ...
+</span></span><span style="display:flex;"><span>}         <span style="color:#75715e">// (3) 
+</span></span></span></code></pre></div>
+    
+</div>
+<p>(1)
+<img src="https://i.imgur.com/TWQH1M4.png" alt="">
+(2)
+<img src="https://i.imgur.com/incyTdi.png" alt="">
+(3)
+<img src="https://i.imgur.com/WO1OdFb.png" alt=""></p>
+<ul>
+<li>The control block is bounded by the resource <code>R</code>, which means <strong>even though you thought the object is destoryed, but the entire object memory is still there until the weaks counter counts to 0</strong>.</li>
+<li><!-- raw HTML omitted -->Simple walk around solution<!-- raw HTML omitted -->: use <code>std::shared_ptr&lt;R&gt; sp{new R};</code>. Two step initialization will seperate the memory and control block, which make control block memory and resource seperately.</li>
+</ul>
+<h2 id="how-is-the-performance-of-shared-pointers">How is the performance of shared pointers?</h2>
+<p><img src="https://i.imgur.com/6QQfsU4.png" alt=""></p>
+<ul>
+<li>Does copying shared pointers in different threads cause a data race?
+<ul>
+<li><!-- raw HTML omitted -->No, changes in <code>use_count()</code> do not reflect modifications that can introduce data races.<!-- raw HTML omitted --></li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20initalize%20vector%20with%201000%20shared%20pointers:%0d%0astd::vector%3cstd::shared_ptr%3cT%3e%3e%20coll;%0d%0afor%28int%20i%20=%200;%20i%20%3c%201000;%20&#43;&#43;i%29%20%7b%0d%0a%20%20%20%20coll.push_back%28std::make_shared%3cT%3e%28%29%29;%0d%0a%7d%0d%0a%0d%0aint%20numIterations%20=%201%27000%27000;%0d%0a%0d%0avoid%20threadLoop%28int%20numThreads%29%20%0d%0a%7b%0d%0a%20%20%20%20//%20loop%201%20milllion%20times%20%28partitioned%20over%20all%20thread%29%20overall%20all%20pointers:%0d%0a%20%20%20%20//%20&amp;%20optional%20=%3e%20optional%20copying%20the%20shared%20pointers%0d%0a%20%20%20%20for%28auto&amp;%20sp:%20coll%29%20%7b%20%20%20%20%20%20%20%20%20%20%20%20//%20By%20reference%20can%20be%20faster%20by%20a%20factor%20of%202%20to%201000%0d%0a%20%20%20%20%20%20%20%20sp-%3eincrementLocalInt%28%29;%0d%0a%20%20%20%20%7d%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// initalize vector with 1000 shared pointers:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>shared_ptr<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;&gt;</span> coll;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">int</span> i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">1000</span>; <span style="color:#f92672">++</span>i) {
+</span></span><span style="display:flex;"><span>    coll.push_back(std<span style="color:#f92672">::</span>make_shared<span style="color:#f92672">&lt;</span>T<span style="color:#f92672">&gt;</span>());
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> numIterations <span style="color:#f92672">=</span> <span style="color:#ae81ff">1&#39;000&#39;000</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">threadLoop</span>(<span style="color:#66d9ef">int</span> numThreads) 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// loop 1 milllion times (partitioned over all thread) overall all pointers:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// &amp; optional =&gt; optional copying the shared pointers
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> sp: coll) {            <span style="color:#75715e">// By reference can be faster by a factor of 2 to 1000
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        sp<span style="color:#f92672">-&gt;</span>incrementLocalInt();
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<p><strong><!-- raw HTML omitted -->In conclusion, pass shared and weak pointers by reference<!-- raw HTML omitted --></strong></p>
+<h2 id="unique-pointers">Unique Pointers</h2>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20define%20type%20alias:%0d%0ausing%20GeoPtr%20=%20std::unique_ptr%3cGeoObj%3e;%0d%0a%0d%0astd::vector%3cGeoPtr%3e%20creaturePicture%28%29%20%7b%0d%0a%20%20%20%20std::vector%3cGeoPtr%3e%20p;%0d%0a%20%20%20%20auto%20lp%20=%20std::make_unique%3cLine%3e%28Coord%7b1,%202%7d,%20Coord%7b3,%204%7d%29;%0d%0a%20%20%20%20//%20std::unique_ptr%3cLine%3e%20lp%7bnew%20Line%7bCoord%7b1,2%7d,%20Coord%7b3,%204%7d%7d%7d;%0d%0a%20%20%20%20auto%20cp%20=%20std::make_unique%3cCircle%3e%28Coord%7b5,%205%7d,%207%29;%0d%0a%20%20%20%20//%20std::unique_ptr%3cCircle%3e%20cp%7bnew%20Circle%7bCoord%7b1,2%7d,%207%7d%7d;%0d%0a%20%20%20%20%0d%0a%20%20%20%20p.push%28lp%29;%20//%20ERROR:%20copying%20diabled%0d%0a%20%20%20%20p.push%28cp%29;%20//%20ERROR:%20copying%20diabled%0d%0a%20%20%20%20%0d%0a%20%20%20%20p.push%28std::move%28lp%29%29;%20//%20moves%20ownership%0d%0a%20%20%20%20p.push%28std::move%28cp%29%29;%20//%20moves%20ownership%0d%0a%20%20%20%20%20%0d%0a%20%20%20%20return%20p;%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// define type alias:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">using</span> GeoPtr <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>unique_ptr<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">&gt;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoPtr<span style="color:#f92672">&gt;</span> creaturePicture() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoPtr<span style="color:#f92672">&gt;</span> p;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> lp <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>Line<span style="color:#f92672">&gt;</span>(Coord{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>}, Coord{<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>});
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// std::unique_ptr&lt;Line&gt; lp{new Line{Coord{1,2}, Coord{3, 4}}};
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> cp <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>Circle<span style="color:#f92672">&gt;</span>(Coord{<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>}, <span style="color:#ae81ff">7</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// std::unique_ptr&lt;Circle&gt; cp{new Circle{Coord{1,2}, 7}};
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    
+</span></span><span style="display:flex;"><span>    p.push(lp); <span style="color:#75715e">// ERROR: copying diabled
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    p.push(cp); <span style="color:#75715e">// ERROR: copying diabled
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    
+</span></span><span style="display:flex;"><span>    p.push(std<span style="color:#f92672">::</span>move(lp)); <span style="color:#75715e">// moves ownership
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    p.push(std<span style="color:#f92672">::</span>move(cp)); <span style="color:#75715e">// moves ownership
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>     
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<p><img src="https://i.imgur.com/dqnTMe5.png" alt="">
+<img src="https://i.imgur.com/Afmh80h.png" alt=""></p>
+<h3 id="unique-pointers-and-polymorphism">Unique Pointers And Polymorphism</h3>
+<ul>
+<li><strong>Downcasts do not work for unique pointers</strong>
+<ul>
+<li>They will create a second owner to the object</li>
+<li>You have to use temporary raw pointer</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">GeoObj</span> {...};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Circle</span> <span style="color:#f92672">:</span> <span style="color:#66d9ef">public</span> GeoObj {...};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>unique_ptr<span style="color:#f92672">&lt;</span>GeoObj<span style="color:#f92672">&gt;&gt;</span> geoObjs;
+</span></span><span style="display:flex;"><span>geoObjs.push_back(std<span style="color:#f92672">::</span>make_unique<span style="color:#f92672">&lt;</span>Circle<span style="color:#f92672">&gt;</span>(...));  <span style="color:#75715e">// OK, insert circle into collection
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> p <span style="color:#f92672">=</span> geoObjs[<span style="color:#ae81ff">0</span>];                         <span style="color:#75715e">// p is unique_ptr&lt;GeoObj&gt;
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>unique_ptr<span style="color:#f92672">&lt;</span>Circle<span style="color:#f92672">&gt;</span> cp{p};                      <span style="color:#75715e">// comiple-time Error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">auto</span> <span style="color:#a6e22e">cp</span>(<span style="color:#66d9ef">dynamic_cast</span><span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>unique_ptr<span style="color:#f92672">&lt;</span>Circle<span style="color:#f92672">&gt;&gt;</span>(p));  <span style="color:#75715e">// compile-time Error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">auto</span> cp <span style="color:#f92672">=</span> <span style="color:#66d9ef">dynamic_cast</span><span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>unique_ptr<span style="color:#f92672">&lt;</span>Circle<span style="color:#f92672">&gt;&gt;</span>(p); <span style="color:#75715e">// compile-time Error
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">if</span>(<span style="color:#66d9ef">auto</span> cp <span style="color:#f92672">=</span> <span style="color:#66d9ef">dynamic_cast</span><span style="color:#f92672">&lt;</span>Circle<span style="color:#f92672">*&gt;</span>(p.get())) {      <span style="color:#75715e">// OK (temporary raw pointer)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ... <span style="color:#75715e">//use cp as Circle*
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div>
+    
+</div>
+<h2 id="stdvariant">std::variant</h2>
+<h3 id="polymorphism-with-stdvariant">Polymorphism with std::variant&lt;&gt;</h3>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">using</span> GeoObjVar <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>variant<span style="color:#f92672">&lt;</span>Circle, Line<span style="color:#f92672">&gt;</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vecotr<span style="color:#f92672">&lt;</span>GeoObjVar<span style="color:#f92672">&gt;</span> createPicture() {
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoObjVar<span style="color:#f92672">&gt;</span> p;
+</span></span><span style="display:flex;"><span>    p.push_back(Line{Coord{<span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>}, Coord{<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">4</span>}});
+</span></span><span style="display:flex;"><span>    p.push_back(Circle{Coord{<span style="color:#ae81ff">5</span>, <span style="color:#ae81ff">5</span>}, <span style="color:#ae81ff">7</span>});
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>GeoObjVar<span style="color:#f92672">&gt;</span> pict <span style="color:#f92672">=</span> creatPicture();
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">const</span> GeoObjVar<span style="color:#f92672">&amp;</span> geoobj: pict) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">switch</span>(geoobj.index()) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">0</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            std<span style="color:#f92672">::</span>get<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">0</span><span style="color:#f92672">&gt;</span>(geoobj).draw();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">case</span> <span style="color:#ae81ff">1</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>            std<span style="color:#f92672">::</span>get<span style="color:#f92672">&lt;</span><span style="color:#ae81ff">1</span><span style="color:#f92672">&gt;</span>(geoobj).draw();
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// or using visit
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    std<span style="color:#f92672">::</span>visit([] (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> obj) {
+</span></span><span style="display:flex;"><span>        obj.draw(); <span style="color:#75715e">//polymorphic call
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    },
+</span></span><span style="display:flex;"><span>    geoobj);
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>pict.clear()</span></span></code></pre></div>
+    
+</div>
+
+            
+        </div>
+    </article>
+
+        </main>
+
+        <footer class="footer">
+    <div class="footer-left">
+        <ul class="social">
+            
+
+            
+                <li>Cheng-Yu Fan</li>
+            
+
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </div>
+
+    <div class="footer-right">
+        <ul class="control status clearfix">
+            
+                <li>
+                    
+                        Word Count:
+                        880
+                    
+                </li>
+            
+
+            
+                <li>en</li>
+            
+
+            
+                <li>
+                    <a href="https://gohugo.io" class="btn" target="_blank"
+                        >Hugo: 0.119.0</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    <a
+                        href="https://github.com/JingWangTW/dark-theme-editor"
+                        class="btn"
+                        target="_blank"
+                        >Theme: dark-theme-editor</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    
+                        Last modified: &nbsp;
+                        <time>
+                            May 05 2023 15:03:58
+                        </time>
+                    
+                </li>
+            
+
+            
+                <li title="">
+                    
+                </li>
+            
+        </ul>
+    </div>
+</footer>
+
+    </body>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <script
+        type="text/javascript"
+        src="/js/index.min.76f28ad9d7f1e1b68cfc55f930e89f7439bf72c0def552fa19d37555afaaaa776fc8533a913ac30e0162a7fb08415d19d1588e1d9a4f3328f0614c52f1a3963b.js"
+        integrity="sha512-dvKK2dfx4baM/FX5MOifdDm/csDe9VL6GdN1Va&#43;qqndvyFM6kTrDDgFip/sIQV0Z0ViOHZpPMyjwYUxS8aOWOw=="></script>
+
+
+
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+
+</html>

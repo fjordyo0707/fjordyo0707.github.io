@@ -1,0 +1,1135 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="generator" content="Hugo 0.119.0">
+
+    
+
+    
+
+    
+        
+            <meta
+                name="description"
+                content="" />
+        
+
+        
+            <meta
+                name="keywords"
+                content="graphics, programming, compiler" />
+        
+
+        
+            <meta name="author" content="Cheng-Yu Fan" />
+        
+
+    
+
+
+    <title>
+        
+            Modern C&#43;&#43;: Lambdas |
+            CYF Blog
+        
+    </title>
+
+    
+
+
+    
+    
+
+
+    
+    
+
+
+    
+    
+    
+    
+
+
+    
+    
+
+    
+
+    
+
+        
+        
+
+
+        <link
+            rel="stylesheet"
+            href="/css/index.min.d769fcae9b652a4ac8ee5ab1bc267604bd6eb6156d80edb2184dcdaec0bf1a0275c755605e14086296051d441377666d37e9feb10efb12626040c729c01d2941.css"
+            integrity="sha512-12n8rptlKkrI7lqxvCZ2BL1uthVtgO2yGE3NrsC/GgJ1x1VgXhQIYpYFHUQTd2ZtN&#43;n&#43;sQ77EmJgQMcpwB0pQQ==" />
+    
+
+</head>
+
+
+
+    <body>
+        <header class="header">
+    <div class="header_left">
+        
+    </div>
+
+    <div class="header_middle">
+        
+            Modern C&#43;&#43;: Lambdas -
+            CYF Blog
+        
+    </div>
+</header>
+
+
+
+        <main>
+            <aside class="sidebar">
+    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li
+                    
+                        class="dir closed-dir"
+                    >
+                    <span class="dir-text"> Graphics </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/vulkan/vulkan-introduction/" title="./graphics/vulkan/vulkan-introduction/">
+                        Vulkan Introduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-hello-triangle/" title="./graphics/directx12/directx12-hello-triangle/">
+                        DirectX12 Hello Triangle
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-intoduction/" title="./graphics/directx12/directx12-intoduction/">
+                        DirectX12 Intoduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/pbr/my-pbrt-engine/" title="./graphics/pbr/my-pbrt-engine/">
+                        My Pbrt Engine
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li
+                    
+                        class="dir opened-dir"
+                    >
+                    <span class="dir-text"> Programmings </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-move-semantics/" title="./programming/c&#43;&#43;/modern-cpp-move-semantics/">
+                        Modern C&#43;&#43;: Move Semantics
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-lambdas/" title="./programming/c&#43;&#43;/modern-cpp-lambdas/">
+                        Modern C&#43;&#43;: Lambdas
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-smart-pointers/" title="./programming/c&#43;&#43;/modern-cpp-smart-pointers/">
+                        Modern C&#43;&#43;: Smart Pointers
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/contact/" title="./contact/">
+                        Contact
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/about/" title="./about/">
+                        About
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+</aside>
+<aside class="exapandable"></aside>
+
+
+            
+    <article class="main">
+        <button
+    class="sidebar-toggle-btn"
+    type="menu"
+    aria-expanded="false"
+    aria-haspopup="true">
+    <i class="bi bi-list"></i>
+</button>
+
+
+
+        <div class="title">
+            <h1 class="title-header">
+                Modern C&#43;&#43;: Lambdas
+            </h1>
+
+            <div class="author-date-readtime">
+                
+
+                    
+                        <div class="author">
+                            <i class="bi bi-person"></i>
+                            <a
+                                href="https://example.org/author/cheng-yu-fan/"
+                                class="cat-btn">
+                                Cheng-Yu Fan
+                            </a>
+                        </div>
+                    
+
+                
+
+                
+                    <div class="date">
+                        <i class="bi bi-calendar3"></i>
+                        <time
+                            datetime="2023.05.05"
+                            >2023.05.05
+                        </time>
+                    </div>
+                
+
+                
+            </div>
+        </div>
+
+        <div class="article-meta">
+            
+                <div class="categories">
+                    <i class="bi bi-bookmarks" title="Categories"></i>
+                    
+                        <a
+                            href="https://example.org/categories/programming/"
+                            class="cat-btn">
+                            Programming
+                        </a>
+                    
+                </div>
+            
+
+            
+                <div class="tags">
+                    <i class="bi bi-tags" title="Tags"></i>
+                    
+                        <a
+                            href="https://example.org/tags/c&#43;&#43;/"
+                            class="tag-btn">
+                            C&#43;&#43;
+                        </a>
+                    
+                </div>
+            
+
+            
+                <div class="breadcumb">
+                    <i class="bi bi-folder"></i>
+                    
+    
+    
+
+
+
+
+<a href="https://example.org/" class="bread-btn">
+    
+        <i class="bi bi-house-fill"></i>
+    
+
+    
+        Home
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/programming/" class="bread-btn">
+    
+
+    
+        Programmings
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/programming/c&#43;&#43;/modern-cpp-lambdas/" class="bread-btn">
+    
+
+    
+        Modern C&#43;&#43;: Lambdas
+    
+</a>
+
+                </div>
+            
+        </div>
+
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#stl">STL</a>
+      <ul>
+        <li><a href="#before-modern-c">Before Modern C++:</a></li>
+        <li><a href="#more-general-approach">More General Approach</a></li>
+      </ul>
+    </li>
+    <li><a href="#lambdas-as-better-functions">Lambdas as Better Functions</a></li>
+    <li><a href="#lambdas-are-function-object">Lambdas are function object</a></li>
+    <li><a href="#type-of-lambdas">Type of Lambdas</a></li>
+    <li><a href="#generic-functions-vs-generic-lambdas">Generic Functions vs. Generic Lambdas</a></li>
+    <li><a href="#lambdas-return-type">Lambdas: Return Type</a></li>
+    <li><a href="#lambdas-as-function-pointers">Lambdas as Function Pointers</a></li>
+    <li><a href="#lambda-caputre-by-reference">Lambda: Caputre by Reference</a>
+      <ul>
+        <li><a href="#other-usages">Other usages</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+
+
+        <div class="content">
+            
+                <h2 id="stl">STL</h2>
+<ul>
+<li><!-- raw HTML omitted -->Data stuctures<!-- raw HTML omitted --> as ranges</li>
+<li><!-- raw HTML omitted -->Algorithm<!-- raw HTML omitted --></li>
+<li><!-- raw HTML omitted -->Ilterators<!-- raw HTML omitted --> as glue interface</li>
+<li><!-- raw HTML omitted -->Callables<!-- raw HTML omitted --></li>
+</ul>
+<h3 id="before-modern-c">Before Modern C++:</h3>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">Person</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>string getName() <span style="color:#66d9ef">const</span>;
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>string getId() <span style="color:#66d9ef">const</span>;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">lessName</span>(<span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p1, <span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p2) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p1.getName() <span style="color:#f92672">&lt;</span> p2.getName();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">lessId</span>(<span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p1, <span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p2) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> p1.getId() <span style="color:#f92672">&lt;</span> p2.getId();
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> coll;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>sort(coll.begin(), coll.end(), lessName);
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>sort(coll.begin(), coll.end(), lessId);</span></span></code></pre></div>
+    
+</div>
+<p>The problem is that we have to define functions, and functions have several drawback. One is that we cannot define function inside local scope. It&rsquo;s hard to maintain the code due to naming.</p>
+<h3 id="more-general-approach">More General Approach</h3>
+<p>Creater helper functions which is callable. One of possible solution is <strong>Lambda function</strong></p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> coll;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>sort(coll.begin(), coll.end(), 
+</span></span><span style="display:flex;"><span>         [](<span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p1, <span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p2) {
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">return</span> p1.getName() <span style="color:#f92672">&lt;</span> p2.getName;
+</span></span><span style="display:flex;"><span>         });
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>sort(coll.begin(), coll.end(), 
+</span></span><span style="display:flex;"><span>         [](<span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p1, <span style="color:#66d9ef">const</span> Person<span style="color:#f92672">&amp;</span> p2) {
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">return</span> p1.getId() <span style="color:#f92672">&lt;</span> p2.getId;
+</span></span><span style="display:flex;"><span>         });</span></span></code></pre></div>
+    
+</div>
+<p><strong>Lambda</strong>: <!-- raw HTML omitted -->function object<!-- raw HTML omitted --> defined on the fly.
+In C++14, we even skip the specific type to more general type</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>Person<span style="color:#f92672">&gt;</span> coll;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>sort(coll.begin(), coll.end(), 
+</span></span><span style="display:flex;"><span>         [](<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> p1, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> p2) {
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">return</span> p1.getName() <span style="color:#f92672">&lt;</span> p2.getName;
+</span></span><span style="display:flex;"><span>         });
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>sort(coll.begin(), coll.end(), 
+</span></span><span style="display:flex;"><span>         [](<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> p1, <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> p2) {
+</span></span><span style="display:flex;"><span>             <span style="color:#66d9ef">return</span> p1.getId() <span style="color:#f92672">&lt;</span> p2.getId;
+</span></span><span style="display:flex;"><span>         });</span></span></code></pre></div>
+    
+</div>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> twice <span style="color:#f92672">=</span> [](<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> x) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x<span style="color:#f92672">+</span>x;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> i <span style="color:#f92672">=</span> twice(<span style="color:#ae81ff">3</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> d <span style="color:#f92672">=</span> twice(<span style="color:#ae81ff">1.7</span>);
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> s <span style="color:#f92672">=</span> twice(std<span style="color:#f92672">::</span>string{<span style="color:#e6db74">&#34;hi&#34;</span>});
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> t <span style="color:#f92672">=</span> twice(<span style="color:#e6db74">&#34;hi&#34;</span>); <span style="color:#75715e">// Error: const char[3] + const char[3]
+</span></span></span></code></pre></div>
+    
+</div>
+<h2 id="lambdas-as-better-functions">Lambdas as Better Functions</h2>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="bool%20less7%28int%20v%29%20%7b%0d%0a%20%20%20%20return%20v%20%3c%207;%0d%0a%7d%0d%0a%0d%0abool%20less8%28int%20v%29%20%7b%0d%0a%20%20%20%20return%20v%20%3c%208;%0d%0a%7d%0d%0a%0d%0acount_if%28c.begin%28%29,%20c.end%28%29,%20less7%29;%0d%0acount_if%28c.begin%28%29,%20c.end%28%29,%20less8%29;%0d%0a%0d%0a//%20what%20if%20the%20value%20is%20undetermined%20?%0d%0avoid%20foo%28int%20max%29%20%7b%0d%0a%20%20%20%20count_if%28c.begin%28%29,%20c.end%28%29,%20lessMax%29;%20//%20?????%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">less7</span>(<span style="color:#66d9ef">int</span> v) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> v <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">7</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">bool</span> <span style="color:#a6e22e">less8</span>(<span style="color:#66d9ef">int</span> v) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> v <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">8</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>count_if(c.begin(), c.end(), less7);
+</span></span><span style="display:flex;"><span>count_if(c.begin(), c.end(), less8);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// what if the value is undetermined ?
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span>(<span style="color:#66d9ef">int</span> max) {
+</span></span><span style="display:flex;"><span>    count_if(c.begin(), c.end(), lessMax); <span style="color:#75715e">// ?????
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div>
+    
+</div>
+<p>Lambdas can <!-- raw HTML omitted -->capture<!-- raw HTML omitted --> on the behavior parameters.</p>
+<ul>
+<li>Functionality can depend on run-time parameters</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="void%20foo%28int%20max%29%20%7b%0d%0a%20%20%20%20count_if%28c.begin%28%29,%20c.end%28%29,%0d%0a%20%20%20%20[max]%20%28int%20v%29%20%7b%0d%0a%20%20%20%20%20%20%20%20return%20v%20%3c%20max;%0d%0a%20%20%20%20%7d%29;%20%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> <span style="color:#a6e22e">foo</span>(<span style="color:#66d9ef">int</span> max) {
+</span></span><span style="display:flex;"><span>    count_if(c.begin(), c.end(),
+</span></span><span style="display:flex;"><span>    [max] (<span style="color:#66d9ef">int</span> v) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> v <span style="color:#f92672">&lt;</span> max;
+</span></span><span style="display:flex;"><span>    }); 
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<h2 id="lambdas-are-function-object">Lambdas are function object</h2>
+<ul>
+<li>Lambdas are <!-- raw HTML omitted -->function objects<!-- raw HTML omitted -->
+<ul>
+<li>of a &ldquo;unique non-union class <!-- raw HTML omitted -->closure<!-- raw HTML omitted --> type&rdquo;</li>
+<li>The object can be used like functions
+<ul>
+<li>Having <!-- raw HTML omitted -->operator()<!-- raw HTML omitted --> defined
+It has the same effect as:</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> add <span style="color:#f92672">=</span> [] (<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> y;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">lambda</span><span style="color:#f92672">???</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">auto</span> <span style="color:#66d9ef">operator</span>() (<span style="color:#66d9ef">int</span> x, <span style="color:#66d9ef">int</span> y) <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> x <span style="color:#f92672">+</span> y;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> add <span style="color:#f92672">=</span> lambda<span style="color:#f92672">???</span>{};</span></span></code></pre></div>
+    
+</div>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">while</span> (...) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> min, max;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>find_if(coll.begin(), coll.end(),
+</span></span><span style="display:flex;"><span>                    [min, max](<span style="color:#66d9ef">int</span> i) {
+</span></span><span style="display:flex;"><span>                        <span style="color:#66d9ef">return</span> min <span style="color:#f92672">&lt;=</span> i <span style="color:#f92672">&amp;&amp;</span> i <span style="color:#f92672">&lt;=</span> max;
+</span></span><span style="display:flex;"><span>                    });
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">class</span> <span style="color:#a6e22e">lambda</span><span style="color:#f92672">???</span> {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">private</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> _min, _max;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">public</span><span style="color:#f92672">:</span>
+</span></span><span style="display:flex;"><span>    lambda<span style="color:#f92672">???</span>(<span style="color:#66d9ef">int</span> min, <span style="color:#66d9ef">int</span> max)<span style="color:#f92672">:</span> _min(min), _max(max) {} <span style="color:#75715e">// only callable before C++20
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">auto</span> <span style="color:#a6e22e">operator</span>() (<span style="color:#66d9ef">int</span> i) <span style="color:#66d9ef">const</span> {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> min <span style="color:#f92672">&lt;=</span> i <span style="color:#f92672">&amp;&amp;</span> i <span style="color:#f92672">&lt;=</span> max;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// It is equal to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">while</span> (...) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">int</span> min, max;
+</span></span><span style="display:flex;"><span>    ...
+</span></span><span style="display:flex;"><span>    p <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>find_if(coll.begin(), coll.end(),
+</span></span><span style="display:flex;"><span>                    lambda<span style="color:#f92672">???</span>(min, max));
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<h2 id="type-of-lambdas">Type of Lambdas</h2>
+<ul>
+<li>Each lambda has its own (closure) type
+<ul>
+<li>The type of the lambda expression is a unqiue, unnamed nonunion class type</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="auto%20x%20=%20[]%20%28%29%20%7b%7d;%20//%20x%20has%20its%20own%20type%0d%0aauto%20y%20=%20[]%20%28%29%20%7b%7d;%20//%20y%20has%20its%20own%20type%0d%0a%0d%0astd::is_same%3cdecltype%28x%29,%20decltype%28y%29%3e::value;%20//yields%20false%0d%0aauto%20z%20=%20x;%20//%20z%20has%20the%20same%20type%0d%0astd::is_same%3cdecltype%28x%29,%20decltype%28z%29%3e::value;%20//yields%20true">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> x <span style="color:#f92672">=</span> [] () {}; <span style="color:#75715e">// x has its own type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">auto</span> y <span style="color:#f92672">=</span> [] () {}; <span style="color:#75715e">// y has its own type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>is_same<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">decltype</span>(x), <span style="color:#66d9ef">decltype</span>(y)<span style="color:#f92672">&gt;::</span>value; <span style="color:#75715e">//yields false
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">auto</span> z <span style="color:#f92672">=</span> x; <span style="color:#75715e">// z has the same type
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>std<span style="color:#f92672">::</span>is_same<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">decltype</span>(x), <span style="color:#66d9ef">decltype</span>(z)<span style="color:#f92672">&gt;::</span>value; <span style="color:#75715e">//yields true
+</span></span></span></code></pre></div>
+    
+</div>
+<ul>
+<li>Lambdas are objects of a generated class
+<ul>
+<li>The closure type is a class</li>
+</ul>
+</li>
+<li>You cannot find out whether an object is a lambda</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20There%20is%20no%20std::is_lambda%3c%3e%20%0d%0abool%20b1%20=%20std::is_class%3cdecltype%28twice%29%3e::value;%20%20//true%0d%0abool%20b1%20=%20std::is_class%3cdecltype%28twice%29%3e::value;%20%20//true%20%28since%20C&#43;&#43;17%29">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// There is no std::is_lambda&lt;&gt; 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> b1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>is_class<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">decltype</span>(twice)<span style="color:#f92672">&gt;::</span>value;  <span style="color:#75715e">//true
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">bool</span> b1 <span style="color:#f92672">=</span> std<span style="color:#f92672">::</span>is_class<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">decltype</span>(twice)<span style="color:#f92672">&gt;::</span>value;  <span style="color:#75715e">//true (since C++17)
+</span></span></span></code></pre></div>
+    
+</div>
+<h2 id="generic-functions-vs-generic-lambdas">Generic Functions vs. Generic Lambdas</h2>
+<ul>
+<li>Generic Lambdas since C++14:</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">auto</span> printLmbd <span style="color:#f92672">=</span> [] (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> coll) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span> (<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> elem: coll) {
+</span></span><span style="display:flex;"><span>        std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span> elem <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>};</span></span></code></pre></div>
+    
+</div>
+<ul>
+<li>Generic functions:</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#66d9ef">template</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">template</span> T<span style="color:#f92672">&gt;</span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> printFunc(<span style="color:#66d9ef">const</span> T<span style="color:#f92672">&amp;</span> coll) {
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">for</span>(<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> elem: coll) {
+</span></span><span style="display:flex;"><span>        std:cout <span style="color:#f92672">&lt;&lt;</span> elem <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> v;
+</span></span><span style="display:flex;"><span>...
+</span></span><span style="display:flex;"><span>printFunc(v);
+</span></span><span style="display:flex;"><span>printLmbd(v);
+</span></span><span style="display:flex;"><span>printFunc<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;hi&#34;</span>);     <span style="color:#75715e">//OK
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>printLmbd<span style="color:#f92672">&lt;</span>std<span style="color:#f92672">::</span>string<span style="color:#f92672">&gt;</span>(<span style="color:#e6db74">&#34;hi&#34;</span>);     <span style="color:#75715e">//ERROR
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// To specify the template parameter use: printLmbd.operator()&lt;std::string&gt;(&#34;hi&#34;)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// The object don&#39;t have a template
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>call(printFunc, v);               <span style="color:#75715e">// ERROR
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>call(printFunc<span style="color:#f92672">&lt;</span>dectype(v)<span style="color:#f92672">&gt;</span>, v);   <span style="color:#75715e">//OK
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>call(printLmbd, v);               <span style="color:#75715e">// OK, Lambda is not a generic object
+</span></span></span></code></pre></div>
+    
+</div>
+<h2 id="lambdas-return-type">Lambdas: Return Type</h2>
+<ul>
+<li>The minimal lambda:</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="[]%7b%7d%20//%20equivalent%20to%20[]%28%29%20-%3e%20void%20%7b%20%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>[]{} <span style="color:#75715e">// equivalent to []() -&gt; void { }
+</span></span></span></code></pre></div>
+    
+</div>
+<ul>
+<li>The return type can be deduced
+<ul>
+<li><code>void</code> without any return statement</li>
+<li><code>auto</code> if all return statements have same value</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="[]%20%28long%20val%29%20%7b%20%20%20%20%20%20%20%20//%20ERROR:%20return%20types%20differ%0d%0a%20%20%20%20if%20%28val%20%3c%2010%29%20%7b%0d%0a%20%20%20%20%20%20%20%20return%20val;%0d%0a%20%20%20%20%7d%0d%0a%20%20%20%20return%2010;%0d%0a%7d%0d%0a%0d%0a[]%20%28long%20val%29%20-%3e%20long%20%7b%20%20%20%20%20%20%20%20//%20OK%0d%0a%20%20%20%20if%20%28val%20%3c%2010%29%20%7b%0d%0a%20%20%20%20%20%20%20%20return%20val;%0d%0a%20%20%20%20%7d%0d%0a%20%20%20%20return%2010;%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>[] (<span style="color:#66d9ef">long</span> val) {        <span style="color:#75715e">// ERROR: return types differ
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (val <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> val;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>[] (<span style="color:#66d9ef">long</span> val) <span style="color:#f92672">-&gt;</span> <span style="color:#66d9ef">long</span> {        <span style="color:#75715e">// OK
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (val <span style="color:#f92672">&lt;</span> <span style="color:#ae81ff">10</span>) {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">return</span> val;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> <span style="color:#ae81ff">10</span>;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<h2 id="lambdas-as-function-pointers">Lambdas as Function Pointers</h2>
+<ul>
+<li>Lambdas can be used as ordinary <!-- raw HTML omitted -->function pointers<!-- raw HTML omitted -->
+<ul>
+<li>No captures allowed</li>
+<li>Can even passed to C functions</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#include%20%3ccstdlib%3e%20%20%20%20//%20for%20atexit%28%29%0d%0a%0d%0avoid%20%28*logFP%29%28const%20std::string&amp;%20msg%29;%20%20%20%20//%20actual%20logger%20%28function%20pointer%20to%20log%20msg%29%0d%0a%0d%0aint%20main%28%29%20%0d%0a%7b%0d%0a%20%20%20%20std::atexit%28[]%28%29%20%7b%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20//%20register%20lambda%20to%20call%20on%20program%20exit%0d%0a%20%20%20%20%20%20%20%20std::cout%3c%3c%22good%20bye%5cn%22;%0d%0a%20%20%20%20%7d%29;%0d%0a%20%20%20%20%0d%0a%20%20%20%20logFP%20=%20[]%28const%20auto&amp;%20string%20msg%29%20%7b%20%20//%20set%20lambda%20as%20logger%0d%0a%20%20%20%20%20%20%20%20std::cout%3c%3c%20%22LOG%3e%20%22%3c%3cmsg%20%3c%3c%20%27%5cn%27;%0d%0a%20%20%20%20%7d;%0d%0a%20%20%20%20%20%0d%0a%20%20%20%20logFP%28%22we%20are%20insdie%20main%28%29%22%29;%20%20%20%20%20%20%20%20//call%20the%20actual%20logger%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">#include</span> <span style="color:#75715e">&lt;cstdlib&gt;</span><span style="color:#75715e">    </span><span style="color:#75715e">// for atexit()
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">void</span> (<span style="color:#f92672">*</span>logFP)(<span style="color:#66d9ef">const</span> std<span style="color:#f92672">::</span>string<span style="color:#f92672">&amp;</span> msg);    <span style="color:#75715e">// actual logger (function pointer to log msg)
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">int</span> <span style="color:#a6e22e">main</span>() 
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>atexit([]() {                    <span style="color:#75715e">// register lambda to call on program exit
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span><span style="color:#e6db74">&#34;good bye</span><span style="color:#ae81ff">\n</span><span style="color:#e6db74">&#34;</span>;
+</span></span><span style="display:flex;"><span>    });
+</span></span><span style="display:flex;"><span>    
+</span></span><span style="display:flex;"><span>    logFP <span style="color:#f92672">=</span> [](<span style="color:#66d9ef">const</span> <span style="color:#66d9ef">auto</span><span style="color:#f92672">&amp;</span> string msg) {  <span style="color:#75715e">// set lambda as logger
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        std<span style="color:#f92672">::</span>cout<span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;LOG&gt; &#34;</span><span style="color:#f92672">&lt;&lt;</span>msg <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#39;\n&#39;</span>;
+</span></span><span style="display:flex;"><span>    };
+</span></span><span style="display:flex;"><span>     
+</span></span><span style="display:flex;"><span>    logFP(<span style="color:#e6db74">&#34;we are insdie main()&#34;</span>);        <span style="color:#75715e">//call the actual logger
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>}</span></span></code></pre></div>
+    
+</div>
+<h2 id="lambda-caputre-by-reference">Lambda: Caputre by Reference</h2>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span>std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span><span style="color:#66d9ef">int</span><span style="color:#f92672">&gt;</span> coll;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">double</span> sum <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0</span>;
+</span></span><span style="display:flex;"><span>std<span style="color:#f92672">::</span>for_each(coll.begin(), coll.end(), [<span style="color:#f92672">&amp;</span>sum](<span style="color:#66d9ef">double</span> d) { <span style="color:#75715e">//[&amp;] would catch all by reference
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    sum<span style="color:#f92672">+=</span> d;
+</span></span><span style="display:flex;"><span>})</span></span></code></pre></div>
+    
+</div>
+<h3 id="other-usages">Other usages</h3>
+<ul>
+<li>Captures allow access to scope where lambda is defined
+<ul>
+<li>Global object are visible anyway</li>
+<li>Object copied by-value are read-only(by default)</li>
+</ul>
+</li>
+<li>Examples:
+<ul>
+<li><code>[x, y]</code>
+<ul>
+<li>access to a copy of <code>x</code> and <code>y</code></li>
+</ul>
+</li>
+<li><code>[&amp;]</code>
+<ul>
+<li>access to <!-- raw HTML omitted -->all<!-- raw HTML omitted --> <!-- raw HTML omitted -->objects<!-- raw HTML omitted --> of outside scope <!-- raw HTML omitted -->by reference<!-- raw HTML omitted --></li>
+</ul>
+</li>
+<li><code>[=]</code>
+<ul>
+<li>access to a copy of <!-- raw HTML omitted --> all used<!-- raw HTML omitted --> <!-- raw HTML omitted -->objects<!-- raw HTML omitted --></li>
+<li>Avoid capturing with <code>=</code> to avoid expensive copies</li>
+</ul>
+</li>
+<li><code>[&amp;x, y]</code>
+<ul>
+<li>access to <code>x</code> <!-- raw HTML omitted -->by reference<!-- raw HTML omitted -->, but to a <!-- raw HTML omitted -->copy of<!-- raw HTML omitted --> <code>y</code></li>
+</ul>
+</li>
+<li><code>[&amp;,x]</code>
+<ul>
+<li>access to a <!-- raw HTML omitted -->copy of<!-- raw HTML omitted --> <code>x</code>, but to <!-- raw HTML omitted -->all other<!-- raw HTML omitted --> <!-- raw HTML omitted -->objects by reference<!-- raw HTML omitted --></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+
+            
+        </div>
+    </article>
+
+        </main>
+
+        <footer class="footer">
+    <div class="footer-left">
+        <ul class="social">
+            
+
+            
+                <li>Cheng-Yu Fan</li>
+            
+
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </div>
+
+    <div class="footer-right">
+        <ul class="control status clearfix">
+            
+                <li>
+                    
+                        Word Count:
+                        921
+                    
+                </li>
+            
+
+            
+                <li>en</li>
+            
+
+            
+                <li>
+                    <a href="https://gohugo.io" class="btn" target="_blank"
+                        >Hugo: 0.119.0</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    <a
+                        href="https://github.com/JingWangTW/dark-theme-editor"
+                        class="btn"
+                        target="_blank"
+                        >Theme: dark-theme-editor</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    
+                        Last modified: &nbsp;
+                        <time>
+                            May 05 2023 15:04:11
+                        </time>
+                    
+                </li>
+            
+
+            
+                <li title="">
+                    
+                </li>
+            
+        </ul>
+    </div>
+</footer>
+
+    </body>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <script
+        type="text/javascript"
+        src="/js/index.min.76f28ad9d7f1e1b68cfc55f930e89f7439bf72c0def552fa19d37555afaaaa776fc8533a913ac30e0162a7fb08415d19d1588e1d9a4f3328f0614c52f1a3963b.js"
+        integrity="sha512-dvKK2dfx4baM/FX5MOifdDm/csDe9VL6GdN1Va&#43;qqndvyFM6kTrDDgFip/sIQV0Z0ViOHZpPMyjwYUxS8aOWOw=="></script>
+
+
+
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+
+</html>

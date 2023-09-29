@@ -1,0 +1,1426 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="generator" content="Hugo 0.119.0">
+
+    
+
+    
+
+    
+        
+            <meta
+                name="description"
+                content="" />
+        
+
+        
+            <meta
+                name="keywords"
+                content="graphics, programming, compiler" />
+        
+
+        
+            <meta name="author" content="Cheng-Yu Fan" />
+        
+
+    
+
+
+    <title>
+        
+            DirectX12 Intoduction |
+            CYF Blog
+        
+    </title>
+
+    
+
+
+    
+    
+
+
+    
+    
+
+
+    
+    
+    
+    
+
+
+    
+    
+
+    
+
+    
+
+        
+        
+
+
+        <link
+            rel="stylesheet"
+            href="/css/index.min.d769fcae9b652a4ac8ee5ab1bc267604bd6eb6156d80edb2184dcdaec0bf1a0275c755605e14086296051d441377666d37e9feb10efb12626040c729c01d2941.css"
+            integrity="sha512-12n8rptlKkrI7lqxvCZ2BL1uthVtgO2yGE3NrsC/GgJ1x1VgXhQIYpYFHUQTd2ZtN&#43;n&#43;sQ77EmJgQMcpwB0pQQ==" />
+    
+
+</head>
+
+
+
+    <body>
+        <header class="header">
+    <div class="header_left">
+        
+    </div>
+
+    <div class="header_middle">
+        
+            DirectX12 Intoduction -
+            CYF Blog
+        
+    </div>
+</header>
+
+
+
+        <main>
+            <aside class="sidebar">
+    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li
+                    
+                        class="dir opened-dir"
+                    >
+                    <span class="dir-text"> Graphics </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/vulkan/vulkan-introduction/" title="./graphics/vulkan/vulkan-introduction/">
+                        Vulkan Introduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-hello-triangle/" title="./graphics/directx12/directx12-hello-triangle/">
+                        DirectX12 Hello Triangle
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-intoduction/" title="./graphics/directx12/directx12-intoduction/">
+                        DirectX12 Intoduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/pbr/my-pbrt-engine/" title="./graphics/pbr/my-pbrt-engine/">
+                        My Pbrt Engine
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li
+                    
+                        class="dir closed-dir"
+                    >
+                    <span class="dir-text"> Programmings </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-move-semantics/" title="./programming/c&#43;&#43;/modern-cpp-move-semantics/">
+                        Modern C&#43;&#43;: Move Semantics
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-lambdas/" title="./programming/c&#43;&#43;/modern-cpp-lambdas/">
+                        Modern C&#43;&#43;: Lambdas
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-smart-pointers/" title="./programming/c&#43;&#43;/modern-cpp-smart-pointers/">
+                        Modern C&#43;&#43;: Smart Pointers
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/contact/" title="./contact/">
+                        Contact
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/about/" title="./about/">
+                        About
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+</aside>
+<aside class="exapandable"></aside>
+
+
+            
+    <article class="main">
+        <button
+    class="sidebar-toggle-btn"
+    type="menu"
+    aria-expanded="false"
+    aria-haspopup="true">
+    <i class="bi bi-list"></i>
+</button>
+
+
+
+        <div class="title">
+            <h1 class="title-header">
+                DirectX12 Intoduction
+            </h1>
+
+            <div class="author-date-readtime">
+                
+
+                    
+                        <div class="author">
+                            <i class="bi bi-person"></i>
+                            <a
+                                href="https://example.org/author/cheng-yu-fan/"
+                                class="cat-btn">
+                                Cheng-Yu Fan
+                            </a>
+                        </div>
+                    
+
+                
+
+                
+                    <div class="date">
+                        <i class="bi bi-calendar3"></i>
+                        <time
+                            datetime="2023.07.24"
+                            >2023.07.24
+                        </time>
+                    </div>
+                
+
+                
+            </div>
+        </div>
+
+        <div class="article-meta">
+            
+                <div class="categories">
+                    <i class="bi bi-bookmarks" title="Categories"></i>
+                    
+                        <a
+                            href="https://example.org/categories/graphics/"
+                            class="cat-btn">
+                            Graphics
+                        </a>
+                    
+                </div>
+            
+
+            
+                <div class="tags">
+                    <i class="bi bi-tags" title="Tags"></i>
+                    
+                        <a
+                            href="https://example.org/tags/directx12/"
+                            class="tag-btn">
+                            DirectX12
+                        </a>
+                    
+                        <a
+                            href="https://example.org/tags/graphicsapi/"
+                            class="tag-btn">
+                            GraphicsAPI
+                        </a>
+                    
+                </div>
+            
+
+            
+                <div class="breadcumb">
+                    <i class="bi bi-folder"></i>
+                    
+    
+    
+
+
+
+
+<a href="https://example.org/" class="bread-btn">
+    
+        <i class="bi bi-house-fill"></i>
+    
+
+    
+        Home
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/graphics/" class="bread-btn">
+    
+
+    
+        Graphics
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/graphics/directx12/directx12-intoduction/" class="bread-btn">
+    
+
+    
+        DirectX12 Intoduction
+    
+</a>
+
+                </div>
+            
+        </div>
+
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#why-learning-directx12">Why learning DirectX12?</a></li>
+    <li><a href="#before-diving-in">Before Diving in&hellip;.</a>
+      <ul>
+        <li><a href="#com">COM</a></li>
+      </ul>
+    </li>
+    <li><a href="#init-api">Init API</a>
+      <ul>
+        <li><a href="#directx-graphics-infrastructure-dxgi">DirectX Graphics Infrastructure (DXGI)</a></li>
+        <li><a href="#adapter">Adapter</a></li>
+        <li><a href="#device">Device</a></li>
+        <li><a href="#command-queues">Command Queues</a></li>
+        <li><a href="#command-allocators">Command Allocators</a></li>
+        <li><a href="#synchronization">Synchronization</a></li>
+        <li><a href="#swapchain">Swapchain</a></li>
+      </ul>
+    </li>
+    <li><a href="#graphic-pipeline">Graphic Pipeline</a>
+      <ul>
+        <li><a href="#shader-stage">Shader Stage</a></li>
+        <li><a href="#add-resources">Add Resources</a></li>
+        <li><a href="#buffer">Buffer</a></li>
+        <li><a href="#shader">Shader</a></li>
+        <li><a href="#pipeline-state-object">Pipeline State Object</a></li>
+        <li><a href="#setup-commands">Setup Commands</a></li>
+      </ul>
+    </li>
+    <li><a href="#render">Render</a></li>
+    <li><a href="#resource">Resource</a></li>
+  </ul>
+</nav>
+        
+
+
+        <div class="content">
+            
+                <h1 id="directx12">DirectX12</h1>
+<h2 id="why-learning-directx12">Why learning DirectX12?</h2>
+<p>Comparing to OpenGL, DirectX 12 is a newer graphic API and gives graphic programmers more options to twist the performance in GPU hardware. But the tradeoff occurs it becoming a verbose API. Developers gonna take more reponsible when dealing with this API.</p>
+<p>As a people mostly dealing with OpenGL, the learning curve of DirectX 12 is higher than people dealing with other modern API, like Vulkan, Apple Metal. This post is going to assume I knew nothing and we can explore every module terms to terms. Thanks for <a href="https://alain.xyz/blog/raw-directx12#setup">Alian blog</a>, give me a good entry point. This post will refer <a href="https://github.com/alaingalvan/directx12-seed">his code</a> to be an example as code snippet.</p>
+<h2 id="before-diving-in">Before Diving in&hellip;.</h2>
+<h3 id="com">COM</h3>
+<p>There are few concepts which confuses me when ever I am dealing with graphic API or library. The most confusing part is COM(Component Object Model). I have seen this in lots of place like operating system, embedding &hellip; I believe lots of experienced programmer deal with it a lot. However, every objects, resources in DirectX act like a COM. Here is few general features of COM:</p>
+<ul>
+<li>A COM object don&rsquo;t care about other COM object, but all COM objects are compatible with each other</li>
+<li>To make things work, all COM need to stick together</li>
+</ul>
+<p>More usage details,</p>
+<ol>
+<li>A COM object is a class or set of classes controlled by an interface. When we create an instance of a COM object, we don&rsquo;t create it directly, we create an interface, and access the object through that.</li>
+<li>Interface can be indentify from the first character, like <code>IMyCOMObject</code></li>
+<li>Under the hood, COM can get quite complex and be a real pain in the ass. Fortunately COM makes use of something called a smart pointer, which is really just a special class that understands COM and takes care of the whole mess for us.</li>
+</ol>
+<p>Creating a COM object normally contains three parts.</p>
+<ol>
+<li>Declare an COM interface</li>
+<li>Declare an COM Descriptor (will talk about it later), and set the attributes</li>
+<li>Create the object (Each COM object type has its own way of being created)</li>
+</ol>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%201.%20Declare%20an%20COM%20interface%0d%0aID3D12DescriptorHeap*%20renderTargetViewHeap;%0d%0a%0d%0a//%202.%20Declare%20an%20COM%20Descriptor%20%28will%20talk%20about%20it%20later%29,%20and%20set%20the%20attributes%0d%0aD3D12_DESCRIPTOR_HEAP_DESC%20rtvHeapDesc%20=%20%7b%7d;%0d%0artvHeapDesc.NumDescriptors%20=%20backbufferCount;%0d%0artvHeapDesc.Type%20=%20D3D12_DESCRIPTOR_HEAP_TYPE_RTV;%0d%0artvHeapDesc.Flags%20=%20D3D12_DESCRIPTOR_HEAP_FLAG_NONE;%0d%0a%0d%0a3.%20Create%20the%20object%0d%0aThrowIfFailed%28device-%3eCreateDescriptorHeap%28%0d%0a%20%20%20%20&amp;rtvHeapDesc,%20IID_PPV_ARGS%28&amp;renderTargetViewHeap%29%29%29;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <pre><code>// 1. Declare an COM interface
+ID3D12DescriptorHeap* renderTargetViewHeap;
+
+// 2. Declare an COM Descriptor (will talk about it later), and set the attributes
+D3D12_DESCRIPTOR_HEAP_DESC rtvHeapDesc = {};
+rtvHeapDesc.NumDescriptors = backbufferCount;
+rtvHeapDesc.Type = D3D12_DESCRIPTOR_HEAP_TYPE_RTV;
+rtvHeapDesc.Flags = D3D12_DESCRIPTOR_HEAP_FLAG_NONE;
+
+3. Create the object
+ThrowIfFailed(device-&gt;CreateDescriptorHeap(
+    &amp;rtvHeapDesc, IID_PPV_ARGS(&amp;renderTargetViewHeap)));</code></pre>
+    
+</div>
+<h2 id="init-api">Init API</h2>
+<h3 id="directx-graphics-infrastructure-dxgi">DirectX Graphics Infrastructure (DXGI)</h3>
+<p>The DirectX Graphics Infrastructure is a component that lies at the base of all the most recent versions of Direct3D. Its job is to handle fundamental tasks such as displaying images on the screen and finding out what resolutions the monitor and video card can handle.</p>
+<p>DXGI is not actually a part of Direct3D. It underlies it and other graphics components, and it acts as an interface between Direct3D and the hardware.</p>
+<p><img src="/DXGI_flow.png" alt=""></p>
+<h3 id="adapter">Adapter</h3>
+<p>An Adapter provides information on the physical properties of a given DirectX device. You can query your current GPU&rsquo;s name, manufacturer, how much memory it has, and much more.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20%f0%9f%91%8b%20Declare%20Handles%0d%0aIDXGIAdapter1*%20adapter;%0d%0a%0d%0a//%20%f0%9f%94%8c%20Create%20Adapter%0d%0afor%20%28UINT%20adapterIndex%20=%200;%0d%0a%20%20%20%20%20DXGI_ERROR_NOT_FOUND%20!=%20factory-%3eEnumAdapters1%28adapterIndex,%20&amp;adapter%29;%0d%0a%20%20%20%20%20&#43;&#43;adapterIndex%29%0d%0a%7b%0d%0a%20%20%20%20DXGI_ADAPTER_DESC1%20desc;%0d%0a%20%20%20%20adapter-%3eGetDesc1%28&amp;desc%29;%0d%0a%0d%0a%20%20%20%20//%20%e2%9d%8c%20Don%27t%20select%20the%20Basic%20Render%20Driver%20adapter.%0d%0a%20%20%20%20if%20%28desc.Flags%20&amp;%20DXGI_ADAPTER_FLAG_SOFTWARE%29%0d%0a%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20continue;%0d%0a%20%20%20%20%7d%0d%0a%0d%0a%20%20%20%20//%20%e2%9c%94%ef%b8%8f%20Check%20if%20the%20adapter%20supports%20Direct3D%2012,%20and%20use%20that%20for%20the%20rest%0d%0a%20%20%20%20//%20of%20the%20application%0d%0a%20%20%20%20if%20%28SUCCEEDED%28D3D12CreateDevice%28adapter,%20D3D_FEATURE_LEVEL_12_0,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20_uuidof%28ID3D12Device%29,%20nullptr%29%29%29%0d%0a%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20break;%0d%0a%20%20%20%20%7d%0d%0a%0d%0a%20%20%20%20//%20%e2%9d%8c%20Else%20we%20won%27t%20use%20this%20iteration%27s%20adapter,%20so%20release%20it%0d%0a%20%20%20%20adapter-%3eRelease%28%29;%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 👋 Declare Handles
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>IDXGIAdapter1<span style="color:#f92672">*</span> adapter;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🔌 Create Adapter
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">for</span> (UINT adapterIndex <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>     DXGI_ERROR_NOT_FOUND <span style="color:#f92672">!=</span> factory<span style="color:#f92672">-&gt;</span>EnumAdapters1(adapterIndex, <span style="color:#f92672">&amp;</span>adapter);
+</span></span><span style="display:flex;"><span>     <span style="color:#f92672">++</span>adapterIndex)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    DXGI_ADAPTER_DESC1 desc;
+</span></span><span style="display:flex;"><span>    adapter<span style="color:#f92672">-&gt;</span>GetDesc1(<span style="color:#f92672">&amp;</span>desc);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ❌ Don&#39;t select the Basic Render Driver adapter.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (desc.Flags <span style="color:#f92672">&amp;</span> DXGI_ADAPTER_FLAG_SOFTWARE)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">continue</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ✔️ Check if the adapter supports Direct3D 12, and use that for the rest
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// of the application
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (SUCCEEDED(D3D12CreateDevice(adapter, D3D_FEATURE_LEVEL_12_0,
+</span></span><span style="display:flex;"><span>                                    _uuidof(ID3D12Device), <span style="color:#66d9ef">nullptr</span>)))
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">break</span>;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// ❌ Else we won&#39;t use this iteration&#39;s adapter, so release it
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    adapter<span style="color:#f92672">-&gt;</span>Release();
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<h3 id="device">Device</h3>
+<p>The device is represented by the <code>ID3D12Device</code> interface. The device is a virtual adapter which we use to create command lists, pipeline state objects, root signatures, command allocators, command queues, fences, resources, descriptors and descriptor heaps. Once we find the adapter index we want to use, we create a device by calling <code>D3D12CreateDevice()</code>.</p>
+<h3 id="command-queues">Command Queues</h3>
+<p>Command Queues are represented by the ID3D12CommandQueue interface, and created with the CreateCommandQueue() method of the device interface. We use the command queue to submit Command Lists to be executed by the GPU.</p>
+<h3 id="command-allocators">Command Allocators</h3>
+<p>Command Allocators are represented by the ID3D12CommandAllocator interface, and created with the CreateCommandAllocator () method of the device interface.</p>
+<p>Command Allocators represent the GPU memory that commands from Command Lists and Bundles are stored in.
+<img src="/cmd_alloc.png" alt=""></p>
+<h3 id="synchronization">Synchronization</h3>
+<p>DirectX 12 features a number of synchronization primitives that can help the driver know how resources will be used in the future, know when tasks have been completed by the GPU, etc.</p>
+<p>A Fence lets your program know when certain tasks have been executed by the GPU, be it uploads to GPU exclusive memory, or when you&rsquo;ve finished presenting to the screen.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20Declare%20handles%0d%0aUINT%20frameIndex;%0d%0aHANDLE%20fenceEvent;%0d%0aID3D12Fence*%20fence;%0d%0aUINT64%20fenceValue;%0d%0a%0d%0a//%20Create%20fence%0d%0aThrowIfFailed%28device-%3eCreateFence%280,%20D3D12_FENCE_FLAG_NONE,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20IID_PPV_ARGS%28&amp;fence%29%29%29;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <pre><code>// Declare handles
+UINT frameIndex;
+HANDLE fenceEvent;
+ID3D12Fence* fence;
+UINT64 fenceValue;
+
+// Create fence
+ThrowIfFailed(device-&gt;CreateFence(0, D3D12_FENCE_FLAG_NONE,
+                                  IID_PPV_ARGS(&amp;fence)));</code></pre>
+    
+</div>
+<p>A Barrier lets the driver know how a resource should be used in upcoming commands. This can be useful if say, you&rsquo;re writing to a texture, and you want to copy that texture to another texture (such as the swapchain&rsquo;s render attachment).</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20Declare%20handles%0d%0aID3D12GraphicsCommandList*%20commandList;%0d%0a%0d%0a//%20Create%20Barrier%0d%0aD3D12_RESOURCE_BARRIER%20barrier%20=%20%7b%7d;%0d%0abarrier.Type%20=%20D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;%0d%0abarrier.Flags%20=%20D3D12_RESOURCE_BARRIER_FLAG_NONE;%0d%0abarrier.Transition.pResource%20=%20texResource;%0d%0abarrier.Transition.StateBefore%20=%20D3D12_RESOURCE_STATE_COPY_SOURCE;%0d%0abarrier.Transition.StateAfter%20=%20D3D12_RESOURCE_STATE_UNORDERED_ACCESS;%0d%0abarrier.Transition.Subresource%20=%20D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;%0d%0a%0d%0acommandList-%3eResourceBarrier%281,%20&amp;barrier%29;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <pre><code>// Declare handles
+ID3D12GraphicsCommandList* commandList;
+
+// Create Barrier
+D3D12_RESOURCE_BARRIER barrier = {};
+barrier.Type = D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+barrier.Flags = D3D12_RESOURCE_BARRIER_FLAG_NONE;
+barrier.Transition.pResource = texResource;
+barrier.Transition.StateBefore = D3D12_RESOURCE_STATE_COPY_SOURCE;
+barrier.Transition.StateAfter = D3D12_RESOURCE_STATE_UNORDERED_ACCESS;
+barrier.Transition.Subresource = D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+
+commandList-&gt;ResourceBarrier(1, &amp;barrier);</code></pre>
+    
+</div>
+<h3 id="swapchain">Swapchain</h3>
+<p>Swapchains handle swapping and allocating back buffers to display what you&rsquo;re rendering to a given window. The concept is the same as Vulkan.
+<img src="/swp_chain.png" alt=""></p>
+<h2 id="graphic-pipeline">Graphic Pipeline</h2>
+<p><img src="/gfx_pipeline.png" alt=""></p>
+<p>Here is the fun part if you understand each terms and the flow means in the graphic pipeline, especially resouces part. Otherwise, it&rsquo;s like reading some foreign language books, which will waste you lots of time. I would like to start with the overview from <a href="https://learn.microsoft.com/en-us/windows/win32/direct3d12/pipelines-and-shaders-with-directx-12">Microsoft website</a>
+<img src="/mf_rs_overview.png" alt=""></p>
+<p>A graphics pipeline is the sequential flow of data inputs and outputs as the GPU renders frames. Given the pipeline state and inputs, the GPU performs a series of operations to create the resulting images. A graphics pipeline contains shaders, which perform programmable rendering effects and calculations, and fixed function operations.</p>
+<p>I would like to refer the tutorial website from <a href="https://www.braynzarsoft.net/viewtutorial/q16390-03-initializing-directx-12">Braynzar Soft</a> for explaination.</p>
+<h3 id="shader-stage">Shader Stage</h3>
+<p><img src="/mf_rs_highlight.png" alt=""></p>
+<h4 id="input-assembler-ia">Input Assembler (IA)</h4>
+<p>The first stage of the graphics pipeline is called the Input Assembler (IA) Stage. This is a fixed function stage, which means we do not do the programming to implement it. Instead, we instruct the device to configure the IA so that it knows how to create the geometric primitives like triangles, lines or points from the data we give it in the form of buffers containing vertex and index data. We provide an Input Layout to the IA so that it knows how to read the vertex data.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="D3D12_INPUT_ELEMENT_DESC%20layout[]%20=%0d%0a%7b%0d%0a%20%20%20%20%7b%20%22POSITION%22,%200,%20DXGI_FORMAT_R32G32B32_FLOAT,%200,%200,%20D3D12_INPUT_PER_VERTEX_DATA,%200%20%7d,%20%20%0d%0a%7d;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <pre><code>D3D12_INPUT_ELEMENT_DESC layout[] =
+{
+    { &#34;POSITION&#34;, 0, DXGI_FORMAT_R32G32B32_FLOAT, 0, 0, D3D12_INPUT_PER_VERTEX_DATA, 0 },  
+};</code></pre>
+    
+</div>
+<h4 id="vertex-shader-vs">Vertex Shader (VS)</h4>
+<p>The VS Stage is what ALL the vertices have to go through. With the VS, you are able to do things like transformation, scaling, lighting, displacement mapping for textures and stuff like that.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <pre><code>float4 main(float4 pos : POSITION) : SV_POSITION
+{
+    return pos;
+}</code></pre>
+    
+</div>
+<h4 id="tessellation-stages">Tessellation Stages</h4>
+<p>The Tesselation Stages include the Hull Shader, Tessellator, and the Domain Shader stages. They all work together to implement something called tesselation. What tesselation does, is take a primitive object, such as a triangle or line, and divide it up into many smaller sections to increase the detail of models, and extremely fast. It creates all these new primitives on the GPU before they are put onto the screen, and they are not saved to memory, so this saves a lot of time than creating them on the CPU where they would need to be stored in memory.</p>
+<h5 id="hull-shader-hs">Hull Shader (HS)</h5>
+<p>The Hull Shader (HS) stage is one of the tessellation stages, which efficiently break up a single surface of a model into many triangles. The Hull Shader (HS) stage produces a geometry patch (and patch constants) that correspond to each input patch (quad, triangle, or line).</p>
+<h5 id="tessellator-ts">Tessellator (TS)</h5>
+<p>The Tessellator (TS) stage creates a sampling pattern of the domain that represents the geometry patch and generates a set of smaller objects (triangles, points, or lines) that connect these samples.</p>
+<h5 id="domain-shader-ds">Domain Shader (DS)</h5>
+<p>This is the third of three stages in the tessellation process. The Domain Shader (DS) stage calculates the vertex position of a subdivided point in the output patch; it calculates the vertex position that corresponds to each domain sample.</p>
+<h4 id="geometry-shader-gs">Geometry Shader (GS)</h4>
+<p>The Geometry Shader (GS) stage processes entire primitives: triangles, lines, and points, along with their adjacent vertices. It is useful for algorithms including Point Sprite Expansion, Dynamic Particle Systems, and Shadow Volume Generation. It supports geometry amplification and de-amplification.</p>
+<h4 id="rasterizer-rs">Rasterizer (RS)</h4>
+<p>The rasterizer clips primitives that aren&rsquo;t in view, prepares primitives for the Pixel Shader (PS) stage, and determines how to invoke pixel shaders. The rasterization stage converts vector information (composed of shapes or primitives) into a raster image (composed of pixels) for the purpose of displaying real-time 3D graphics.</p>
+<h4 id="pixel-shader-ps">Pixel Shader (PS)</h4>
+<p>The Pixel Shader (PS) stage receives interpolated data for a primitive, and generates per-pixel data such as color. The Pixel Shader (PS) stage enables rich shading techniques such as per-pixel lighting and post-processing. A pixel shader is a program that combines constant variables, texture data, interpolated per-vertex values, and other data to produce per-pixel outputs.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <pre><code>float4 main() : SV_TARGET
+{
+    return float4(1.0f, 1.0f, 1.0f, 1.0f);
+}</code></pre>
+    
+</div>
+<h4 id="output-merger-om">Output Merger (OM)</h4>
+<p>The final Stage in the Pipeline is the Output Merger Stage. Basically this stage takes the pixel fragments and depth/stencil buffers and determines which pixels are actually written to the render target. It also applies blending based on the blend model and blend factor we set.</p>
+<h3 id="add-resources">Add Resources</h3>
+<p><img src="/gpu_stack.png" alt="">
+We have explain data flow in the graphic pipeline. Now we need to prepare the data feeding inside it. It looks scary, huh? I will try to break them down piece by piece, like doing the bottom-up. Eventually, every resouces will attach to our graphic pipeline.</p>
+<h4 id="root-signature">Root Signature</h4>
+<p><img src="/mf_rs_root.png" alt=""></p>
+<p>Among all of the resouces, I think <strong>root signature</strong> is the most confusing one since the naming doesn&rsquo;t show any clue what is this for. Here is the short defintion from <a href="https://learn.microsoft.com/en-us/windows/win32/direct3d12/root-signatures">Microsoft</a>:</p>
+<blockquote>
+<p>The root signature defines what types of resources are bound to the graphics pipeline.</p>
+<p>A root signature is similar to an API function signature, it determines the types of data the shaders should expect, but does not define the actual memory or data. A root parameter is one entry in the root signature. The actual values of root parameters set and changed at runtime are called root arguments. Changing the root arguments changes the data that the shaders read.</p>
+</blockquote>
+<p><strong>TL;DR</strong></p>
+<ol>
+<li>Root Signatures define the data (resources) that shaders access.</li>
+<li>Root signatures are like a parameter list for a function, where the function is the shaders, and the parameter list is the type of data the shaders access.</li>
+<li>Root arguments are the actual values of root parameters set and changed at runtime</li>
+</ol>
+<h5 id="root-constants-descriptor-and-tables">Root constants descriptor and tables</h5>
+<p>Root signatures contain <strong>Root Constants</strong>, <strong>Root Descriptors</strong>, and <strong>Descriptor Tables</strong>. A Root Parameter is one entry, being either a root constant, root descriptor, or descriptor table, into the root signature.
+<img src="/root_sign_1.png" alt=""></p>
+<p>Here is the explaination:</p>
+<ul>
+<li><strong>Root Constants</strong>: Root Constants are inline 32-bit values (they cost <strong>1 DWORD</strong>). <strong>These values are stored directly inside the root signature.</strong> Because memory is limited for root signatures, you want to store only the most often changed constant values shaders access here. These values show up as a constant buffer to shaders. There is no cost to access these variables from shaders (no redirection), so accessing them is very fast.</li>
+<li><strong>Root Descriptors</strong>: Root Descriptors are inlined descriptors that are accessed most often by the shaders. <strong>These are 64-bit virtual addresses (2 DWORDs). These descriptors are limited to CBV&rsquo;s and raw or structured SRV&rsquo;s and UAV&rsquo;s.</strong> Complex types like Texture2D SRV&rsquo;s cannot be used. There is a cost of one redirection when referencing Root Descriptors from shaders. Another thing to note about Root Descriptors, is they are only a pointer to the resource, they do not include a size of the data, which means there can be no out of bounds checking when accessing resources from root descriptors, unlike descriptors stored in a descriptor heap, which do include a size, and where out of bounds checking can be done.</li>
+<li><strong>Descriptor Tables</strong>: <strong>Descriptor Tables are an offset and a length into a descriptor heap.</strong> Descriptor tables are only 32-bits (1 DWORD). There is no limit to how many descriptors are inside a descriptor table (except indirectly the number of descriptors that can fit in the maximum allowed descriptor heap size). There is a cost of two indirections when accessing resources from a descriptor table. The first indirection is from the descriptor table pointer to the descriptor stored in the heap, then from the descriptor heap to the actual resource.
+<img src="/root_sign_2.png" alt=""></li>
+</ul>
+<p>Overall, the root signature should be a data structure like this:
+<img src="/root_sign_3.png" alt=""></p>
+<h4 id="descriptor-heap">Descriptor Heap</h4>
+<p>Descriptor Heaps are a list of descriptors. They are a chunk of memory where the descriptors are stored. Descriptor Heaps are represented by the interface <code>ID3D12DescriptorHeap</code> and are created with the method <code>ID3D12Device::CreateDescriptorHeap()</code>.</p>
+<h5 id="what-is-descriptor">What is Descriptor?</h5>
+<p>A descriptor is a relatively small block of data that fully describes an object to the GPU, in a GPU-specific opaque format. There are several different types of descriptors—<strong>render target views (RTVs)</strong>, <strong>depth stencil views (DSVs)</strong>, <strong>shader resource views (SRVs)</strong>, <strong>unordered access views (UAVs)</strong>, <strong>constant buffer views (CBVs)</strong>, and <strong>samplers</strong>. We will talk about them one by one.</p>
+<h5 id="what-does-view-mean">What does view mean?</h5>
+<blockquote>
+<p>The term &ldquo;view&rdquo; is used to mean &ldquo;data in the required format&rdquo;. For example, a Constant Buffer View (CBV) would be constant buffer data correctly formatted.</p>
+</blockquote>
+<ul>
+<li><strong>Render target view (RTV)</strong>: Render targets enable a scene to be rendered to a temporary intermediate buffer, rather than to the back buffer to be rendered to the screen.</li>
+<li><strong>Depth stencil view (DSV)</strong>: A depth stencil view provides the format and buffer for holding depth and stencil information. The depth buffer is used to cull the drawing of pixels that would be invisible to the viewer as they are occluded from view by a closer object. The stencil buffer can be used to cull all drawing outside of a defined shape.</li>
+<li><strong>Shader resource view (SRV)</strong> and <strong>Unordered Access view (UAV)</strong>: Shader resource views typically wrap textures in a format that the shaders can access them. An unordered access view provides similar functionality, but enables the reading and writing to the texture (or other resource) in any order.</li>
+<li><strong>Constant buffer view (CBV)</strong>: Constant buffers contain shader constant data. The value of them is that the data persists, and can be accessed by any GPU shader, until it is necessary to change the data. (such as world, projection and view matrices, which remain constant throughout the drawing of one frame.)</li>
+<li><strong>Sampler</strong>: Sampling is the process of reading input values from a texture, or other resource. A &ldquo;sampler&rdquo; is any object that reads from resources.</li>
+</ul>
+<h3 id="buffer">Buffer</h3>
+<blockquote>
+<p><strong>I would like to borrow the code from <a href="https://alain.xyz/blog/raw-directx12#vertex-buffer">alain</a> for the remaining part.</strong> Apologize for my laziness.</p>
+</blockquote>
+<p>A buffer resource is a collection of fully typed data, grouped into elements. Buffers store data, such as texture coordinates in a vertex buffer, indexes in an index buffer, shader constants data in a constant buffer, position vectors, normal vectors, or device state.</p>
+<h4 id="vertex-buffer">Vertex Buffer</h4>
+<p>A vertex buffer contains the vertex data used to define your geometry. Vertex data includes position coordinates, color data, texture coordinate data, normal data, and so on.</p>
+<p>The simplest example of a vertex buffer is one that only contains position data. like this:
+<img src="/buffer_1.png" alt=""></p>
+<p>An example of this could be a vertex buffer that contains per-vertex position, normal and texture coordinates. Like this:
+<img src="/buffer_2.png" alt=""></p>
+<p>This vertex buffer contains per-vertex data; each vertex stores three elements (position, normal, and texture coordinates). The position and normal are each typically specified using three 32-bit floats and the texture coordinates using two 32-bit floats.</p>
+<p>Before you create a vertex buffer, you need to define its layout. After the input-layout object is created, <strong>you bind it to the Input Assembler (IA) stage</strong>.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20%f0%9f%92%be%20Declare%20Data%0d%0astruct%20Vertex%0d%0a%7b%0d%0a%20%20%20%20float%20position[3];%0d%0a%20%20%20%20float%20color[3];%0d%0a%7d;%0d%0a%0d%0aVertex%20vertexBufferData[3]%20=%20%7b%7b%7b1.0f,%20-1.0f,%200.0f%7d,%20%7b1.0f,%200.0f,%200.0f%7d%7d,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7b%7b-1.0f,%20-1.0f,%200.0f%7d,%20%7b0.0f,%201.0f,%200.0f%7d%7d,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%7b%7b0.0f,%201.0f,%200.0f%7d,%20%7b0.0f,%200.0f,%201.0f%7d%7d%7d;%0d%0a%0d%0a//%20%f0%9f%91%8b%20Declare%20Handles%0d%0aID3D12Resource*%20vertexBuffer;%0d%0aD3D12_VERTEX_BUFFER_VIEW%20vertexBufferView;%0d%0a%0d%0aconst%20UINT%20vertexBufferSize%20=%20sizeof%28vertexBufferData%29;%0d%0a%0d%0aD3D12_HEAP_PROPERTIES%20heapProps;%0d%0aheapProps.Type%20=%20D3D12_HEAP_TYPE_UPLOAD;%0d%0aheapProps.CPUPageProperty%20=%20D3D12_CPU_PAGE_PROPERTY_UNKNOWN;%0d%0aheapProps.MemoryPoolPreference%20=%20D3D12_MEMORY_POOL_UNKNOWN;%0d%0aheapProps.CreationNodeMask%20=%201;%0d%0aheapProps.VisibleNodeMask%20=%201;%0d%0a%0d%0aD3D12_RESOURCE_DESC%20vertexBufferResourceDesc;%0d%0avertexBufferResourceDesc.Dimension%20=%20D3D12_RESOURCE_DIMENSION_BUFFER;%0d%0avertexBufferResourceDesc.Alignment%20=%200;%0d%0avertexBufferResourceDesc.Width%20=%20vertexBufferSize;%0d%0avertexBufferResourceDesc.Height%20=%201;%0d%0avertexBufferResourceDesc.DepthOrArraySize%20=%201;%0d%0avertexBufferResourceDesc.MipLevels%20=%201;%0d%0avertexBufferResourceDesc.Format%20=%20DXGI_FORMAT_UNKNOWN;%0d%0avertexBufferResourceDesc.SampleDesc.Count%20=%201;%0d%0avertexBufferResourceDesc.SampleDesc.Quality%20=%200;%0d%0avertexBufferResourceDesc.Layout%20=%20D3D12_TEXTURE_LAYOUT_ROW_MAJOR;%0d%0avertexBufferResourceDesc.Flags%20=%20D3D12_RESOURCE_FLAG_NONE;%0d%0a%0d%0aThrowIfFailed%28device-%3eCreateCommittedResource%28%0d%0a%20%20%20%20&amp;heapProps,%20D3D12_HEAP_FLAG_NONE,%20&amp;vertexBufferResourceDesc,%0d%0a%20%20%20%20D3D12_RESOURCE_STATE_GENERIC_READ,%20nullptr,%20IID_PPV_ARGS%28&amp;vertexBuffer%29%29%29;%0d%0a%0d%0a//%20%f0%9f%93%84%20Copy%20the%20triangle%20data%20to%20the%20vertex%20buffer.%0d%0aUINT8*%20pVertexDataBegin;%0d%0a%0d%0a//%20%f0%9f%99%88%20We%20do%20not%20intend%20to%20read%20from%20this%20resource%20on%20the%20CPU.%0d%0aD3D12_RANGE%20readRange;%0d%0areadRange.Begin%20=%200;%0d%0areadRange.End%20=%200;%0d%0a%0d%0aThrowIfFailed%28vertexBuffer-%3eMap%280,%20&amp;readRange,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20reinterpret_cast%3cvoid**%3e%28&amp;pVertexDataBegin%29%29%29;%0d%0amemcpy%28pVertexDataBegin,%20vertexBufferData,%20sizeof%28vertexBufferData%29%29;%0d%0avertexBuffer-%3eUnmap%280,%20nullptr%29;%0d%0a%0d%0a//%20%f0%9f%91%80%20Initialize%20the%20vertex%20buffer%20view.%0d%0avertexBufferView.BufferLocation%20=%20vertexBuffer-%3eGetGPUVirtualAddress%28%29;%0d%0avertexBufferView.StrideInBytes%20=%20sizeof%28Vertex%29;%0d%0avertexBufferView.SizeInBytes%20=%20vertexBufferSize;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 💾 Declare Data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">Vertex</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> position[<span style="color:#ae81ff">3</span>];
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float</span> color[<span style="color:#ae81ff">3</span>];
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>Vertex vertexBufferData[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> {{{<span style="color:#ae81ff">1.0f</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0f</span>, <span style="color:#ae81ff">0.0f</span>}, {<span style="color:#ae81ff">1.0f</span>, <span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">0.0f</span>}},
+</span></span><span style="display:flex;"><span>                              {{<span style="color:#f92672">-</span><span style="color:#ae81ff">1.0f</span>, <span style="color:#f92672">-</span><span style="color:#ae81ff">1.0f</span>, <span style="color:#ae81ff">0.0f</span>}, {<span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">1.0f</span>, <span style="color:#ae81ff">0.0f</span>}},
+</span></span><span style="display:flex;"><span>                              {{<span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">1.0f</span>, <span style="color:#ae81ff">0.0f</span>}, {<span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">0.0f</span>, <span style="color:#ae81ff">1.0f</span>}}};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 👋 Declare Handles
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ID3D12Resource<span style="color:#f92672">*</span> vertexBuffer;
+</span></span><span style="display:flex;"><span>D3D12_VERTEX_BUFFER_VIEW vertexBufferView;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> UINT vertexBufferSize <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(vertexBufferData);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>D3D12_HEAP_PROPERTIES heapProps;
+</span></span><span style="display:flex;"><span>heapProps.Type <span style="color:#f92672">=</span> D3D12_HEAP_TYPE_UPLOAD;
+</span></span><span style="display:flex;"><span>heapProps.CPUPageProperty <span style="color:#f92672">=</span> D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+</span></span><span style="display:flex;"><span>heapProps.MemoryPoolPreference <span style="color:#f92672">=</span> D3D12_MEMORY_POOL_UNKNOWN;
+</span></span><span style="display:flex;"><span>heapProps.CreationNodeMask <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>heapProps.VisibleNodeMask <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>D3D12_RESOURCE_DESC vertexBufferResourceDesc;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Dimension <span style="color:#f92672">=</span> D3D12_RESOURCE_DIMENSION_BUFFER;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Alignment <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Width <span style="color:#f92672">=</span> vertexBufferSize;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Height <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.DepthOrArraySize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.MipLevels <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Format <span style="color:#f92672">=</span> DXGI_FORMAT_UNKNOWN;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.SampleDesc.Count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.SampleDesc.Quality <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Layout <span style="color:#f92672">=</span> D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Flags <span style="color:#f92672">=</span> D3D12_RESOURCE_FLAG_NONE;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ThrowIfFailed(device<span style="color:#f92672">-&gt;</span>CreateCommittedResource(
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&amp;</span>heapProps, D3D12_HEAP_FLAG_NONE, <span style="color:#f92672">&amp;</span>vertexBufferResourceDesc,
+</span></span><span style="display:flex;"><span>    D3D12_RESOURCE_STATE_GENERIC_READ, <span style="color:#66d9ef">nullptr</span>, IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>vertexBuffer)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 📄 Copy the triangle data to the vertex buffer.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>UINT8<span style="color:#f92672">*</span> pVertexDataBegin;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🙈 We do not intend to read from this resource on the CPU.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_RANGE readRange;
+</span></span><span style="display:flex;"><span>readRange.Begin <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>readRange.End <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ThrowIfFailed(vertexBuffer<span style="color:#f92672">-&gt;</span>Map(<span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>readRange,
+</span></span><span style="display:flex;"><span>                                <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">void</span><span style="color:#f92672">**&gt;</span>(<span style="color:#f92672">&amp;</span>pVertexDataBegin)));
+</span></span><span style="display:flex;"><span>memcpy(pVertexDataBegin, vertexBufferData, <span style="color:#66d9ef">sizeof</span>(vertexBufferData));
+</span></span><span style="display:flex;"><span>vertexBuffer<span style="color:#f92672">-&gt;</span>Unmap(<span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">nullptr</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 👀 Initialize the vertex buffer view.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>vertexBufferView.BufferLocation <span style="color:#f92672">=</span> vertexBuffer<span style="color:#f92672">-&gt;</span>GetGPUVirtualAddress();
+</span></span><span style="display:flex;"><span>vertexBufferView.StrideInBytes <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(Vertex);
+</span></span><span style="display:flex;"><span>vertexBufferView.SizeInBytes <span style="color:#f92672">=</span> vertexBufferSize;</span></span></code></pre></div>
+    
+</div>
+<h4 id="index-buffer-view">Index Buffer View</h4>
+<p>Index buffers contain integer offsets into vertex buffers and are used to render primitives more efficiently. An index buffer contains a sequential set of 16-bit or 32-bit indices; each index is used to identify a vertex in a vertex buffer. An index buffer can be visualized like the following illustration.
+<img src="/buffer_3.png" alt="">
+The sequential indices stored in an index buffer are located with the following parameters:</p>
+<ul>
+<li>Offset - the number of bytes from the base address of the index buffer.</li>
+<li>StartIndexLocation - specifies the first index buffer element from the base address and the offset. The start location represents the first index to render.</li>
+<li>IndexCount - the number of indices to render.</li>
+</ul>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="Start%20of%20Index%20Buffer%20=%20Index%20Buffer%20Base%20Address%20&#43;%20Offset%20%28bytes%29%20&#43;%20StartIndexLocation%20*%20ElementSize%20%28bytes%29;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <pre><code>Start of Index Buffer = Index Buffer Base Address &#43; Offset (bytes) &#43; StartIndexLocation * ElementSize (bytes);</code></pre>
+    
+</div>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20%f0%9f%92%be%20Declare%20Data%0d%0auint32_t%20indexBufferData[3]%20=%20%7b0,%201,%202%7d;%0d%0a%0d%0a//%20%f0%9f%91%8b%20Declare%20Handles%0d%0aID3D12Resource*%20indexBuffer;%0d%0aD3D12_INDEX_BUFFER_VIEW%20indexBufferView;%0d%0a%0d%0aconst%20UINT%20indexBufferSize%20=%20sizeof%28indexBufferData%29;%0d%0a%0d%0aD3D12_HEAP_PROPERTIES%20heapProps;%0d%0aheapProps.Type%20=%20D3D12_HEAP_TYPE_UPLOAD;%0d%0aheapProps.CPUPageProperty%20=%20D3D12_CPU_PAGE_PROPERTY_UNKNOWN;%0d%0aheapProps.MemoryPoolPreference%20=%20D3D12_MEMORY_POOL_UNKNOWN;%0d%0aheapProps.CreationNodeMask%20=%201;%0d%0aheapProps.VisibleNodeMask%20=%201;%0d%0a%0d%0aD3D12_RESOURCE_DESC%20vertexBufferResourceDesc;%0d%0avertexBufferResourceDesc.Dimension%20=%20D3D12_RESOURCE_DIMENSION_BUFFER;%0d%0avertexBufferResourceDesc.Alignment%20=%200;%0d%0avertexBufferResourceDesc.Width%20=%20indexBufferSize;%0d%0avertexBufferResourceDesc.Height%20=%201;%0d%0avertexBufferResourceDesc.DepthOrArraySize%20=%201;%0d%0avertexBufferResourceDesc.MipLevels%20=%201;%0d%0avertexBufferResourceDesc.Format%20=%20DXGI_FORMAT_UNKNOWN;%0d%0avertexBufferResourceDesc.SampleDesc.Count%20=%201;%0d%0avertexBufferResourceDesc.SampleDesc.Quality%20=%200;%0d%0avertexBufferResourceDesc.Layout%20=%20D3D12_TEXTURE_LAYOUT_ROW_MAJOR;%0d%0avertexBufferResourceDesc.Flags%20=%20D3D12_RESOURCE_FLAG_NONE;%0d%0a%0d%0aThrowIfFailed%28device-%3eCreateCommittedResource%28%0d%0a%20%20%20%20&amp;heapProps,%20D3D12_HEAP_FLAG_NONE,%20&amp;vertexBufferResourceDesc,%0d%0a%20%20%20%20D3D12_RESOURCE_STATE_GENERIC_READ,%20nullptr,%20IID_PPV_ARGS%28&amp;indexBuffer%29%29%29;%0d%0a%0d%0a//%20%f0%9f%93%84%20Copy%20data%20to%20DirectX%2012%20driver%20memory:%0d%0aUINT8*%20pVertexDataBegin;%0d%0a%0d%0a//%20%f0%9f%99%88%20We%20do%20not%20intend%20to%20read%20from%20this%20resource%20on%20the%20CPU.%0d%0aD3D12_RANGE%20readRange;%0d%0areadRange.Begin%20=%200;%0d%0areadRange.End%20=%200;%0d%0a%0d%0aThrowIfFailed%28indexBuffer-%3eMap%280,%20&amp;readRange,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20reinterpret_cast%3cvoid**%3e%28&amp;pVertexDataBegin%29%29%29;%0d%0amemcpy%28pVertexDataBegin,%20indexBufferData,%20sizeof%28indexBufferData%29%29;%0d%0aindexBuffer-%3eUnmap%280,%20nullptr%29;%0d%0a%0d%0a//%20%f0%9f%91%80%20Initialize%20the%20index%20buffer%20view.%0d%0aindexBufferView.BufferLocation%20=%20indexBuffer-%3eGetGPUVirtualAddress%28%29;%0d%0aindexBufferView.Format%20=%20DXGI_FORMAT_R32_UINT;%0d%0aindexBufferView.SizeInBytes%20=%20indexBufferSize;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 💾 Declare Data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">uint32_t</span> indexBufferData[<span style="color:#ae81ff">3</span>] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">2</span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 👋 Declare Handles
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ID3D12Resource<span style="color:#f92672">*</span> indexBuffer;
+</span></span><span style="display:flex;"><span>D3D12_INDEX_BUFFER_VIEW indexBufferView;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> UINT indexBufferSize <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(indexBufferData);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>D3D12_HEAP_PROPERTIES heapProps;
+</span></span><span style="display:flex;"><span>heapProps.Type <span style="color:#f92672">=</span> D3D12_HEAP_TYPE_UPLOAD;
+</span></span><span style="display:flex;"><span>heapProps.CPUPageProperty <span style="color:#f92672">=</span> D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+</span></span><span style="display:flex;"><span>heapProps.MemoryPoolPreference <span style="color:#f92672">=</span> D3D12_MEMORY_POOL_UNKNOWN;
+</span></span><span style="display:flex;"><span>heapProps.CreationNodeMask <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>heapProps.VisibleNodeMask <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>D3D12_RESOURCE_DESC vertexBufferResourceDesc;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Dimension <span style="color:#f92672">=</span> D3D12_RESOURCE_DIMENSION_BUFFER;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Alignment <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Width <span style="color:#f92672">=</span> indexBufferSize;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Height <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.DepthOrArraySize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.MipLevels <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Format <span style="color:#f92672">=</span> DXGI_FORMAT_UNKNOWN;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.SampleDesc.Count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.SampleDesc.Quality <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Layout <span style="color:#f92672">=</span> D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+</span></span><span style="display:flex;"><span>vertexBufferResourceDesc.Flags <span style="color:#f92672">=</span> D3D12_RESOURCE_FLAG_NONE;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ThrowIfFailed(device<span style="color:#f92672">-&gt;</span>CreateCommittedResource(
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&amp;</span>heapProps, D3D12_HEAP_FLAG_NONE, <span style="color:#f92672">&amp;</span>vertexBufferResourceDesc,
+</span></span><span style="display:flex;"><span>    D3D12_RESOURCE_STATE_GENERIC_READ, <span style="color:#66d9ef">nullptr</span>, IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>indexBuffer)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 📄 Copy data to DirectX 12 driver memory:
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>UINT8<span style="color:#f92672">*</span> pVertexDataBegin;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🙈 We do not intend to read from this resource on the CPU.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_RANGE readRange;
+</span></span><span style="display:flex;"><span>readRange.Begin <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>readRange.End <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ThrowIfFailed(indexBuffer<span style="color:#f92672">-&gt;</span>Map(<span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>readRange,
+</span></span><span style="display:flex;"><span>                               <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">void</span><span style="color:#f92672">**&gt;</span>(<span style="color:#f92672">&amp;</span>pVertexDataBegin)));
+</span></span><span style="display:flex;"><span>memcpy(pVertexDataBegin, indexBufferData, <span style="color:#66d9ef">sizeof</span>(indexBufferData));
+</span></span><span style="display:flex;"><span>indexBuffer<span style="color:#f92672">-&gt;</span>Unmap(<span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">nullptr</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 👀 Initialize the index buffer view.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>indexBufferView.BufferLocation <span style="color:#f92672">=</span> indexBuffer<span style="color:#f92672">-&gt;</span>GetGPUVirtualAddress();
+</span></span><span style="display:flex;"><span>indexBufferView.Format <span style="color:#f92672">=</span> DXGI_FORMAT_R32_UINT;
+</span></span><span style="display:flex;"><span>indexBufferView.SizeInBytes <span style="color:#f92672">=</span> indexBufferSize;</span></span></code></pre></div>
+    
+</div>
+<h4 id="constant-buffer-view">Constant Buffer View</h4>
+<p>I knew we mentioned it previously but we need to state it again here. <strong>A constant buffer allows you to efficiently supply shader constants data to the pipeline.</strong> You can use a constant buffer to store the results of the stream-output stage. Conceptually, a constant buffer looks just like a single-element vertex buffer, as shown in the following illustration.
+<img src="/buffer_4.png" alt=""></p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20%f0%9f%92%be%20Declare%20Data%0d%0astruct%0d%0a%7b%0d%0a%20%20%20%20glm::mat4%20projectionMatrix;%0d%0a%20%20%20%20glm::mat4%20modelMatrix;%0d%0a%20%20%20%20glm::mat4%20viewMatrix;%0d%0a%7d%20cbVS;%0d%0a%0d%0a//%20%f0%9f%91%8b%20Declare%20Handles%0d%0aID3D12Resource*%20constantBuffer;%0d%0aID3D12DescriptorHeap*%20constantBufferHeap;%0d%0aUINT8*%20mappedConstantBuffer;%0d%0a%0d%0a//%20%f0%9f%a7%8a%20Create%20the%20Constant%20Buffer%0d%0a%0d%0aD3D12_HEAP_PROPERTIES%20heapProps;%0d%0aheapProps.Type%20=%20D3D12_HEAP_TYPE_UPLOAD;%0d%0aheapProps.CPUPageProperty%20=%20D3D12_CPU_PAGE_PROPERTY_UNKNOWN;%0d%0aheapProps.MemoryPoolPreference%20=%20D3D12_MEMORY_POOL_UNKNOWN;%0d%0aheapProps.CreationNodeMask%20=%201;%0d%0aheapProps.VisibleNodeMask%20=%201;%0d%0a%0d%0aD3D12_DESCRIPTOR_HEAP_DESC%20heapDesc%20=%20%7b%7d;%0d%0aheapDesc.NumDescriptors%20=%201;%0d%0aheapDesc.Flags%20=%20D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;%0d%0aheapDesc.Type%20=%20D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;%0d%0aThrowIfFailed%28device-%3eCreateDescriptorHeap%28&amp;heapDesc,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20IID_PPV_ARGS%28&amp;constantBufferHeap%29%29%29;%0d%0a%0d%0aD3D12_RESOURCE_DESC%20cbResourceDesc;%0d%0acbResourceDesc.Dimension%20=%20D3D12_RESOURCE_DIMENSION_BUFFER;%0d%0acbResourceDesc.Alignment%20=%200;%0d%0acbResourceDesc.Width%20=%20%28sizeof%28cbVS%29%20&#43;%20255%29%20&amp;%20~255;%0d%0acbResourceDesc.Height%20=%201;%0d%0acbResourceDesc.DepthOrArraySize%20=%201;%0d%0acbResourceDesc.MipLevels%20=%201;%0d%0acbResourceDesc.Format%20=%20DXGI_FORMAT_UNKNOWN;%0d%0acbResourceDesc.SampleDesc.Count%20=%201;%0d%0acbResourceDesc.SampleDesc.Quality%20=%200;%0d%0acbResourceDesc.Layout%20=%20D3D12_TEXTURE_LAYOUT_ROW_MAJOR;%0d%0acbResourceDesc.Flags%20=%20D3D12_RESOURCE_FLAG_NONE;%0d%0a%0d%0aThrowIfFailed%28device-%3eCreateCommittedResource%28%0d%0a%20%20%20%20&amp;heapProps,%20D3D12_HEAP_FLAG_NONE,%20&amp;cbResourceDesc,%0d%0a%20%20%20%20D3D12_RESOURCE_STATE_GENERIC_READ,%20nullptr,%20IID_PPV_ARGS%28&amp;constantBuffer%29%29%29;%0d%0aconstantBufferHeap-%3eSetName%28L%22Constant%20Buffer%20Upload%20Resource%20Heap%22%29;%0d%0a%0d%0a//%20%f0%9f%91%93%20Create%20our%20Constant%20Buffer%20View%0d%0aD3D12_CONSTANT_BUFFER_VIEW_DESC%20cbvDesc%20=%20%7b%7d;%0d%0acbvDesc.BufferLocation%20=%20constantBuffer-%3eGetGPUVirtualAddress%28%29;%0d%0acbvDesc.SizeInBytes%20=%0d%0a%20%20%20%20%28sizeof%28cbVS%29%20&#43;%20255%29%20&amp;%20~255;%20//%20CB%20size%20is%20required%20to%20be%20256-byte%20aligned.%0d%0a%0d%0aD3D12_CPU_DESCRIPTOR_HANDLE%0d%0a%20%20%20%20cbvHandle%28constantBufferHeap-%3eGetCPUDescriptorHandleForHeapStart%28%29%29;%0d%0acbvHandle.ptr%20=%20cbvHandle.ptr%20&#43;%20device-%3eGetDescriptorHandleIncrementSize%28%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV%29%20*%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%200;%0d%0a%0d%0adevice-%3eCreateConstantBufferView%28&amp;cbvDesc,%20cbvHandle%29;%0d%0a%0d%0a//%20%f0%9f%99%88%20We%20do%20not%20intend%20to%20read%20from%20this%20resource%20on%20the%20CPU.%0d%0aD3D12_RANGE%20readRange;%0d%0areadRange.Begin%20=%200;%0d%0areadRange.End%20=%200;%0d%0a%0d%0aThrowIfFailed%28constantBuffer-%3eMap%28%0d%0a%20%20%20%200,%20&amp;readRange,%20reinterpret_cast%3cvoid**%3e%28&amp;mappedConstantBuffer%29%29%29;%0d%0amemcpy%28mappedConstantBuffer,%20&amp;cbVS,%20sizeof%28cbVS%29%29;%0d%0aconstantBuffer-%3eUnmap%280,%20&amp;readRange%29;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 💾 Declare Data
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">struct</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    glm<span style="color:#f92672">::</span>mat4 projectionMatrix;
+</span></span><span style="display:flex;"><span>    glm<span style="color:#f92672">::</span>mat4 modelMatrix;
+</span></span><span style="display:flex;"><span>    glm<span style="color:#f92672">::</span>mat4 viewMatrix;
+</span></span><span style="display:flex;"><span>} cbVS;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 👋 Declare Handles
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ID3D12Resource<span style="color:#f92672">*</span> constantBuffer;
+</span></span><span style="display:flex;"><span>ID3D12DescriptorHeap<span style="color:#f92672">*</span> constantBufferHeap;
+</span></span><span style="display:flex;"><span>UINT8<span style="color:#f92672">*</span> mappedConstantBuffer;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🧊 Create the Constant Buffer
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>D3D12_HEAP_PROPERTIES heapProps;
+</span></span><span style="display:flex;"><span>heapProps.Type <span style="color:#f92672">=</span> D3D12_HEAP_TYPE_UPLOAD;
+</span></span><span style="display:flex;"><span>heapProps.CPUPageProperty <span style="color:#f92672">=</span> D3D12_CPU_PAGE_PROPERTY_UNKNOWN;
+</span></span><span style="display:flex;"><span>heapProps.MemoryPoolPreference <span style="color:#f92672">=</span> D3D12_MEMORY_POOL_UNKNOWN;
+</span></span><span style="display:flex;"><span>heapProps.CreationNodeMask <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>heapProps.VisibleNodeMask <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>D3D12_DESCRIPTOR_HEAP_DESC heapDesc <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>heapDesc.NumDescriptors <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>heapDesc.Flags <span style="color:#f92672">=</span> D3D12_DESCRIPTOR_HEAP_FLAG_SHADER_VISIBLE;
+</span></span><span style="display:flex;"><span>heapDesc.Type <span style="color:#f92672">=</span> D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV;
+</span></span><span style="display:flex;"><span>ThrowIfFailed(device<span style="color:#f92672">-&gt;</span>CreateDescriptorHeap(<span style="color:#f92672">&amp;</span>heapDesc,
+</span></span><span style="display:flex;"><span>                                           IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>constantBufferHeap)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>D3D12_RESOURCE_DESC cbResourceDesc;
+</span></span><span style="display:flex;"><span>cbResourceDesc.Dimension <span style="color:#f92672">=</span> D3D12_RESOURCE_DIMENSION_BUFFER;
+</span></span><span style="display:flex;"><span>cbResourceDesc.Alignment <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>cbResourceDesc.Width <span style="color:#f92672">=</span> (<span style="color:#66d9ef">sizeof</span>(cbVS) <span style="color:#f92672">+</span> <span style="color:#ae81ff">255</span>) <span style="color:#f92672">&amp;</span> <span style="color:#f92672">~</span><span style="color:#ae81ff">255</span>;
+</span></span><span style="display:flex;"><span>cbResourceDesc.Height <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>cbResourceDesc.DepthOrArraySize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>cbResourceDesc.MipLevels <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>cbResourceDesc.Format <span style="color:#f92672">=</span> DXGI_FORMAT_UNKNOWN;
+</span></span><span style="display:flex;"><span>cbResourceDesc.SampleDesc.Count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>cbResourceDesc.SampleDesc.Quality <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>cbResourceDesc.Layout <span style="color:#f92672">=</span> D3D12_TEXTURE_LAYOUT_ROW_MAJOR;
+</span></span><span style="display:flex;"><span>cbResourceDesc.Flags <span style="color:#f92672">=</span> D3D12_RESOURCE_FLAG_NONE;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ThrowIfFailed(device<span style="color:#f92672">-&gt;</span>CreateCommittedResource(
+</span></span><span style="display:flex;"><span>    <span style="color:#f92672">&amp;</span>heapProps, D3D12_HEAP_FLAG_NONE, <span style="color:#f92672">&amp;</span>cbResourceDesc,
+</span></span><span style="display:flex;"><span>    D3D12_RESOURCE_STATE_GENERIC_READ, <span style="color:#66d9ef">nullptr</span>, IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>constantBuffer)));
+</span></span><span style="display:flex;"><span>constantBufferHeap<span style="color:#f92672">-&gt;</span>SetName(<span style="color:#e6db74">L</span><span style="color:#e6db74">&#34;Constant Buffer Upload Resource Heap&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 👓 Create our Constant Buffer View
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_CONSTANT_BUFFER_VIEW_DESC cbvDesc <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>cbvDesc.BufferLocation <span style="color:#f92672">=</span> constantBuffer<span style="color:#f92672">-&gt;</span>GetGPUVirtualAddress();
+</span></span><span style="display:flex;"><span>cbvDesc.SizeInBytes <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    (<span style="color:#66d9ef">sizeof</span>(cbVS) <span style="color:#f92672">+</span> <span style="color:#ae81ff">255</span>) <span style="color:#f92672">&amp;</span> <span style="color:#f92672">~</span><span style="color:#ae81ff">255</span>; <span style="color:#75715e">// CB size is required to be 256-byte aligned.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>D3D12_CPU_DESCRIPTOR_HANDLE
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">cbvHandle</span>(constantBufferHeap<span style="color:#f92672">-&gt;</span>GetCPUDescriptorHandleForHeapStart());
+</span></span><span style="display:flex;"><span>cbvHandle.ptr <span style="color:#f92672">=</span> cbvHandle.ptr <span style="color:#f92672">+</span> device<span style="color:#f92672">-&gt;</span>GetDescriptorHandleIncrementSize(
+</span></span><span style="display:flex;"><span>                                    D3D12_DESCRIPTOR_HEAP_TYPE_CBV_SRV_UAV) <span style="color:#f92672">*</span>
+</span></span><span style="display:flex;"><span>                                    <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>device<span style="color:#f92672">-&gt;</span>CreateConstantBufferView(<span style="color:#f92672">&amp;</span>cbvDesc, cbvHandle);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🙈 We do not intend to read from this resource on the CPU.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_RANGE readRange;
+</span></span><span style="display:flex;"><span>readRange.Begin <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>readRange.End <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ThrowIfFailed(constantBuffer<span style="color:#f92672">-&gt;</span>Map(
+</span></span><span style="display:flex;"><span>    <span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>readRange, <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">void</span><span style="color:#f92672">**&gt;</span>(<span style="color:#f92672">&amp;</span>mappedConstantBuffer)));
+</span></span><span style="display:flex;"><span>memcpy(mappedConstantBuffer, <span style="color:#f92672">&amp;</span>cbVS, <span style="color:#66d9ef">sizeof</span>(cbVS));
+</span></span><span style="display:flex;"><span>constantBuffer<span style="color:#f92672">-&gt;</span>Unmap(<span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>readRange);</span></span></code></pre></div>
+    
+</div>
+<h3 id="shader">Shader</h3>
+<h4 id="vertex-shader">Vertex Shader</h4>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hlsl" data-lang="hlsl"><span style="display:flex;"><span><span style="color:#66d9ef">cbuffer</span> cb <span style="color:#f92672">:</span> <span style="color:#66d9ef">register</span>(b0)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">row_major</span> <span style="color:#66d9ef">float4x4</span> projectionMatrix <span style="color:#f92672">:</span> <span style="color:#66d9ef">packoffset</span>(c0);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">row_major</span> <span style="color:#66d9ef">float4x4</span> modelMatrix <span style="color:#f92672">:</span> <span style="color:#66d9ef">packoffset</span>(c4);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">row_major</span> <span style="color:#66d9ef">float4x4</span> viewMatrix <span style="color:#f92672">:</span> <span style="color:#66d9ef">packoffset</span>(c8);
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> VertexInput
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float3</span> inPos <span style="color:#f92672">:</span> POSITION;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float3</span> inColor <span style="color:#f92672">:</span> COLOR;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> VertexOutput
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float3</span> color <span style="color:#f92672">:</span> COLOR;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float4</span> position <span style="color:#f92672">:</span> <span style="color:#a6e22e">SV_Position</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>VertexOutput main(VertexInput vertexInput)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float3</span> inColor <span style="color:#f92672">=</span> vertexInput.inColor;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float3</span> inPos <span style="color:#f92672">=</span> vertexInput.inPos;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float3</span> outColor <span style="color:#f92672">=</span> inColor;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float4</span> position <span style="color:#f92672">=</span> mul(<span style="color:#66d9ef">float4</span>(inPos, <span style="color:#ae81ff">1.0f</span>), mul(modelMatrix, mul(viewMatrix, projectionMatrix)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    VertexOutput output;
+</span></span><span style="display:flex;"><span>    output.position <span style="color:#f92672">=</span> position;
+</span></span><span style="display:flex;"><span>    output.color <span style="color:#f92672">=</span> outColor;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> output;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<h4 id="pixel-shader">Pixel Shader</h4>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-hlsl" data-lang="hlsl"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> PixelInput
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float3</span> color <span style="color:#f92672">:</span> COLOR;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> PixelOutput
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float4</span> attachment0 <span style="color:#f92672">:</span> <span style="color:#a6e22e">SV_Target0</span>;
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>PixelOutput main(PixelInput pixelInput)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">float3</span> inColor <span style="color:#f92672">=</span> pixelInput.color;
+</span></span><span style="display:flex;"><span>    PixelOutput output;
+</span></span><span style="display:flex;"><span>    output.attachment0 <span style="color:#f92672">=</span> <span style="color:#66d9ef">float4</span>(inColor, <span style="color:#ae81ff">1.0f</span>);
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">return</span> output;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<h3 id="pipeline-state-object">Pipeline State Object</h3>
+<p>The PSO is an object that represents the settings for our graphics device (GPU) in order to draw or dispatch something. Now is the time to stick everything together.
+<img src="/pso_1.png" alt=""></p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20%f0%9f%91%8b%20Declare%20handles%0d%0aID3D12PipelineState*%20pipelineState;%0d%0a%0d%0a//%20%e2%9a%97%ef%b8%8f%20Define%20the%20Graphics%20Pipeline%0d%0aD3D12_GRAPHICS_PIPELINE_STATE_DESC%20psoDesc%20=%20%7b%7d;%0d%0a%0d%0a//%20%f0%9f%94%a3%20Input%20Assembly%0d%0aD3D12_INPUT_ELEMENT_DESC%20inputElementDescs[]%20=%20%7b%0d%0a%20%20%20%20%7b%22POSITION%22,%200,%20DXGI_FORMAT_R32G32B32_FLOAT,%200,%200,%0d%0a%20%20%20%20%20D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA,%200%7d,%0d%0a%20%20%20%20%7b%22COLOR%22,%200,%20DXGI_FORMAT_R32G32B32_FLOAT,%200,%2012,%0d%0a%20%20%20%20%20D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA,%200%7d%7d;%0d%0apsoDesc.InputLayout%20=%20%7binputElementDescs,%20_countof%28inputElementDescs%29%7d;%0d%0a%0d%0a//%20%f0%9f%a6%84%20Resources%0d%0apsoDesc.pRootSignature%20=%20rootSignature;%0d%0a%0d%0a//%20%f0%9f%94%ba%20Vertex%20Shader%0d%0aD3D12_SHADER_BYTECODE%20vsBytecode;%0d%0avsBytecode.pShaderBytecode%20=%20vertexShaderBlob-%3eGetBufferPointer%28%29;%0d%0avsBytecode.BytecodeLength%20=%20vertexShaderBlob-%3eGetBufferSize%28%29;%0d%0apsoDesc.VS%20=%20vsBytecode;%0d%0a%0d%0a//%20%f0%9f%96%8c%ef%b8%8f%20Pixel%20Shader%0d%0aD3D12_SHADER_BYTECODE%20psBytecode;%0d%0apsBytecode.pShaderBytecode%20=%20pixelShaderBlob-%3eGetBufferPointer%28%29;%0d%0apsBytecode.BytecodeLength%20=%20pixelShaderBlob-%3eGetBufferSize%28%29;%0d%0apsoDesc.PS%20=%20psBytecode;%0d%0a%0d%0a//%20%f0%9f%9f%a8%20Rasterization%0d%0aD3D12_RASTERIZER_DESC%20rasterDesc;%0d%0arasterDesc.FillMode%20=%20D3D12_FILL_MODE_SOLID;%0d%0arasterDesc.CullMode%20=%20D3D12_CULL_MODE_NONE;%0d%0arasterDesc.FrontCounterClockwise%20=%20FALSE;%0d%0arasterDesc.DepthBias%20=%20D3D12_DEFAULT_DEPTH_BIAS;%0d%0arasterDesc.DepthBiasClamp%20=%20D3D12_DEFAULT_DEPTH_BIAS_CLAMP;%0d%0arasterDesc.SlopeScaledDepthBias%20=%20D3D12_DEFAULT_SLOPE_SCALED_DEPTH_BIAS;%0d%0arasterDesc.DepthClipEnable%20=%20TRUE;%0d%0arasterDesc.MultisampleEnable%20=%20FALSE;%0d%0arasterDesc.AntialiasedLineEnable%20=%20FALSE;%0d%0arasterDesc.ForcedSampleCount%20=%200;%0d%0arasterDesc.ConservativeRaster%20=%20D3D12_CONSERVATIVE_RASTERIZATION_MODE_OFF;%0d%0apsoDesc.RasterizerState%20=%20rasterDesc;%0d%0apsoDesc.PrimitiveTopologyType%20=%20D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;%0d%0a%0d%0a//%20%f0%9f%8c%80%20Color/Blend%0d%0aD3D12_BLEND_DESC%20blendDesc;%0d%0ablendDesc.AlphaToCoverageEnable%20=%20FALSE;%0d%0ablendDesc.IndependentBlendEnable%20=%20FALSE;%0d%0aconst%20D3D12_RENDER_TARGET_BLEND_DESC%20defaultRenderTargetBlendDesc%20=%20%7b%0d%0a%20%20%20%20FALSE,%0d%0a%20%20%20%20FALSE,%0d%0a%20%20%20%20D3D12_BLEND_ONE,%0d%0a%20%20%20%20D3D12_BLEND_ZERO,%0d%0a%20%20%20%20D3D12_BLEND_OP_ADD,%0d%0a%20%20%20%20D3D12_BLEND_ONE,%0d%0a%20%20%20%20D3D12_BLEND_ZERO,%0d%0a%20%20%20%20D3D12_BLEND_OP_ADD,%0d%0a%20%20%20%20D3D12_LOGIC_OP_NOOP,%0d%0a%20%20%20%20D3D12_COLOR_WRITE_ENABLE_ALL,%0d%0a%7d;%0d%0afor%20%28UINT%20i%20=%200;%20i%20%3c%20D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT;%20&#43;&#43;i%29%0d%0a%20%20%20%20blendDesc.RenderTarget[i]%20=%20defaultRenderTargetBlendDesc;%0d%0apsoDesc.BlendState%20=%20blendDesc;%0d%0a%0d%0a//%20%f0%9f%8c%91%20Depth/Stencil%20State%0d%0apsoDesc.DepthStencilState.DepthEnable%20=%20FALSE;%0d%0apsoDesc.DepthStencilState.StencilEnable%20=%20FALSE;%0d%0apsoDesc.SampleMask%20=%20UINT_MAX;%0d%0a%0d%0a//%20%f0%9f%96%bc%ef%b8%8f%20Output%0d%0apsoDesc.NumRenderTargets%20=%201;%0d%0apsoDesc.RTVFormats[0]%20=%20DXGI_FORMAT_R8G8B8A8_UNORM;%0d%0apsoDesc.SampleDesc.Count%20=%201;%0d%0a%0d%0a//%20%f0%9f%8c%9f%20Create%20the%20raster%20pipeline%20state%0d%0atry%0d%0a%7b%0d%0a%20%20%20%20ThrowIfFailed%28device-%3eCreateGraphicsPipelineState%28%0d%0a%20%20%20%20%20%20%20%20&amp;psoDesc,%20IID_PPV_ARGS%28&amp;pipelineState%29%29%29;%0d%0a%7d%0d%0acatch%20%28std::exception%20e%29%0d%0a%7b%0d%0a%20%20%20%20std::cout%20%3c%3c%20%22Failed%20to%20create%20Graphics%20Pipeline!%22;%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 👋 Declare handles
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ID3D12PipelineState<span style="color:#f92672">*</span> pipelineState;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// ⚗️ Define the Graphics Pipeline
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_GRAPHICS_PIPELINE_STATE_DESC psoDesc <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🔣 Input Assembly
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_INPUT_ELEMENT_DESC inputElementDescs[] <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;POSITION&#34;</span>, <span style="color:#ae81ff">0</span>, DXGI_FORMAT_R32G32B32_FLOAT, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>,
+</span></span><span style="display:flex;"><span>     D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, <span style="color:#ae81ff">0</span>},
+</span></span><span style="display:flex;"><span>    {<span style="color:#e6db74">&#34;COLOR&#34;</span>, <span style="color:#ae81ff">0</span>, DXGI_FORMAT_R32G32B32_FLOAT, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">12</span>,
+</span></span><span style="display:flex;"><span>     D3D12_INPUT_CLASSIFICATION_PER_VERTEX_DATA, <span style="color:#ae81ff">0</span>}};
+</span></span><span style="display:flex;"><span>psoDesc.InputLayout <span style="color:#f92672">=</span> {inputElementDescs, _countof(inputElementDescs)};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🦄 Resources
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>psoDesc.pRootSignature <span style="color:#f92672">=</span> rootSignature;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🔺 Vertex Shader
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_SHADER_BYTECODE vsBytecode;
+</span></span><span style="display:flex;"><span>vsBytecode.pShaderBytecode <span style="color:#f92672">=</span> vertexShaderBlob<span style="color:#f92672">-&gt;</span>GetBufferPointer();
+</span></span><span style="display:flex;"><span>vsBytecode.BytecodeLength <span style="color:#f92672">=</span> vertexShaderBlob<span style="color:#f92672">-&gt;</span>GetBufferSize();
+</span></span><span style="display:flex;"><span>psoDesc.VS <span style="color:#f92672">=</span> vsBytecode;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🖌️ Pixel Shader
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_SHADER_BYTECODE psBytecode;
+</span></span><span style="display:flex;"><span>psBytecode.pShaderBytecode <span style="color:#f92672">=</span> pixelShaderBlob<span style="color:#f92672">-&gt;</span>GetBufferPointer();
+</span></span><span style="display:flex;"><span>psBytecode.BytecodeLength <span style="color:#f92672">=</span> pixelShaderBlob<span style="color:#f92672">-&gt;</span>GetBufferSize();
+</span></span><span style="display:flex;"><span>psoDesc.PS <span style="color:#f92672">=</span> psBytecode;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🟨 Rasterization
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_RASTERIZER_DESC rasterDesc;
+</span></span><span style="display:flex;"><span>rasterDesc.FillMode <span style="color:#f92672">=</span> D3D12_FILL_MODE_SOLID;
+</span></span><span style="display:flex;"><span>rasterDesc.CullMode <span style="color:#f92672">=</span> D3D12_CULL_MODE_NONE;
+</span></span><span style="display:flex;"><span>rasterDesc.FrontCounterClockwise <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>rasterDesc.DepthBias <span style="color:#f92672">=</span> D3D12_DEFAULT_DEPTH_BIAS;
+</span></span><span style="display:flex;"><span>rasterDesc.DepthBiasClamp <span style="color:#f92672">=</span> D3D12_DEFAULT_DEPTH_BIAS_CLAMP;
+</span></span><span style="display:flex;"><span>rasterDesc.SlopeScaledDepthBias <span style="color:#f92672">=</span> D3D12_DEFAULT_SLOPE_SCALED_DEPTH_BIAS;
+</span></span><span style="display:flex;"><span>rasterDesc.DepthClipEnable <span style="color:#f92672">=</span> TRUE;
+</span></span><span style="display:flex;"><span>rasterDesc.MultisampleEnable <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>rasterDesc.AntialiasedLineEnable <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>rasterDesc.ForcedSampleCount <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>rasterDesc.ConservativeRaster <span style="color:#f92672">=</span> D3D12_CONSERVATIVE_RASTERIZATION_MODE_OFF;
+</span></span><span style="display:flex;"><span>psoDesc.RasterizerState <span style="color:#f92672">=</span> rasterDesc;
+</span></span><span style="display:flex;"><span>psoDesc.PrimitiveTopologyType <span style="color:#f92672">=</span> D3D12_PRIMITIVE_TOPOLOGY_TYPE_TRIANGLE;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🌀 Color/Blend
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_BLEND_DESC blendDesc;
+</span></span><span style="display:flex;"><span>blendDesc.AlphaToCoverageEnable <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>blendDesc.IndependentBlendEnable <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">const</span> D3D12_RENDER_TARGET_BLEND_DESC defaultRenderTargetBlendDesc <span style="color:#f92672">=</span> {
+</span></span><span style="display:flex;"><span>    FALSE,
+</span></span><span style="display:flex;"><span>    FALSE,
+</span></span><span style="display:flex;"><span>    D3D12_BLEND_ONE,
+</span></span><span style="display:flex;"><span>    D3D12_BLEND_ZERO,
+</span></span><span style="display:flex;"><span>    D3D12_BLEND_OP_ADD,
+</span></span><span style="display:flex;"><span>    D3D12_BLEND_ONE,
+</span></span><span style="display:flex;"><span>    D3D12_BLEND_ZERO,
+</span></span><span style="display:flex;"><span>    D3D12_BLEND_OP_ADD,
+</span></span><span style="display:flex;"><span>    D3D12_LOGIC_OP_NOOP,
+</span></span><span style="display:flex;"><span>    D3D12_COLOR_WRITE_ENABLE_ALL,
+</span></span><span style="display:flex;"><span>};
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">for</span> (UINT i <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>; i <span style="color:#f92672">&lt;</span> D3D12_SIMULTANEOUS_RENDER_TARGET_COUNT; <span style="color:#f92672">++</span>i)
+</span></span><span style="display:flex;"><span>    blendDesc.RenderTarget[i] <span style="color:#f92672">=</span> defaultRenderTargetBlendDesc;
+</span></span><span style="display:flex;"><span>psoDesc.BlendState <span style="color:#f92672">=</span> blendDesc;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🌑 Depth/Stencil State
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>psoDesc.DepthStencilState.DepthEnable <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>psoDesc.DepthStencilState.StencilEnable <span style="color:#f92672">=</span> FALSE;
+</span></span><span style="display:flex;"><span>psoDesc.SampleMask <span style="color:#f92672">=</span> UINT_MAX;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🖼️ Output
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>psoDesc.NumRenderTargets <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>psoDesc.RTVFormats[<span style="color:#ae81ff">0</span>] <span style="color:#f92672">=</span> DXGI_FORMAT_R8G8B8A8_UNORM;
+</span></span><span style="display:flex;"><span>psoDesc.SampleDesc.Count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🌟 Create the raster pipeline state
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">try</span>
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    ThrowIfFailed(device<span style="color:#f92672">-&gt;</span>CreateGraphicsPipelineState(
+</span></span><span style="display:flex;"><span>        <span style="color:#f92672">&amp;</span>psoDesc, IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>pipelineState)));
+</span></span><span style="display:flex;"><span>}
+</span></span><span style="display:flex;"><span><span style="color:#66d9ef">catch</span> (std<span style="color:#f92672">::</span>exception e)
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    std<span style="color:#f92672">::</span>cout <span style="color:#f92672">&lt;&lt;</span> <span style="color:#e6db74">&#34;Failed to create Graphics Pipeline!&#34;</span>;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<h3 id="setup-commands">Setup Commands</h3>
+<p>We have the pipeline state. Now we need to set up our command list to lunch the draw. Before that, the command list need to know the resources location, Rasterization setting, and configure the barriers.
+<img src="/cl_1.png" alt=""></p>
+<p>I would like to borrow <a href="https://alain.xyz/blog/raw-directx12#encoding-commands">Alain&rsquo;s code</a> again since he seperate every step super clear.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20%f0%9f%91%8b%20Declare%20handles%0d%0aID3D12CommandAllocator*%20commandAllocator;%0d%0aID3D12PipelineState*%20initialPipelineState;%0d%0aID3D12GraphicsCommandList*%20commandList;%0d%0a%0d%0a//%20%f0%9f%93%83%20Create%20the%20command%20list.%0d%0aThrowIfFailed%28device-%3eCreateCommandList%280,%20D3D12_COMMAND_LIST_TYPE_DIRECT,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20commandAllocator,%20initialPipelineState,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20IID_PPV_ARGS%28&amp;commandList%29%29%29;%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%20%0d%0a//%20Encode%20those%20commands%20and%20submit%20them%0d%0a%0d%0a//%20%f0%9f%9a%bf%20Reset%20the%20command%20list%20and%20add%20new%20commands.%0d%0aThrowIfFailed%28commandAllocator-%3eReset%28%29%29;%0d%0a%0d%0a//%20%f0%9f%96%8c%ef%b8%8f%20Begin%20using%20the%20Raster%20Graphics%20Pipeline%0d%0aThrowIfFailed%28commandList-%3eReset%28commandAllocator,%20pipelineState%29%29;%0d%0a%0d%0a//%20%f0%9f%94%b3%20Setup%20Resources%0d%0acommandList-%3eSetGraphicsRootSignature%28rootSignature%29;%0d%0aID3D12DescriptorHeap*%20pDescriptorHeaps[]%20=%20%7bconstantBufferHeap%7d;%0d%0acommandList-%3eSetDescriptorHeaps%28_countof%28pDescriptorHeaps%29,%20pDescriptorHeaps%29;%0d%0aD3D12_GPU_DESCRIPTOR_HANDLE%0d%0a%20%20%20%20cbvHandle%28constantBufferHeap-%3eGetGPUDescriptorHandleForHeapStart%28%29%29;%0d%0acommandList-%3eSetGraphicsRootDescriptorTable%280,%20cbvHandle%29;%0d%0a%0d%0a//%20%f0%9f%96%bc%ef%b8%8f%20Indicate%20that%20the%20back%20buffer%20will%20be%20used%20as%20a%20render%20target.%0d%0aD3D12_RESOURCE_BARRIER%20renderTargetBarrier;%0d%0arenderTargetBarrier.Type%20=%20D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;%0d%0arenderTargetBarrier.Flags%20=%20D3D12_RESOURCE_BARRIER_FLAG_NONE;%0d%0arenderTargetBarrier.Transition.pResource%20=%20renderTargets[frameIndex];%0d%0arenderTargetBarrier.Transition.StateBefore%20=%20D3D12_RESOURCE_STATE_PRESENT;%0d%0arenderTargetBarrier.Transition.StateAfter%20=%20D3D12_RESOURCE_STATE_RENDER_TARGET;%0d%0arenderTargetBarrier.Transition.Subresource%20=%0d%0a%20%20%20%20D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;%0d%0acommandList-%3eResourceBarrier%281,%20&amp;renderTargetBarrier%29;%0d%0a%0d%0aD3D12_CPU_DESCRIPTOR_HANDLE%0d%0a%20%20%20%20rtvHandle%28rtvHeap-%3eGetCPUDescriptorHandleForHeapStart%28%29%29;%0d%0artvHandle.ptr%20=%20rtvHandle.ptr%20&#43;%20%28frameIndex%20*%20rtvDescriptorSize%29;%0d%0acommandList-%3eOMSetRenderTargets%281,%20&amp;rtvHandle,%20FALSE,%20nullptr%29;%0d%0a%0d%0a//%20%f0%9f%8e%a5%20Record%20raster%20commands.%0d%0aconst%20float%20clearColor[]%20=%20%7b0.2f,%200.2f,%200.2f,%201.0f%7d;%0d%0acommandList-%3eRSSetViewports%281,%20&amp;viewport%29;%0d%0acommandList-%3eRSSetScissorRects%281,%20&amp;surfaceSize%29;%0d%0acommandList-%3eClearRenderTargetView%28rtvHandle,%20clearColor,%200,%20nullptr%29;%0d%0acommandList-%3eIASetPrimitiveTopology%28D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST%29;%0d%0acommandList-%3eIASetVertexBuffers%280,%201,%20&amp;vertexBufferView%29;%0d%0acommandList-%3eIASetIndexBuffer%28&amp;indexBufferView%29;%0d%0a%0d%0acommandList-%3eDrawIndexedInstanced%283,%201,%200,%200,%200%29;%0d%0a%0d%0a//%20%f0%9f%96%bc%ef%b8%8f%20Indicate%20that%20the%20back%20buffer%20will%20now%20be%20used%20to%20present.%0d%0aD3D12_RESOURCE_BARRIER%20presentBarrier;%0d%0apresentBarrier.Type%20=%20D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;%0d%0apresentBarrier.Flags%20=%20D3D12_RESOURCE_BARRIER_FLAG_NONE;%0d%0apresentBarrier.Transition.pResource%20=%20renderTargets[frameIndex];%0d%0apresentBarrier.Transition.StateBefore%20=%20D3D12_RESOURCE_STATE_RENDER_TARGET;%0d%0apresentBarrier.Transition.StateAfter%20=%20D3D12_RESOURCE_STATE_PRESENT;%0d%0apresentBarrier.Transition.Subresource%20=%20D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;%0d%0a%0d%0acommandList-%3eResourceBarrier%281,%20&amp;presentBarrier%29;%0d%0a%0d%0aThrowIfFailed%28commandList-%3eClose%28%29%29;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-c++" data-lang="c++"><span style="display:flex;"><span><span style="color:#75715e">// 👋 Declare handles
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ID3D12CommandAllocator<span style="color:#f92672">*</span> commandAllocator;
+</span></span><span style="display:flex;"><span>ID3D12PipelineState<span style="color:#f92672">*</span> initialPipelineState;
+</span></span><span style="display:flex;"><span>ID3D12GraphicsCommandList<span style="color:#f92672">*</span> commandList;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 📃 Create the command list.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ThrowIfFailed(device<span style="color:#f92672">-&gt;</span>CreateCommandList(<span style="color:#ae81ff">0</span>, D3D12_COMMAND_LIST_TYPE_DIRECT,
+</span></span><span style="display:flex;"><span>                                        commandAllocator, initialPipelineState,
+</span></span><span style="display:flex;"><span>                                        IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>commandList)));
+</span></span><span style="display:flex;"><span>                                        
+</span></span><span style="display:flex;"><span>                                        
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Encode those commands and submit them
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🚿 Reset the command list and add new commands.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ThrowIfFailed(commandAllocator<span style="color:#f92672">-&gt;</span>Reset());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🖌️ Begin using the Raster Graphics Pipeline
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ThrowIfFailed(commandList<span style="color:#f92672">-&gt;</span>Reset(commandAllocator, pipelineState));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🔳 Setup Resources
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>commandList<span style="color:#f92672">-&gt;</span>SetGraphicsRootSignature(rootSignature);
+</span></span><span style="display:flex;"><span>ID3D12DescriptorHeap<span style="color:#f92672">*</span> pDescriptorHeaps[] <span style="color:#f92672">=</span> {constantBufferHeap};
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>SetDescriptorHeaps(_countof(pDescriptorHeaps), pDescriptorHeaps);
+</span></span><span style="display:flex;"><span>D3D12_GPU_DESCRIPTOR_HANDLE
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">cbvHandle</span>(constantBufferHeap<span style="color:#f92672">-&gt;</span>GetGPUDescriptorHandleForHeapStart());
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>SetGraphicsRootDescriptorTable(<span style="color:#ae81ff">0</span>, cbvHandle);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🖼️ Indicate that the back buffer will be used as a render target.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_RESOURCE_BARRIER renderTargetBarrier;
+</span></span><span style="display:flex;"><span>renderTargetBarrier.Type <span style="color:#f92672">=</span> D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+</span></span><span style="display:flex;"><span>renderTargetBarrier.Flags <span style="color:#f92672">=</span> D3D12_RESOURCE_BARRIER_FLAG_NONE;
+</span></span><span style="display:flex;"><span>renderTargetBarrier.Transition.pResource <span style="color:#f92672">=</span> renderTargets[frameIndex];
+</span></span><span style="display:flex;"><span>renderTargetBarrier.Transition.StateBefore <span style="color:#f92672">=</span> D3D12_RESOURCE_STATE_PRESENT;
+</span></span><span style="display:flex;"><span>renderTargetBarrier.Transition.StateAfter <span style="color:#f92672">=</span> D3D12_RESOURCE_STATE_RENDER_TARGET;
+</span></span><span style="display:flex;"><span>renderTargetBarrier.Transition.Subresource <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>    D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>ResourceBarrier(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>renderTargetBarrier);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>D3D12_CPU_DESCRIPTOR_HANDLE
+</span></span><span style="display:flex;"><span>    <span style="color:#a6e22e">rtvHandle</span>(rtvHeap<span style="color:#f92672">-&gt;</span>GetCPUDescriptorHandleForHeapStart());
+</span></span><span style="display:flex;"><span>rtvHandle.ptr <span style="color:#f92672">=</span> rtvHandle.ptr <span style="color:#f92672">+</span> (frameIndex <span style="color:#f92672">*</span> rtvDescriptorSize);
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>OMSetRenderTargets(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>rtvHandle, FALSE, <span style="color:#66d9ef">nullptr</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🎥 Record raster commands.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> clearColor[] <span style="color:#f92672">=</span> {<span style="color:#ae81ff">0.2f</span>, <span style="color:#ae81ff">0.2f</span>, <span style="color:#ae81ff">0.2f</span>, <span style="color:#ae81ff">1.0f</span>};
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>RSSetViewports(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>viewport);
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>RSSetScissorRects(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>surfaceSize);
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>ClearRenderTargetView(rtvHandle, clearColor, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">nullptr</span>);
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>IASetPrimitiveTopology(D3D_PRIMITIVE_TOPOLOGY_TRIANGLELIST);
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>IASetVertexBuffers(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>vertexBufferView);
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>IASetIndexBuffer(<span style="color:#f92672">&amp;</span>indexBufferView);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>DrawIndexedInstanced(<span style="color:#ae81ff">3</span>, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// 🖼️ Indicate that the back buffer will now be used to present.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>D3D12_RESOURCE_BARRIER presentBarrier;
+</span></span><span style="display:flex;"><span>presentBarrier.Type <span style="color:#f92672">=</span> D3D12_RESOURCE_BARRIER_TYPE_TRANSITION;
+</span></span><span style="display:flex;"><span>presentBarrier.Flags <span style="color:#f92672">=</span> D3D12_RESOURCE_BARRIER_FLAG_NONE;
+</span></span><span style="display:flex;"><span>presentBarrier.Transition.pResource <span style="color:#f92672">=</span> renderTargets[frameIndex];
+</span></span><span style="display:flex;"><span>presentBarrier.Transition.StateBefore <span style="color:#f92672">=</span> D3D12_RESOURCE_STATE_RENDER_TARGET;
+</span></span><span style="display:flex;"><span>presentBarrier.Transition.StateAfter <span style="color:#f92672">=</span> D3D12_RESOURCE_STATE_PRESENT;
+</span></span><span style="display:flex;"><span>presentBarrier.Transition.Subresource <span style="color:#f92672">=</span> D3D12_RESOURCE_BARRIER_ALL_SUBRESOURCES;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>commandList<span style="color:#f92672">-&gt;</span>ResourceBarrier(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>presentBarrier);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>ThrowIfFailed(commandList<span style="color:#f92672">-&gt;</span>Close());</span></span></code></pre></div>
+    
+</div>
+<h2 id="render">Render</h2>
+<p>Finally, we make it here. Render in DirectX 12 is super easy. It&rsquo;s much similiar like OpenGL. The flow is like:</p>
+<ol>
+<li>Do some update</li>
+<li>Submit your command lists to be executed</li>
+<li>Present the swapchain to windows</li>
+<li>Signal your application you have done</li>
+</ol>
+<h2 id="resource">Resource</h2>
+<ul>
+<li><a href="https://alain.xyz/blog/raw-directx12#setup">Alain Blog Raw directx12</a></li>
+<li><a href="http://www.directxtutorial.com/Lesson.aspx?lessonid=112-4-1">DirectXTutorial.com</a></li>
+<li><a href="https://logins.github.io/graphics/2020/06/26/DX12RootSignatureObject.html">Riccardo Loffini&rsquo;s Why talking about the Root Signature?</a></li>
+<li><a href="https://learn.microsoft.com/en-us/windows/uwp/graphics-concepts/">Microsoft Doc</a></li>
+<li><a href="https://www.youtube.com/watch?v=Wbnw87tYqVg&amp;list=PLeHvwXyqearVU8fvo2Oq7otKDlLLDAaHW&amp;index=3&amp;ab_channel=MicrosoftDirectX12andGraphicsEducation">Video from Microsoft DirectX 12 and Graphics Education</a></li>
+</ul>
+
+            
+        </div>
+    </article>
+
+        </main>
+
+        <footer class="footer">
+    <div class="footer-left">
+        <ul class="social">
+            
+
+            
+                <li>Cheng-Yu Fan</li>
+            
+
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </div>
+
+    <div class="footer-right">
+        <ul class="control status clearfix">
+            
+                <li>
+                    
+                        Word Count:
+                        4009
+                    
+                </li>
+            
+
+            
+                <li>en</li>
+            
+
+            
+                <li>
+                    <a href="https://gohugo.io" class="btn" target="_blank"
+                        >Hugo: 0.119.0</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    <a
+                        href="https://github.com/JingWangTW/dark-theme-editor"
+                        class="btn"
+                        target="_blank"
+                        >Theme: dark-theme-editor</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    
+                        Last modified: &nbsp;
+                        <time>
+                            Jul 24 2023 18:09:39
+                        </time>
+                    
+                </li>
+            
+
+            
+                <li title="">
+                    
+                </li>
+            
+        </ul>
+    </div>
+</footer>
+
+    </body>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <script
+        type="text/javascript"
+        src="/js/index.min.76f28ad9d7f1e1b68cfc55f930e89f7439bf72c0def552fa19d37555afaaaa776fc8533a913ac30e0162a7fb08415d19d1588e1d9a4f3328f0614c52f1a3963b.js"
+        integrity="sha512-dvKK2dfx4baM/FX5MOifdDm/csDe9VL6GdN1Va&#43;qqndvyFM6kTrDDgFip/sIQV0Z0ViOHZpPMyjwYUxS8aOWOw=="></script>
+
+
+
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+
+</html>

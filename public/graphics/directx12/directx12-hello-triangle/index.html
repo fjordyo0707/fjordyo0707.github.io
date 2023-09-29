@@ -1,0 +1,1082 @@
+<!DOCTYPE html>
+<html lang="en-us">
+    <head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <meta name="generator" content="Hugo 0.119.0">
+
+    
+
+    
+
+    
+        
+            <meta
+                name="description"
+                content="" />
+        
+
+        
+            <meta
+                name="keywords"
+                content="graphics, programming, compiler" />
+        
+
+        
+            <meta name="author" content="Cheng-Yu Fan" />
+        
+
+    
+
+
+    <title>
+        
+            DirectX12 Hello Triangle |
+            CYF Blog
+        
+    </title>
+
+    
+
+
+    
+    
+
+
+    
+    
+
+
+    
+    
+    
+    
+
+
+    
+    
+
+    
+
+    
+
+        
+        
+
+
+        <link
+            rel="stylesheet"
+            href="/css/index.min.d769fcae9b652a4ac8ee5ab1bc267604bd6eb6156d80edb2184dcdaec0bf1a0275c755605e14086296051d441377666d37e9feb10efb12626040c729c01d2941.css"
+            integrity="sha512-12n8rptlKkrI7lqxvCZ2BL1uthVtgO2yGE3NrsC/GgJ1x1VgXhQIYpYFHUQTd2ZtN&#43;n&#43;sQ77EmJgQMcpwB0pQQ==" />
+    
+
+</head>
+
+
+
+    <body>
+        <header class="header">
+    <div class="header_left">
+        
+    </div>
+
+    <div class="header_middle">
+        
+            DirectX12 Hello Triangle -
+            CYF Blog
+        
+    </div>
+</header>
+
+
+
+        <main>
+            <aside class="sidebar">
+    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li
+                    
+                        class="dir opened-dir"
+                    >
+                    <span class="dir-text"> Graphics </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/vulkan/vulkan-introduction/" title="./graphics/vulkan/vulkan-introduction/">
+                        Vulkan Introduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-hello-triangle/" title="./graphics/directx12/directx12-hello-triangle/">
+                        DirectX12 Hello Triangle
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/directx12/directx12-intoduction/" title="./graphics/directx12/directx12-intoduction/">
+                        DirectX12 Intoduction
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/graphics/pbr/my-pbrt-engine/" title="./graphics/pbr/my-pbrt-engine/">
+                        My Pbrt Engine
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li
+                    
+                        class="dir closed-dir"
+                    >
+                    <span class="dir-text"> Programmings </span>
+
+                    
+
+
+
+    
+    
+
+    
+    
+
+
+    <ul class="section-tree">
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-move-semantics/" title="./programming/c&#43;&#43;/modern-cpp-move-semantics/">
+                        Modern C&#43;&#43;: Move Semantics
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-lambdas/" title="./programming/c&#43;&#43;/modern-cpp-lambdas/">
+                        Modern C&#43;&#43;: Lambdas
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/programming/c&#43;&#43;/modern-cpp-smart-pointers/" title="./programming/c&#43;&#43;/modern-cpp-smart-pointers/">
+                        Modern C&#43;&#43;: Smart Pointers
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/contact/" title="./contact/">
+                        Contact
+                    </a>
+                </li>
+            
+        
+            
+                <li class="file">
+                    <a href="https://example.org/about/" title="./about/">
+                        About
+                    </a>
+                </li>
+            
+        
+    </ul>
+
+
+</aside>
+<aside class="exapandable"></aside>
+
+
+            
+    <article class="main">
+        <button
+    class="sidebar-toggle-btn"
+    type="menu"
+    aria-expanded="false"
+    aria-haspopup="true">
+    <i class="bi bi-list"></i>
+</button>
+
+
+
+        <div class="title">
+            <h1 class="title-header">
+                DirectX12 Hello Triangle
+            </h1>
+
+            <div class="author-date-readtime">
+                
+
+                    
+                        <div class="author">
+                            <i class="bi bi-person"></i>
+                            <a
+                                href="https://example.org/author/cheng-yu-fan/"
+                                class="cat-btn">
+                                Cheng-Yu Fan
+                            </a>
+                        </div>
+                    
+
+                
+
+                
+                    <div class="date">
+                        <i class="bi bi-calendar3"></i>
+                        <time
+                            datetime="2023.07.27"
+                            >2023.07.27
+                        </time>
+                    </div>
+                
+
+                
+            </div>
+        </div>
+
+        <div class="article-meta">
+            
+                <div class="categories">
+                    <i class="bi bi-bookmarks" title="Categories"></i>
+                    
+                        <a
+                            href="https://example.org/categories/graphics/"
+                            class="cat-btn">
+                            Graphics
+                        </a>
+                    
+                </div>
+            
+
+            
+                <div class="tags">
+                    <i class="bi bi-tags" title="Tags"></i>
+                    
+                        <a
+                            href="https://example.org/tags/directx12/"
+                            class="tag-btn">
+                            DirectX12
+                        </a>
+                    
+                        <a
+                            href="https://example.org/tags/graphicsapi/"
+                            class="tag-btn">
+                            GraphicsAPI
+                        </a>
+                    
+                </div>
+            
+
+            
+                <div class="breadcumb">
+                    <i class="bi bi-folder"></i>
+                    
+    
+    
+
+
+
+
+<a href="https://example.org/" class="bread-btn">
+    
+        <i class="bi bi-house-fill"></i>
+    
+
+    
+        Home
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/graphics/" class="bread-btn">
+    
+
+    
+        Graphics
+    
+</a>
+
+
+
+
+    /
+
+
+
+<a href="https://example.org/graphics/directx12/directx12-hello-triangle/" class="bread-btn">
+    
+
+    
+        DirectX12 Hello Triangle
+    
+</a>
+
+                </div>
+            
+        </div>
+
+        
+            <nav id="TableOfContents">
+  <ul>
+    <li><a href="#headers">Headers</a>
+      <ul>
+        <li><a href="#public">Public</a></li>
+        <li><a href="#private">Private</a></li>
+      </ul>
+    </li>
+    <li><a href="#cpp-files">CPP Files</a>
+      <ul>
+        <li><a href="#public-1">Public</a></li>
+      </ul>
+    </li>
+    <li><a href="#misc">MISC</a>
+      <ul>
+        <li><a href="#constant-buffer">Constant Buffer</a></li>
+        <li><a href="#texture">Texture</a></li>
+        <li><a href="#framebuffering">FrameBuffering</a></li>
+      </ul>
+    </li>
+  </ul>
+</nav>
+        
+
+
+        <div class="content">
+            
+                <h1 id="directx12-hello-triangle">DirectX12 Hello Triangle</h1>
+<p>The online resources for starting DirectX12  to beccoming a intermediate level has a pretty steep learning curve. At least for me, it tooks me a while to find the next step after drawing my first triangle. Thus, I would like to start from the github repo <a href="https://github.com/microsoft/DirectX-Graphics-Samples/tree/master">Microsoft DirectX-Graphics-Sample</a>.</p>
+<p>This code in this post is located at the repo <code>DirectX-Graphics-Samples/tree/master/Samples/Desktop/D3D12HelloWorld/src/HelloTriangle</code>. Feel free to build and test it by yourself.</p>
+<blockquote>
+<p>Before you start reading, I would recommend you read <a href="https://fjordyo0707.github.io/posts/directx12-intoduction/">my previous post: DirectX12 Intoduction</a> to have better understanding</p>
+</blockquote>
+<h2 id="headers">Headers</h2>
+<h3 id="public">Public</h3>
+<p>Let&rsquo;s take a look at <code>D3D12HelloTriangle.h</code>. The public method consists one constructor and four virtual overwrite functions, <code>OnInit</code>, <code>OnUpdate</code>, <code>OnRender</code>, <code>OnDestroy</code>.</p>
+<ul>
+<li><strong>OnInit</strong>: Load pipeline.and assets
+<ul>
+<li>Declare object memory, like enable debug layer, create device adapter, command queue, swap chain, desciptor heap, frame resources.</li>
+<li>Create root signature. Compiling and loading shaders. Create a pipeline state object, command lists, a vertex buffer, sync objects. Upload assets to GPU.</li>
+</ul>
+</li>
+<li><strong>OnUpdate</strong>: Update the resources and send to GPU.</li>
+<li><strong>OnRender</strong>: Record all the commands we need to render the scene into the command list. Execute the command list. Presnet the frame from swap chain. Wait for the frame to complete</li>
+<li><strong>OnDestroy</strong>: Clean the reources</li>
+</ul>
+<h3 id="private">Private</h3>
+<p>In private object parts, the private functions are all helper functions to organize the code. For attributes, I liked the example seperate them into three different kinds of category, pipeline objects, app resources, synchronization objects.</p>
+<h4 id="pipeline-objects">Pipeline objects</h4>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="%20%20%20%20//%20Pipeline%20objects.%0d%0a%20%20%20%20CD3DX12_VIEWPORT%20m_viewport;%0d%0a%20%20%20%20CD3DX12_RECT%20m_scissorRect;%0d%0a%20%20%20%20ComPtr%3cIDXGISwapChain3%3e%20m_swapChain;%0d%0a%20%20%20%20ComPtr%3cID3D12Device%3e%20m_device;%0d%0a%20%20%20%20ComPtr%3cID3D12Resource%3e%20m_renderTargets[FrameCount];%0d%0a%20%20%20%20ComPtr%3cID3D12CommandAllocator%3e%20m_commandAllocator;%0d%0a%20%20%20%20ComPtr%3cID3D12CommandQueue%3e%20m_commandQueue;%0d%0a%20%20%20%20ComPtr%3cID3D12RootSignature%3e%20m_rootSignature;%0d%0a%20%20%20%20ComPtr%3cID3D12DescriptorHeap%3e%20m_rtvHeap;%0d%0a%20%20%20%20ComPtr%3cID3D12PipelineState%3e%20m_pipelineState;%0d%0a%20%20%20%20ComPtr%3cID3D12GraphicsCommandList%3e%20m_commandList;%0d%0a%20%20%20%20UINT%20m_rtvDescriptorSize;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-C++" data-lang="C++"><span style="display:flex;"><span>    <span style="color:#75715e">// Pipeline objects.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    CD3DX12_VIEWPORT m_viewport;
+</span></span><span style="display:flex;"><span>    CD3DX12_RECT m_scissorRect;
+</span></span><span style="display:flex;"><span>    ComPtr<span style="color:#f92672">&lt;</span>IDXGISwapChain3<span style="color:#f92672">&gt;</span> m_swapChain;
+</span></span><span style="display:flex;"><span>    ComPtr<span style="color:#f92672">&lt;</span>ID3D12Device<span style="color:#f92672">&gt;</span> m_device;
+</span></span><span style="display:flex;"><span>    ComPtr<span style="color:#f92672">&lt;</span>ID3D12Resource<span style="color:#f92672">&gt;</span> m_renderTargets[FrameCount];
+</span></span><span style="display:flex;"><span>    ComPtr<span style="color:#f92672">&lt;</span>ID3D12CommandAllocator<span style="color:#f92672">&gt;</span> m_commandAllocator;
+</span></span><span style="display:flex;"><span>    ComPtr<span style="color:#f92672">&lt;</span>ID3D12CommandQueue<span style="color:#f92672">&gt;</span> m_commandQueue;
+</span></span><span style="display:flex;"><span>    ComPtr<span style="color:#f92672">&lt;</span>ID3D12RootSignature<span style="color:#f92672">&gt;</span> m_rootSignature;
+</span></span><span style="display:flex;"><span>    ComPtr<span style="color:#f92672">&lt;</span>ID3D12DescriptorHeap<span style="color:#f92672">&gt;</span> m_rtvHeap;
+</span></span><span style="display:flex;"><span>    ComPtr<span style="color:#f92672">&lt;</span>ID3D12PipelineState<span style="color:#f92672">&gt;</span> m_pipelineState;
+</span></span><span style="display:flex;"><span>    ComPtr<span style="color:#f92672">&lt;</span>ID3D12GraphicsCommandList<span style="color:#f92672">&gt;</span> m_commandList;
+</span></span><span style="display:flex;"><span>    UINT m_rtvDescriptorSize;</span></span></code></pre></div>
+    
+</div>
+<h4 id="app-resources">App resources</h4>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="%20%20%20%20ComPtr%3cID3D12Resource%3e%20m_vertexBuffer;%0d%0a%20%20%20%20D3D12_VERTEX_BUFFER_VIEW%20m_vertexBufferView;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <pre><code>    ComPtr&lt;ID3D12Resource&gt; m_vertexBuffer;
+    D3D12_VERTEX_BUFFER_VIEW m_vertexBufferView;</code></pre>
+    
+</div>
+<h4 id="synchronization-objects">Synchronization objects</h4>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="%20%20%20%20UINT%20m_frameIndex;%0d%0a%20%20%20%20HANDLE%20m_fenceEvent;%0d%0a%20%20%20%20ComPtr%3cID3D12Fence%3e%20m_fence;%0d%0a%20%20%20%20UINT64%20m_fenceValue;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <pre><code>    UINT m_frameIndex;
+    HANDLE m_fenceEvent;
+    ComPtr&lt;ID3D12Fence&gt; m_fence;
+    UINT64 m_fenceValue;</code></pre>
+    
+</div>
+<h2 id="cpp-files">CPP Files</h2>
+<h3 id="public-1">Public</h3>
+<p>I would explain it in the sequenctial way in the code. I wouldn&rsquo;t dig in every section details. Just provide a big pictures what is going on right now</p>
+<h4 id="oninit">OnInit</h4>
+<ol>
+<li>Enable the debug layer. Here is the statement from <a href="https://learn.microsoft.com/en-us/windows/win32/direct3d11/using-the-debug-layer-to-test-apps">Microsoft Doc: Using the debug layer to debug apps</a></li>
+</ol>
+<blockquote>
+<p>The debug layer helps you write Direct3D code. In addition, your productivity can increase when you use the debug layer because you can immediately see the causes of obscure rendering errors or even black screens at their source. Forgot to set a texture but read from it in your pixel shader
+Output depth but have no depth-stencil state bound
+Texture creation failed with INVALIDARG</p>
+</blockquote>
+<ol start="2">
+<li>Get the GPU device with <code>IDXGIAdapter </code>.</li>
+</ol>
+<blockquote>
+<p>IDXGIAdapter is an interface used to represent an adapter, which is a device that handles the rendering workload in a graphics subsystem. This interface is part of the DirectX Graphics Infrastructure (DXGI) library, which is a collection of APIs used to manage graphics and multimedia resources in Windows-based systems.</p>
+</blockquote>
+<ol start="3">
+<li>Create a command queue. For more details check <a href="https://learn.microsoft.com/en-us/windows/win32/direct3d12/design-philosophy-of-command-queues-and-command-lists">Microsoft Doc: Design Philosophy of Command Queues and Command Lists</a></li>
+</ol>
+<blockquote>
+<p>To execute work on the GPU, an app must explicitly submit a command list to a command queue associated with the Direct3D device. A direct command list can be submitted for execution multiple times, but the app is responsible for ensuring that the direct command list has finished executing on the GPU before submitting it again.</p>
+</blockquote>
+<ol start="4">
+<li>Create swap chain</li>
+<li>Create descriptor heaps. For details Check <a href="https://learn.microsoft.com/en-us/windows/win32/direct3d12/creating-descriptor-heaps">Microsoft Doc: Creating Descriptor Heaps</a></li>
+<li>Create frame resources</li>
+<li>Create root signatures</li>
+<li>Create a pipeline state object</li>
+<li>Create a command list</li>
+<li>Create Vertex buffer and move to resources
+<ul>
+<li>For moving data to the vertex buffer, please check <a href="https://learn.microsoft.com/en-us/windows/win32/api/d3d12/nf-d3d12-id3d12resource-map">Microsoft Doc: ID3D12Resource::Map method</a></li>
+</ul>
+</li>
+<li>Create sync object and wait until assets been uploaded to the GPU</li>
+<li>Wait for the command list to execute; we are reusing the same command list in our main loop but for now, we just want to wait for setup to complete before continuing.</li>
+</ol>
+<h4 id="onupdate">OnUpdate</h4>
+<p>Nothing &hellip;</p>
+<h4 id="onrender">OnRender</h4>
+<ol>
+<li>Reset command allocators</li>
+<li>Reset command lists</li>
+<li>Set command list states</li>
+<li>Record commands to command lists</li>
+<li>Close command lists</li>
+<li>Execute command lists</li>
+<li>Present the frame</li>
+<li>Move to the next frame</li>
+</ol>
+<h2 id="misc">MISC</h2>
+<h3 id="constant-buffer">Constant Buffer</h3>
+<p>Declare an constant buffer <code>SceneConstantBuffer m_constantBufferData;</code> struct for shader usage. Also, we need a <code>ComPtr&lt;ID3D12Resource&gt; m_constantBuffer;</code> to hold the constant buffer in GPU. To use it inside the pipeline, we need a <code>ComPtr&lt;ID3D12DescriptorHeap&gt; m_cbvHeap;</code> to store the resource. For CPU side, <code>UINT8* m_pCbvDataBegin;</code> is the raw pointer mapping to the GPU resource <code>m_constantBuffer</code>. For moving resouces from CPU to GPU, check the <a href="https://learn.microsoft.com/en-us/windows/win32/direct3d12/uploading-resources">Microsoft Doc: Uploading different types of resources</a></p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="struct%20SceneConstantBuffer%0d%0a%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20XMFLOAT4%20offset;%0d%0a%20%20%20%20%20%20%20%20float%20padding[60];%20//%20Padding%20so%20the%20constant%20buffer%20is%20256-byte%20aligned.%0d%0a%20%20%20%20%7d;%0d%0a%20%20%20%20static_assert%28%28sizeof%28SceneConstantBuffer%29%20%25%20256%29%20==%200,%20%22Constant%20Buffer%20size%20must%20be%20256-byte%20aligned%22%29;%0d%0a%0d%0a//%20Pipeline%20objects.%0d%0aComPtr%3cID3D12DescriptorHeap%3e%20m_cbvHeap;%0d%0a%0d%0a//%20App%20resources.%0d%0aComPtr%3cID3D12Resource%3e%20m_constantBuffer;%0d%0aSceneConstantBuffer%20m_constantBufferData;%0d%0aUINT8*%20m_pCbvDataBegin;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">struct</span> <span style="color:#a6e22e">SceneConstantBuffer</span>
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        XMFLOAT4 offset;
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">float</span> padding[<span style="color:#ae81ff">60</span>]; <span style="color:#75715e">// Padding so the constant buffer is 256-byte aligned.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    };
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">static_assert</span>((<span style="color:#66d9ef">sizeof</span>(SceneConstantBuffer) <span style="color:#f92672">%</span> <span style="color:#ae81ff">256</span>) <span style="color:#f92672">==</span> <span style="color:#ae81ff">0</span>, <span style="color:#e6db74">&#34;Constant Buffer size must be 256-byte aligned&#34;</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Pipeline objects.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ComPtr<span style="color:#f92672">&lt;</span>ID3D12DescriptorHeap<span style="color:#f92672">&gt;</span> m_cbvHeap;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// App resources.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ComPtr<span style="color:#f92672">&lt;</span>ID3D12Resource<span style="color:#f92672">&gt;</span> m_constantBuffer;
+</span></span><span style="display:flex;"><span>SceneConstantBuffer m_constantBufferData;
+</span></span><span style="display:flex;"><span>UINT8<span style="color:#f92672">*</span> m_pCbvDataBegin;</span></span></code></pre></div>
+    
+</div>
+<p>We can create it during <code>OnInit</code>. Declare the memory section in <code>RootSignature</code></p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20Create%20a%20root%20signature%20consisting%20of%20a%20descriptor%20table%20with%20a%20single%20CBV.%0d%0a%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20D3D12_FEATURE_DATA_ROOT_SIGNATURE%20featureData%20=%20%7b%7d;%0d%0a%0d%0a%20%20%20%20%20%20%20%20//%20This%20is%20the%20highest%20version%20the%20sample%20supports.%20If%20CheckFeatureSupport%20succeeds,%20the%20HighestVersion%20returned%20will%20not%20be%20greater%20than%20this.%0d%0a%20%20%20%20%20%20%20%20featureData.HighestVersion%20=%20D3D_ROOT_SIGNATURE_VERSION_1_1;%0d%0a%0d%0a%20%20%20%20%20%20%20%20if%20%28FAILED%28m_device-%3eCheckFeatureSupport%28D3D12_FEATURE_ROOT_SIGNATURE,%20&amp;featureData,%20sizeof%28featureData%29%29%29%29%0d%0a%20%20%20%20%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20featureData.HighestVersion%20=%20D3D_ROOT_SIGNATURE_VERSION_1_0;%0d%0a%20%20%20%20%20%20%20%20%7d%0d%0a%0d%0a%20%20%20%20%20%20%20%20CD3DX12_DESCRIPTOR_RANGE1%20ranges[1];%0d%0a%20%20%20%20%20%20%20%20CD3DX12_ROOT_PARAMETER1%20rootParameters[1];%0d%0a%0d%0a%20%20%20%20%20%20%20%20ranges[0].Init%28D3D12_DESCRIPTOR_RANGE_TYPE_CBV,%201,%200,%200,%20D3D12_DESCRIPTOR_RANGE_FLAG_DATA_STATIC%29;%0d%0a%20%20%20%20%20%20%20%20rootParameters[0].InitAsDescriptorTable%281,%20&amp;ranges[0],%20D3D12_SHADER_VISIBILITY_VERTEX%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20//%20Allow%20input%20layout%20and%20deny%20uneccessary%20access%20to%20certain%20pipeline%20stages.%0d%0a%20%20%20%20%20%20%20%20D3D12_ROOT_SIGNATURE_FLAGS%20rootSignatureFlags%20=%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT%20%7c%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_ROOT_SIGNATURE_FLAG_DENY_HULL_SHADER_ROOT_ACCESS%20%7c%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_ROOT_SIGNATURE_FLAG_DENY_DOMAIN_SHADER_ROOT_ACCESS%20%7c%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_ROOT_SIGNATURE_FLAG_DENY_GEOMETRY_SHADER_ROOT_ACCESS%20%7c%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_ROOT_SIGNATURE_FLAG_DENY_PIXEL_SHADER_ROOT_ACCESS;%0d%0a%0d%0a%20%20%20%20%20%20%20%20CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC%20rootSignatureDesc;%0d%0a%20%20%20%20%20%20%20%20rootSignatureDesc.Init_1_1%28_countof%28rootParameters%29,%20rootParameters,%200,%20nullptr,%20rootSignatureFlags%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20ComPtr%3cID3DBlob%3e%20signature;%0d%0a%20%20%20%20%20%20%20%20ComPtr%3cID3DBlob%3e%20error;%0d%0a%20%20%20%20%20%20%20%20ThrowIfFailed%28D3DX12SerializeVersionedRootSignature%28&amp;rootSignatureDesc,%20featureData.HighestVersion,%20&amp;signature,%20&amp;error%29%29;%0d%0a%20%20%20%20%20%20%20%20ThrowIfFailed%28m_device-%3eCreateRootSignature%280,%20signature-%3eGetBufferPointer%28%29,%20signature-%3eGetBufferSize%28%29,%20IID_PPV_ARGS%28&amp;m_rootSignature%29%29%29;%0d%0a%20%20%20%20%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Create a root signature consisting of a descriptor table with a single CBV.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {
+</span></span><span style="display:flex;"><span>        D3D12_FEATURE_DATA_ROOT_SIGNATURE featureData <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// This is the highest version the sample supports. If CheckFeatureSupport succeeds, the HighestVersion returned will not be greater than this.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        featureData.HighestVersion <span style="color:#f92672">=</span> D3D_ROOT_SIGNATURE_VERSION_1_1;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (FAILED(m_device<span style="color:#f92672">-&gt;</span>CheckFeatureSupport(D3D12_FEATURE_ROOT_SIGNATURE, <span style="color:#f92672">&amp;</span>featureData, <span style="color:#66d9ef">sizeof</span>(featureData))))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            featureData.HighestVersion <span style="color:#f92672">=</span> D3D_ROOT_SIGNATURE_VERSION_1_0;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        CD3DX12_DESCRIPTOR_RANGE1 ranges[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>        CD3DX12_ROOT_PARAMETER1 rootParameters[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ranges[<span style="color:#ae81ff">0</span>].Init(D3D12_DESCRIPTOR_RANGE_TYPE_CBV, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, D3D12_DESCRIPTOR_RANGE_FLAG_DATA_STATIC);
+</span></span><span style="display:flex;"><span>        rootParameters[<span style="color:#ae81ff">0</span>].InitAsDescriptorTable(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>ranges[<span style="color:#ae81ff">0</span>], D3D12_SHADER_VISIBILITY_VERTEX);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Allow input layout and deny uneccessary access to certain pipeline stages.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        D3D12_ROOT_SIGNATURE_FLAGS rootSignatureFlags <span style="color:#f92672">=</span>
+</span></span><span style="display:flex;"><span>            D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>            D3D12_ROOT_SIGNATURE_FLAG_DENY_HULL_SHADER_ROOT_ACCESS <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>            D3D12_ROOT_SIGNATURE_FLAG_DENY_DOMAIN_SHADER_ROOT_ACCESS <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>            D3D12_ROOT_SIGNATURE_FLAG_DENY_GEOMETRY_SHADER_ROOT_ACCESS <span style="color:#f92672">|</span>
+</span></span><span style="display:flex;"><span>            D3D12_ROOT_SIGNATURE_FLAG_DENY_PIXEL_SHADER_ROOT_ACCESS;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC rootSignatureDesc;
+</span></span><span style="display:flex;"><span>        rootSignatureDesc.Init_1_1(_countof(rootParameters), rootParameters, <span style="color:#ae81ff">0</span>, <span style="color:#66d9ef">nullptr</span>, rootSignatureFlags);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ComPtr<span style="color:#f92672">&lt;</span>ID3DBlob<span style="color:#f92672">&gt;</span> signature;
+</span></span><span style="display:flex;"><span>        ComPtr<span style="color:#f92672">&lt;</span>ID3DBlob<span style="color:#f92672">&gt;</span> error;
+</span></span><span style="display:flex;"><span>        ThrowIfFailed(D3DX12SerializeVersionedRootSignature(<span style="color:#f92672">&amp;</span>rootSignatureDesc, featureData.HighestVersion, <span style="color:#f92672">&amp;</span>signature, <span style="color:#f92672">&amp;</span>error));
+</span></span><span style="display:flex;"><span>        ThrowIfFailed(m_device<span style="color:#f92672">-&gt;</span>CreateRootSignature(<span style="color:#ae81ff">0</span>, signature<span style="color:#f92672">-&gt;</span>GetBufferPointer(), signature<span style="color:#f92672">-&gt;</span>GetBufferSize(), IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>m_rootSignature)));
+</span></span><span style="display:flex;"><span>    }</span></span></code></pre></div>
+    
+</div>
+<p>Create the constant buffer data and move to the GPU</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20Create%20the%20constant%20buffer.%0d%0a%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20const%20UINT%20constantBufferSize%20=%20sizeof%28SceneConstantBuffer%29;%20%20%20%20//%20CB%20size%20is%20required%20to%20be%20256-byte%20aligned.%0d%0a%0d%0a%20%20%20%20%20%20%20%20ThrowIfFailed%28m_device-%3eCreateCommittedResource%28%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20&amp;CD3DX12_HEAP_PROPERTIES%28D3D12_HEAP_TYPE_UPLOAD%29,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_HEAP_FLAG_NONE,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20&amp;CD3DX12_RESOURCE_DESC::Buffer%28constantBufferSize%29,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_RESOURCE_STATE_GENERIC_READ,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20nullptr,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20IID_PPV_ARGS%28&amp;m_constantBuffer%29%29%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20//%20Describe%20and%20create%20a%20constant%20buffer%20view.%0d%0a%20%20%20%20%20%20%20%20D3D12_CONSTANT_BUFFER_VIEW_DESC%20cbvDesc%20=%20%7b%7d;%0d%0a%20%20%20%20%20%20%20%20cbvDesc.BufferLocation%20=%20m_constantBuffer-%3eGetGPUVirtualAddress%28%29;%0d%0a%20%20%20%20%20%20%20%20cbvDesc.SizeInBytes%20=%20constantBufferSize;%0d%0a%20%20%20%20%20%20%20%20m_device-%3eCreateConstantBufferView%28&amp;cbvDesc,%20m_cbvHeap-%3eGetCPUDescriptorHandleForHeapStart%28%29%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20//%20Map%20and%20initialize%20the%20constant%20buffer.%20We%20don%27t%20unmap%20this%20until%20the%0d%0a%20%20%20%20%20%20%20%20//%20app%20closes.%20Keeping%20things%20mapped%20for%20the%20lifetime%20of%20the%20resource%20is%20okay.%0d%0a%20%20%20%20%20%20%20%20CD3DX12_RANGE%20readRange%280,%200%29;%20%20%20%20%20%20%20%20//%20We%20do%20not%20intend%20to%20read%20from%20this%20resource%20on%20the%20CPU.%0d%0a%20%20%20%20%20%20%20%20ThrowIfFailed%28m_constantBuffer-%3eMap%280,%20&amp;readRange,%20reinterpret_cast%3cvoid**%3e%28&amp;m_pCbvDataBegin%29%29%29;%0d%0a%20%20%20%20%20%20%20%20memcpy%28m_pCbvDataBegin,%20&amp;m_constantBufferData,%20sizeof%28m_constantBufferData%29%29;%0d%0a%20%20%20%20%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Create the constant buffer.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> UINT constantBufferSize <span style="color:#f92672">=</span> <span style="color:#66d9ef">sizeof</span>(SceneConstantBuffer);    <span style="color:#75715e">// CB size is required to be 256-byte aligned.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>        ThrowIfFailed(m_device<span style="color:#f92672">-&gt;</span>CreateCommittedResource(
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&amp;</span>CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD),
+</span></span><span style="display:flex;"><span>            D3D12_HEAP_FLAG_NONE,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&amp;</span>CD3DX12_RESOURCE_DESC<span style="color:#f92672">::</span>Buffer(constantBufferSize),
+</span></span><span style="display:flex;"><span>            D3D12_RESOURCE_STATE_GENERIC_READ,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">nullptr</span>,
+</span></span><span style="display:flex;"><span>            IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>m_constantBuffer)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Describe and create a constant buffer view.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        D3D12_CONSTANT_BUFFER_VIEW_DESC cbvDesc <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>        cbvDesc.BufferLocation <span style="color:#f92672">=</span> m_constantBuffer<span style="color:#f92672">-&gt;</span>GetGPUVirtualAddress();
+</span></span><span style="display:flex;"><span>        cbvDesc.SizeInBytes <span style="color:#f92672">=</span> constantBufferSize;
+</span></span><span style="display:flex;"><span>        m_device<span style="color:#f92672">-&gt;</span>CreateConstantBufferView(<span style="color:#f92672">&amp;</span>cbvDesc, m_cbvHeap<span style="color:#f92672">-&gt;</span>GetCPUDescriptorHandleForHeapStart());
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Map and initialize the constant buffer. We don&#39;t unmap this until the
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// app closes. Keeping things mapped for the lifetime of the resource is okay.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        CD3DX12_RANGE <span style="color:#a6e22e">readRange</span>(<span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>);        <span style="color:#75715e">// We do not intend to read from this resource on the CPU.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        ThrowIfFailed(m_constantBuffer<span style="color:#f92672">-&gt;</span>Map(<span style="color:#ae81ff">0</span>, <span style="color:#f92672">&amp;</span>readRange, <span style="color:#66d9ef">reinterpret_cast</span><span style="color:#f92672">&lt;</span><span style="color:#66d9ef">void</span><span style="color:#f92672">**&gt;</span>(<span style="color:#f92672">&amp;</span>m_pCbvDataBegin)));
+</span></span><span style="display:flex;"><span>        memcpy(m_pCbvDataBegin, <span style="color:#f92672">&amp;</span>m_constantBufferData, <span style="color:#66d9ef">sizeof</span>(m_constantBufferData));
+</span></span><span style="display:flex;"><span>    }</span></span></code></pre></div>
+    
+</div>
+<p>Do the update in <code>OnUpdate</code>. The update is applied to <code>m_constantBufferData</code> and then copied back to <code>m_pCbvDataBegin</code>. Since the <code>m_pCbvDataBegin</code> is mapped to <code>m_constantBuffer</code>. The change will be applied in the next frame.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20Update%20frame-based%20values.%0d%0avoid%20D3D12HelloConstBuffers::OnUpdate%28%29%0d%0a%7b%0d%0a%20%20%20%20const%20float%20translationSpeed%20=%200.005f;%0d%0a%20%20%20%20const%20float%20offsetBounds%20=%201.25f;%0d%0a%0d%0a%20%20%20%20m_constantBufferData.offset.x%20&#43;=%20translationSpeed;%0d%0a%20%20%20%20if%20%28m_constantBufferData.offset.x%20%3e%20offsetBounds%29%0d%0a%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20m_constantBufferData.offset.x%20=%20-offsetBounds;%0d%0a%20%20%20%20%7d%0d%0a%20%20%20%20memcpy%28m_pCbvDataBegin,%20&amp;m_constantBufferData,%20sizeof%28m_constantBufferData%29%29;%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Update frame-based values.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> D3D12HelloConstBuffers<span style="color:#f92672">::</span>OnUpdate()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> translationSpeed <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.005f</span>;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">const</span> <span style="color:#66d9ef">float</span> offsetBounds <span style="color:#f92672">=</span> <span style="color:#ae81ff">1.25f</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    m_constantBufferData.offset.x <span style="color:#f92672">+=</span> translationSpeed;
+</span></span><span style="display:flex;"><span>    <span style="color:#66d9ef">if</span> (m_constantBufferData.offset.x <span style="color:#f92672">&gt;</span> offsetBounds)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        m_constantBufferData.offset.x <span style="color:#f92672">=</span> <span style="color:#f92672">-</span>offsetBounds;
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>    memcpy(m_pCbvDataBegin, <span style="color:#f92672">&amp;</span>m_constantBufferData, <span style="color:#66d9ef">sizeof</span>(m_constantBufferData));
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<h3 id="texture">Texture</h3>
+<p>We need a <code>ComPtr&lt;ID3D12Resource&gt; m_texture;</code> to hold the texture in the GPU. To use it inside the pipeline, we need a <code>ComPtr&lt;ID3D12DescriptorHeap&gt; m_srvHeap;</code> to store the resource.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20Pipeline%20objects%0d%0aComPtr%3cID3D12DescriptorHeap%3e%20m_srvHeap;%0d%0a%0d%0a//%20App%20resources.%0d%0aComPtr%3cID3D12Resource%3e%20m_texture;">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Pipeline objects
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ComPtr<span style="color:#f92672">&lt;</span>ID3D12DescriptorHeap<span style="color:#f92672">&gt;</span> m_srvHeap;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// App resources.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>ComPtr<span style="color:#f92672">&lt;</span>ID3D12Resource<span style="color:#f92672">&gt;</span> m_texture;</span></span></code></pre></div>
+    
+</div>
+<p>To create the texture, we need to know how to describe the texture object(like most of the object in Direct3D 12). After that, genetate the cpu side data, and move it to GPU resources object. Finally, create a SRV to store the GPU resources.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20Note:%20ComPtr%27s%20are%20CPU%20objects%20but%20this%20resource%20needs%20to%20stay%20in%20scope%20until%0d%0a//%20the%20command%20list%20that%20references%20it%20has%20finished%20executing%20on%20the%20GPU.%0d%0a//%20We%20will%20flush%20the%20GPU%20at%20the%20end%20of%20this%20method%20to%20ensure%20the%20resource%20is%20not%0d%0a//%20prematurely%20destroyed.%0d%0a%20%20%20%20ComPtr%3cID3D12Resource%3e%20textureUploadHeap;%0d%0a%0d%0a//%20Create%20the%20texture.%0d%0a%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20//%20Describe%20and%20create%20a%20Texture2D.%0d%0a%20%20%20%20%20%20%20%20D3D12_RESOURCE_DESC%20textureDesc%20=%20%7b%7d;%0d%0a%20%20%20%20%20%20%20%20textureDesc.MipLevels%20=%201;%0d%0a%20%20%20%20%20%20%20%20textureDesc.Format%20=%20DXGI_FORMAT_R8G8B8A8_UNORM;%0d%0a%20%20%20%20%20%20%20%20textureDesc.Width%20=%20TextureWidth;%0d%0a%20%20%20%20%20%20%20%20textureDesc.Height%20=%20TextureHeight;%0d%0a%20%20%20%20%20%20%20%20textureDesc.Flags%20=%20D3D12_RESOURCE_FLAG_NONE;%0d%0a%20%20%20%20%20%20%20%20textureDesc.DepthOrArraySize%20=%201;%0d%0a%20%20%20%20%20%20%20%20textureDesc.SampleDesc.Count%20=%201;%0d%0a%20%20%20%20%20%20%20%20textureDesc.SampleDesc.Quality%20=%200;%0d%0a%20%20%20%20%20%20%20%20textureDesc.Dimension%20=%20D3D12_RESOURCE_DIMENSION_TEXTURE2D;%0d%0a%0d%0a%20%20%20%20%20%20%20%20ThrowIfFailed%28m_device-%3eCreateCommittedResource%28%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20&amp;CD3DX12_HEAP_PROPERTIES%28D3D12_HEAP_TYPE_DEFAULT%29,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_HEAP_FLAG_NONE,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20&amp;textureDesc,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_RESOURCE_STATE_COPY_DEST,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20nullptr,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20IID_PPV_ARGS%28&amp;m_texture%29%29%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20const%20UINT64%20uploadBufferSize%20=%20GetRequiredIntermediateSize%28m_texture.Get%28%29,%200,%201%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20//%20Create%20the%20GPU%20upload%20buffer.%0d%0a%20%20%20%20%20%20%20%20ThrowIfFailed%28m_device-%3eCreateCommittedResource%28%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20&amp;CD3DX12_HEAP_PROPERTIES%28D3D12_HEAP_TYPE_UPLOAD%29,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_HEAP_FLAG_NONE,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20&amp;CD3DX12_RESOURCE_DESC::Buffer%28uploadBufferSize%29,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20D3D12_RESOURCE_STATE_GENERIC_READ,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20nullptr,%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20IID_PPV_ARGS%28&amp;textureUploadHeap%29%29%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20//%20Copy%20data%20to%20the%20intermediate%20upload%20heap%20and%20then%20schedule%20a%20copy%20%0d%0a%20%20%20%20%20%20%20%20//%20from%20the%20upload%20heap%20to%20the%20Texture2D.%0d%0a%20%20%20%20%20%20%20%20std::vector%3cUINT8%3e%20texture%20=%20GenerateTextureData%28%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20D3D12_SUBRESOURCE_DATA%20textureData%20=%20%7b%7d;%0d%0a%20%20%20%20%20%20%20%20textureData.pData%20=%20&amp;texture[0];%0d%0a%20%20%20%20%20%20%20%20textureData.RowPitch%20=%20TextureWidth%20*%20TexturePixelSize;%0d%0a%20%20%20%20%20%20%20%20textureData.SlicePitch%20=%20textureData.RowPitch%20*%20TextureHeight;%0d%0a%0d%0a%20%20%20%20%20%20%20%20UpdateSubresources%28m_commandList.Get%28%29,%20m_texture.Get%28%29,%20textureUploadHeap.Get%28%29,%200,%200,%201,%20&amp;textureData%29;%0d%0a%20%20%20%20%20%20%20%20m_commandList-%3eResourceBarrier%281,%20&amp;CD3DX12_RESOURCE_BARRIER::Transition%28m_texture.Get%28%29,%20D3D12_RESOURCE_STATE_COPY_DEST,%20D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE%29%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20//%20Describe%20and%20create%20a%20SRV%20for%20the%20texture.%0d%0a%20%20%20%20%20%20%20%20D3D12_SHADER_RESOURCE_VIEW_DESC%20srvDesc%20=%20%7b%7d;%0d%0a%20%20%20%20%20%20%20%20srvDesc.Shader4ComponentMapping%20=%20D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;%0d%0a%20%20%20%20%20%20%20%20srvDesc.Format%20=%20textureDesc.Format;%0d%0a%20%20%20%20%20%20%20%20srvDesc.ViewDimension%20=%20D3D12_SRV_DIMENSION_TEXTURE2D;%0d%0a%20%20%20%20%20%20%20%20srvDesc.Texture2D.MipLevels%20=%201;%0d%0a%20%20%20%20%20%20%20%20m_device-%3eCreateShaderResourceView%28m_texture.Get%28%29,%20&amp;srvDesc,%20m_srvHeap-%3eGetCPUDescriptorHandleForHeapStart%28%29%29;%0d%0a%20%20%20%20%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Note: ComPtr&#39;s are CPU objects but this resource needs to stay in scope until
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// the command list that references it has finished executing on the GPU.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// We will flush the GPU at the end of this method to ensure the resource is not
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e">// prematurely destroyed.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    ComPtr<span style="color:#f92672">&lt;</span>ID3D12Resource<span style="color:#f92672">&gt;</span> textureUploadHeap;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span><span style="color:#75715e">// Create the texture.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Describe and create a Texture2D.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        D3D12_RESOURCE_DESC textureDesc <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>        textureDesc.MipLevels <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        textureDesc.Format <span style="color:#f92672">=</span> DXGI_FORMAT_R8G8B8A8_UNORM;
+</span></span><span style="display:flex;"><span>        textureDesc.Width <span style="color:#f92672">=</span> TextureWidth;
+</span></span><span style="display:flex;"><span>        textureDesc.Height <span style="color:#f92672">=</span> TextureHeight;
+</span></span><span style="display:flex;"><span>        textureDesc.Flags <span style="color:#f92672">=</span> D3D12_RESOURCE_FLAG_NONE;
+</span></span><span style="display:flex;"><span>        textureDesc.DepthOrArraySize <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        textureDesc.SampleDesc.Count <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        textureDesc.SampleDesc.Quality <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        textureDesc.Dimension <span style="color:#f92672">=</span> D3D12_RESOURCE_DIMENSION_TEXTURE2D;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ThrowIfFailed(m_device<span style="color:#f92672">-&gt;</span>CreateCommittedResource(
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&amp;</span>CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_DEFAULT),
+</span></span><span style="display:flex;"><span>            D3D12_HEAP_FLAG_NONE,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&amp;</span>textureDesc,
+</span></span><span style="display:flex;"><span>            D3D12_RESOURCE_STATE_COPY_DEST,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">nullptr</span>,
+</span></span><span style="display:flex;"><span>            IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>m_texture)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">const</span> UINT64 uploadBufferSize <span style="color:#f92672">=</span> GetRequiredIntermediateSize(m_texture.Get(), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Create the GPU upload buffer.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        ThrowIfFailed(m_device<span style="color:#f92672">-&gt;</span>CreateCommittedResource(
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&amp;</span>CD3DX12_HEAP_PROPERTIES(D3D12_HEAP_TYPE_UPLOAD),
+</span></span><span style="display:flex;"><span>            D3D12_HEAP_FLAG_NONE,
+</span></span><span style="display:flex;"><span>            <span style="color:#f92672">&amp;</span>CD3DX12_RESOURCE_DESC<span style="color:#f92672">::</span>Buffer(uploadBufferSize),
+</span></span><span style="display:flex;"><span>            D3D12_RESOURCE_STATE_GENERIC_READ,
+</span></span><span style="display:flex;"><span>            <span style="color:#66d9ef">nullptr</span>,
+</span></span><span style="display:flex;"><span>            IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>textureUploadHeap)));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Copy data to the intermediate upload heap and then schedule a copy 
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        <span style="color:#75715e">// from the upload heap to the Texture2D.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        std<span style="color:#f92672">::</span>vector<span style="color:#f92672">&lt;</span>UINT8<span style="color:#f92672">&gt;</span> texture <span style="color:#f92672">=</span> GenerateTextureData();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        D3D12_SUBRESOURCE_DATA textureData <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>        textureData.pData <span style="color:#f92672">=</span> <span style="color:#f92672">&amp;</span>texture[<span style="color:#ae81ff">0</span>];
+</span></span><span style="display:flex;"><span>        textureData.RowPitch <span style="color:#f92672">=</span> TextureWidth <span style="color:#f92672">*</span> TexturePixelSize;
+</span></span><span style="display:flex;"><span>        textureData.SlicePitch <span style="color:#f92672">=</span> textureData.RowPitch <span style="color:#f92672">*</span> TextureHeight;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        UpdateSubresources(m_commandList.Get(), m_texture.Get(), textureUploadHeap.Get(), <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>textureData);
+</span></span><span style="display:flex;"><span>        m_commandList<span style="color:#f92672">-&gt;</span>ResourceBarrier(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>CD3DX12_RESOURCE_BARRIER<span style="color:#f92672">::</span>Transition(m_texture.Get(), D3D12_RESOURCE_STATE_COPY_DEST, D3D12_RESOURCE_STATE_PIXEL_SHADER_RESOURCE));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// Describe and create a SRV for the texture.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        D3D12_SHADER_RESOURCE_VIEW_DESC srvDesc <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>        srvDesc.Shader4ComponentMapping <span style="color:#f92672">=</span> D3D12_DEFAULT_SHADER_4_COMPONENT_MAPPING;
+</span></span><span style="display:flex;"><span>        srvDesc.Format <span style="color:#f92672">=</span> textureDesc.Format;
+</span></span><span style="display:flex;"><span>        srvDesc.ViewDimension <span style="color:#f92672">=</span> D3D12_SRV_DIMENSION_TEXTURE2D;
+</span></span><span style="display:flex;"><span>        srvDesc.Texture2D.MipLevels <span style="color:#f92672">=</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>        m_device<span style="color:#f92672">-&gt;</span>CreateShaderResourceView(m_texture.Get(), <span style="color:#f92672">&amp;</span>srvDesc, m_srvHeap<span style="color:#f92672">-&gt;</span>GetCPUDescriptorHandleForHeapStart());
+</span></span><span style="display:flex;"><span>    }</span></span></code></pre></div>
+    
+</div>
+<p>We need to applied the corresponding change when creating <code>RootSignature</code>. You could notice that the <code>D2D12_DESCRIPTOR_RANGE_TYPE</code> is different from the above constant buffer example. In constant buffer, it is <code>D3D12_DESCRIPTOR_RANGE_TYPE_CBV</code> and here we have <code>D3D12_DESCRIPTOR_RANGE_TYPE_SRV</code>, as it is different kind of resources. Also, we need to declare the sampler to sample the value in the texture.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20Create%20the%20root%20signature.%0d%0a%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20D3D12_FEATURE_DATA_ROOT_SIGNATURE%20featureData%20=%20%7b%7d;%0d%0a%0d%0a%20%20%20%20%20%20%20%20//%20This%20is%20the%20highest%20version%20the%20sample%20supports.%20If%20CheckFeatureSupport%20succeeds,%20the%20HighestVersion%20returned%20will%20not%20be%20greater%20than%20this.%0d%0a%20%20%20%20%20%20%20%20featureData.HighestVersion%20=%20D3D_ROOT_SIGNATURE_VERSION_1_1;%0d%0a%0d%0a%20%20%20%20%20%20%20%20if%20%28FAILED%28m_device-%3eCheckFeatureSupport%28D3D12_FEATURE_ROOT_SIGNATURE,%20&amp;featureData,%20sizeof%28featureData%29%29%29%29%0d%0a%20%20%20%20%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20%20%20%20%20featureData.HighestVersion%20=%20D3D_ROOT_SIGNATURE_VERSION_1_0;%0d%0a%20%20%20%20%20%20%20%20%7d%0d%0a%0d%0a%20%20%20%20%20%20%20%20CD3DX12_DESCRIPTOR_RANGE1%20ranges[1];%0d%0a%20%20%20%20%20%20%20%20ranges[0].Init%28D3D12_DESCRIPTOR_RANGE_TYPE_SRV,%201,%200,%200,%20D3D12_DESCRIPTOR_RANGE_FLAG_DATA_STATIC%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20CD3DX12_ROOT_PARAMETER1%20rootParameters[1];%0d%0a%20%20%20%20%20%20%20%20rootParameters[0].InitAsDescriptorTable%281,%20&amp;ranges[0],%20D3D12_SHADER_VISIBILITY_PIXEL%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20D3D12_STATIC_SAMPLER_DESC%20sampler%20=%20%7b%7d;%0d%0a%20%20%20%20%20%20%20%20sampler.Filter%20=%20D3D12_FILTER_MIN_MAG_MIP_POINT;%0d%0a%20%20%20%20%20%20%20%20sampler.AddressU%20=%20D3D12_TEXTURE_ADDRESS_MODE_BORDER;%0d%0a%20%20%20%20%20%20%20%20sampler.AddressV%20=%20D3D12_TEXTURE_ADDRESS_MODE_BORDER;%0d%0a%20%20%20%20%20%20%20%20sampler.AddressW%20=%20D3D12_TEXTURE_ADDRESS_MODE_BORDER;%0d%0a%20%20%20%20%20%20%20%20sampler.MipLODBias%20=%200;%0d%0a%20%20%20%20%20%20%20%20sampler.MaxAnisotropy%20=%200;%0d%0a%20%20%20%20%20%20%20%20sampler.ComparisonFunc%20=%20D3D12_COMPARISON_FUNC_NEVER;%0d%0a%20%20%20%20%20%20%20%20sampler.BorderColor%20=%20D3D12_STATIC_BORDER_COLOR_TRANSPARENT_BLACK;%0d%0a%20%20%20%20%20%20%20%20sampler.MinLOD%20=%200.0f;%0d%0a%20%20%20%20%20%20%20%20sampler.MaxLOD%20=%20D3D12_FLOAT32_MAX;%0d%0a%20%20%20%20%20%20%20%20sampler.ShaderRegister%20=%200;%0d%0a%20%20%20%20%20%20%20%20sampler.RegisterSpace%20=%200;%0d%0a%20%20%20%20%20%20%20%20sampler.ShaderVisibility%20=%20D3D12_SHADER_VISIBILITY_PIXEL;%0d%0a%0d%0a%20%20%20%20%20%20%20%20CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC%20rootSignatureDesc;%0d%0a%20%20%20%20%20%20%20%20rootSignatureDesc.Init_1_1%28_countof%28rootParameters%29,%20rootParameters,%201,%20&amp;sampler,%20D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT%29;%0d%0a%0d%0a%20%20%20%20%20%20%20%20ComPtr%3cID3DBlob%3e%20signature;%0d%0a%20%20%20%20%20%20%20%20ComPtr%3cID3DBlob%3e%20error;%0d%0a%20%20%20%20%20%20%20%20ThrowIfFailed%28D3DX12SerializeVersionedRootSignature%28&amp;rootSignatureDesc,%20featureData.HighestVersion,%20&amp;signature,%20&amp;error%29%29;%0d%0a%20%20%20%20%20%20%20%20ThrowIfFailed%28m_device-%3eCreateRootSignature%280,%20signature-%3eGetBufferPointer%28%29,%20signature-%3eGetBufferSize%28%29,%20IID_PPV_ARGS%28&amp;m_rootSignature%29%29%29;%0d%0a%20%20%20%20%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Create the root signature.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    {
+</span></span><span style="display:flex;"><span>        D3D12_FEATURE_DATA_ROOT_SIGNATURE featureData <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#75715e">// This is the highest version the sample supports. If CheckFeatureSupport succeeds, the HighestVersion returned will not be greater than this.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>        featureData.HighestVersion <span style="color:#f92672">=</span> D3D_ROOT_SIGNATURE_VERSION_1_1;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        <span style="color:#66d9ef">if</span> (FAILED(m_device<span style="color:#f92672">-&gt;</span>CheckFeatureSupport(D3D12_FEATURE_ROOT_SIGNATURE, <span style="color:#f92672">&amp;</span>featureData, <span style="color:#66d9ef">sizeof</span>(featureData))))
+</span></span><span style="display:flex;"><span>        {
+</span></span><span style="display:flex;"><span>            featureData.HighestVersion <span style="color:#f92672">=</span> D3D_ROOT_SIGNATURE_VERSION_1_0;
+</span></span><span style="display:flex;"><span>        }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        CD3DX12_DESCRIPTOR_RANGE1 ranges[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>        ranges[<span style="color:#ae81ff">0</span>].Init(D3D12_DESCRIPTOR_RANGE_TYPE_SRV, <span style="color:#ae81ff">1</span>, <span style="color:#ae81ff">0</span>, <span style="color:#ae81ff">0</span>, D3D12_DESCRIPTOR_RANGE_FLAG_DATA_STATIC);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        CD3DX12_ROOT_PARAMETER1 rootParameters[<span style="color:#ae81ff">1</span>];
+</span></span><span style="display:flex;"><span>        rootParameters[<span style="color:#ae81ff">0</span>].InitAsDescriptorTable(<span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>ranges[<span style="color:#ae81ff">0</span>], D3D12_SHADER_VISIBILITY_PIXEL);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        D3D12_STATIC_SAMPLER_DESC sampler <span style="color:#f92672">=</span> {};
+</span></span><span style="display:flex;"><span>        sampler.Filter <span style="color:#f92672">=</span> D3D12_FILTER_MIN_MAG_MIP_POINT;
+</span></span><span style="display:flex;"><span>        sampler.AddressU <span style="color:#f92672">=</span> D3D12_TEXTURE_ADDRESS_MODE_BORDER;
+</span></span><span style="display:flex;"><span>        sampler.AddressV <span style="color:#f92672">=</span> D3D12_TEXTURE_ADDRESS_MODE_BORDER;
+</span></span><span style="display:flex;"><span>        sampler.AddressW <span style="color:#f92672">=</span> D3D12_TEXTURE_ADDRESS_MODE_BORDER;
+</span></span><span style="display:flex;"><span>        sampler.MipLODBias <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        sampler.MaxAnisotropy <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        sampler.ComparisonFunc <span style="color:#f92672">=</span> D3D12_COMPARISON_FUNC_NEVER;
+</span></span><span style="display:flex;"><span>        sampler.BorderColor <span style="color:#f92672">=</span> D3D12_STATIC_BORDER_COLOR_TRANSPARENT_BLACK;
+</span></span><span style="display:flex;"><span>        sampler.MinLOD <span style="color:#f92672">=</span> <span style="color:#ae81ff">0.0f</span>;
+</span></span><span style="display:flex;"><span>        sampler.MaxLOD <span style="color:#f92672">=</span> D3D12_FLOAT32_MAX;
+</span></span><span style="display:flex;"><span>        sampler.ShaderRegister <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        sampler.RegisterSpace <span style="color:#f92672">=</span> <span style="color:#ae81ff">0</span>;
+</span></span><span style="display:flex;"><span>        sampler.ShaderVisibility <span style="color:#f92672">=</span> D3D12_SHADER_VISIBILITY_PIXEL;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        CD3DX12_VERSIONED_ROOT_SIGNATURE_DESC rootSignatureDesc;
+</span></span><span style="display:flex;"><span>        rootSignatureDesc.Init_1_1(_countof(rootParameters), rootParameters, <span style="color:#ae81ff">1</span>, <span style="color:#f92672">&amp;</span>sampler, D3D12_ROOT_SIGNATURE_FLAG_ALLOW_INPUT_ASSEMBLER_INPUT_LAYOUT);
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>        ComPtr<span style="color:#f92672">&lt;</span>ID3DBlob<span style="color:#f92672">&gt;</span> signature;
+</span></span><span style="display:flex;"><span>        ComPtr<span style="color:#f92672">&lt;</span>ID3DBlob<span style="color:#f92672">&gt;</span> error;
+</span></span><span style="display:flex;"><span>        ThrowIfFailed(D3DX12SerializeVersionedRootSignature(<span style="color:#f92672">&amp;</span>rootSignatureDesc, featureData.HighestVersion, <span style="color:#f92672">&amp;</span>signature, <span style="color:#f92672">&amp;</span>error));
+</span></span><span style="display:flex;"><span>        ThrowIfFailed(m_device<span style="color:#f92672">-&gt;</span>CreateRootSignature(<span style="color:#ae81ff">0</span>, signature<span style="color:#f92672">-&gt;</span>GetBufferPointer(), signature<span style="color:#f92672">-&gt;</span>GetBufferSize(), IID_PPV_ARGS(<span style="color:#f92672">&amp;</span>m_rootSignature)));
+</span></span><span style="display:flex;"><span>    }</span></span></code></pre></div>
+    
+</div>
+<h3 id="framebuffering">FrameBuffering</h3>
+<p>In the primitive example, we have a helper function <code>WaitForPreviousFrame()</code></p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="#ZgotmplZ">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#66d9ef">void</span> D3D12HelloConstBuffers<span style="color:#f92672">::</span>WaitForPreviousFrame()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// WAITING FOR THE FRAME TO COMPLETE BEFORE CONTINUING IS NOT BEST PRACTICE.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// This is code implemented as such for simplicity. The D3D12HelloFrameBuffering
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// sample illustrates how to use fences for efficient resource usage and to
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#75715e">// maximize GPU utilization.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Signal and increment the fence value.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> UINT64 fence <span style="color:#f92672">=</span> m_fenceValue;
+</span></span><span style="display:flex;"><span>    ThrowIfFailed(m_commandQueue<span style="color:#f92672">-&gt;</span>Signal(m_fence.Get(), fence));
+</span></span><span style="display:flex;"><span>    m_fenceValue<span style="color:#f92672">++</span>;
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Wait until the previous frame is finished.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (m_fence<span style="color:#f92672">-&gt;</span>GetCompletedValue() <span style="color:#f92672">&lt;</span> fence)
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ThrowIfFailed(m_fence<span style="color:#f92672">-&gt;</span>SetEventOnCompletion(fence, m_fenceEvent));
+</span></span><span style="display:flex;"><span>        WaitForSingleObject(m_fenceEvent, INFINITE);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    m_frameIndex <span style="color:#f92672">=</span> m_swapChain<span style="color:#f92672">-&gt;</span>GetCurrentBackBufferIndex();
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+<p>Instead of waiting for the previous frame finished, we could have a function <code>MoveToNextFrame</code>, start processing the back buffer and swap the frame index to the back buffer to fully utilize the pipeline.</p>
+
+
+
+
+
+
+<div class="codeblock">
+    
+        <div class="copy-button-box">
+            <button class="copy-button" state="copy" data="//%20Prepare%20to%20render%20the%20next%20frame.%0d%0avoid%20D3D12HelloFrameBuffering::MoveToNextFrame%28%29%0d%0a%7b%0d%0a%20%20%20%20//%20Schedule%20a%20Signal%20command%20in%20the%20queue.%0d%0a%20%20%20%20const%20UINT64%20currentFenceValue%20=%20m_fenceValues[m_frameIndex];%0d%0a%20%20%20%20ThrowIfFailed%28m_commandQueue-%3eSignal%28m_fence.Get%28%29,%20currentFenceValue%29%29;%0d%0a%0d%0a%20%20%20%20//%20Update%20the%20frame%20index.%0d%0a%20%20%20%20m_frameIndex%20=%20m_swapChain-%3eGetCurrentBackBufferIndex%28%29;%0d%0a%0d%0a%20%20%20%20//%20If%20the%20next%20frame%20is%20not%20ready%20to%20be%20rendered%20yet,%20wait%20until%20it%20is%20ready.%0d%0a%20%20%20%20if%20%28m_fence-%3eGetCompletedValue%28%29%20%3c%20m_fenceValues[m_frameIndex]%29%0d%0a%20%20%20%20%7b%0d%0a%20%20%20%20%20%20%20%20ThrowIfFailed%28m_fence-%3eSetEventOnCompletion%28m_fenceValues[m_frameIndex],%20m_fenceEvent%29%29;%0d%0a%20%20%20%20%20%20%20%20WaitForSingleObjectEx%28m_fenceEvent,%20INFINITE,%20FALSE%29;%0d%0a%20%20%20%20%7d%0d%0a%0d%0a%20%20%20%20//%20Set%20the%20fence%20value%20for%20the%20next%20frame.%0d%0a%20%20%20%20m_fenceValues[m_frameIndex]%20=%20currentFenceValue%20&#43;%201;%0d%0a%7d">
+                Copy
+            </button>
+        </div>
+    
+
+    
+        <div class="highlight"><pre tabindex="0" style="color:#f8f8f2;background-color:#272822;-moz-tab-size:4;-o-tab-size:4;tab-size:4;"><code class="language-cpp" data-lang="cpp"><span style="display:flex;"><span><span style="color:#75715e">// Prepare to render the next frame.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span><span style="color:#66d9ef">void</span> D3D12HelloFrameBuffering<span style="color:#f92672">::</span>MoveToNextFrame()
+</span></span><span style="display:flex;"><span>{
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Schedule a Signal command in the queue.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">const</span> UINT64 currentFenceValue <span style="color:#f92672">=</span> m_fenceValues[m_frameIndex];
+</span></span><span style="display:flex;"><span>    ThrowIfFailed(m_commandQueue<span style="color:#f92672">-&gt;</span>Signal(m_fence.Get(), currentFenceValue));
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Update the frame index.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    m_frameIndex <span style="color:#f92672">=</span> m_swapChain<span style="color:#f92672">-&gt;</span>GetCurrentBackBufferIndex();
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// If the next frame is not ready to be rendered yet, wait until it is ready.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    <span style="color:#66d9ef">if</span> (m_fence<span style="color:#f92672">-&gt;</span>GetCompletedValue() <span style="color:#f92672">&lt;</span> m_fenceValues[m_frameIndex])
+</span></span><span style="display:flex;"><span>    {
+</span></span><span style="display:flex;"><span>        ThrowIfFailed(m_fence<span style="color:#f92672">-&gt;</span>SetEventOnCompletion(m_fenceValues[m_frameIndex], m_fenceEvent));
+</span></span><span style="display:flex;"><span>        WaitForSingleObjectEx(m_fenceEvent, INFINITE, FALSE);
+</span></span><span style="display:flex;"><span>    }
+</span></span><span style="display:flex;"><span>
+</span></span><span style="display:flex;"><span>    <span style="color:#75715e">// Set the fence value for the next frame.
+</span></span></span><span style="display:flex;"><span><span style="color:#75715e"></span>    m_fenceValues[m_frameIndex] <span style="color:#f92672">=</span> currentFenceValue <span style="color:#f92672">+</span> <span style="color:#ae81ff">1</span>;
+</span></span><span style="display:flex;"><span>}</span></span></code></pre></div>
+    
+</div>
+
+            
+        </div>
+    </article>
+
+        </main>
+
+        <footer class="footer">
+    <div class="footer-left">
+        <ul class="social">
+            
+
+            
+                <li>Cheng-Yu Fan</li>
+            
+
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+                
+            
+        </ul>
+    </div>
+
+    <div class="footer-right">
+        <ul class="control status clearfix">
+            
+                <li>
+                    
+                        Word Count:
+                        1731
+                    
+                </li>
+            
+
+            
+                <li>en</li>
+            
+
+            
+                <li>
+                    <a href="https://gohugo.io" class="btn" target="_blank"
+                        >Hugo: 0.119.0</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    <a
+                        href="https://github.com/JingWangTW/dark-theme-editor"
+                        class="btn"
+                        target="_blank"
+                        >Theme: dark-theme-editor</a
+                    >
+                </li>
+            
+
+            
+                <li>
+                    
+                        Last modified: &nbsp;
+                        <time>
+                            Jul 27 2023 15:39:41
+                        </time>
+                    
+                </li>
+            
+
+            
+                <li title="">
+                    
+                </li>
+            
+        </ul>
+    </div>
+</footer>
+
+    </body>
+
+    
+
+
+
+
+
+
+
+
+
+
+    
+    
+
+
+    <script
+        type="text/javascript"
+        src="/js/index.min.76f28ad9d7f1e1b68cfc55f930e89f7439bf72c0def552fa19d37555afaaaa776fc8533a913ac30e0162a7fb08415d19d1588e1d9a4f3328f0614c52f1a3963b.js"
+        integrity="sha512-dvKK2dfx4baM/FX5MOifdDm/csDe9VL6GdN1Va&#43;qqndvyFM6kTrDDgFip/sIQV0Z0ViOHZpPMyjwYUxS8aOWOw=="></script>
+
+
+
+
+<link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.4/font/bootstrap-icons.css" />
+
+</html>
