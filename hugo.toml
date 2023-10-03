@@ -15,7 +15,7 @@ theme = 'dark-theme-editor'
     # Parameters applied in HTML <head>
     [params.site]
         # Website ICON
-        faviconUrl = ""
+        faviconUrl = "https://img.icons8.com/external-flaticons-lineal-color-flat-icons/64/external-surf-summer-travel-flaticons-lineal-color-flat-icons-5.png"
 
         # Do you have any CSS in local? List them in an array.
         # They should be placed inside "/assets" dir.
@@ -60,7 +60,7 @@ theme = 'dark-theme-editor'
 
             # If the logo is clickable, where should it be linked?
             # In default, it will linked to the homepage of the site.
-            logoLink = ""
+            logoLink = "https://fjordyo0707.github.io/"
 
     # Customized info shown in footer of the page
     [params.footer]
