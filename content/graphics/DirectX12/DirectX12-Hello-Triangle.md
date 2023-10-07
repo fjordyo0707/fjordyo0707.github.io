@@ -1,6 +1,6 @@
 ---
 title: "DirectX12 Hello Triangle"
-date: 2023-07-27T15:39:41-07:00
+date: 2023-06-02T15:39:41-07:00
 draft: false
 author: Cheng-Yu Fan
 tags: ["DirectX12", "GraphicsAPI"]

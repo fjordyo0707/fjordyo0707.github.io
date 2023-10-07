@@ -1,6 +1,6 @@
 ---
 title: "DirectX12 Intoduction"
-date: 2023-07-24T18:09:39-07:00
+date: 2023-06-01T18:09:39-07:00
 draft: false
 author: Cheng-Yu Fan
 tags: ["DirectX12", "GraphicsAPI"]

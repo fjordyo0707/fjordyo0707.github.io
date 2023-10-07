@@ -2,7 +2,6 @@
 title: "Modern C++: Move Semantics"
 date: 2023-05-05T15:04:25-07:00
 draft: false
-tag: C++
 author: Cheng-Yu Fan
 tags: ["C++"]
 categories: ["Programming"]
