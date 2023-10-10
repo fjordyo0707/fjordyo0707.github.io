@@ -23,7 +23,7 @@ categories: ["Graphics"]
         * [X] [Texture mapping](/graphics/vulkan/vulkan-sample-note-texture-mapping)
         * [X] [Texture arrays](/graphics/vulkan/vulkan-sample-note-texture-arrays)
         * [X] [**Cube map textures**](/graphics/vulkan/vulkan-sample-note-cube-map-textures)
-        * [ ] Cube map arrays
+        * [X] [Cube map arrays](/graphics/vulkan/vulkan-sample-note-cubemaps-array)
         * [ ] 3D texture
         * [ ] **Input attachments**
         * [ ] **Sub passes**

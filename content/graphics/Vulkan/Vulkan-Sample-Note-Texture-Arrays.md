@@ -15,7 +15,7 @@ The sample is from [Sascha Williems](https://github.com/SaschaWillems/Vulkan/tre
 * How to correctly map the ubo memory from host to buffer
 * Learn instance rendering
 * Learn loading texutre layer in texture array (useful for skybox)
-![](https://hackmd.io/_uploads/BJiPil0xp.png)
+![](/VK_texture_array.png)
 
 
 ## Notes
